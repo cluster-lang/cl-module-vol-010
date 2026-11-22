@@ -1,0 +1,39 @@
+// cl-string-smith-waterman: Smith-Waterman Local Alignment Scorer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn max4(a: int, b: int, c: int, d: int) -> int:
+    m := a
+    if b > m: m = b
+    if c > m: m = c
+    if d > m: m = d
+    return m
+
+fn smith_waterman_max(s1: string, s2: string, match_score: int, mismatch_penalty: int, gap_penalty: int) -> int:
+    m := len(s1)
+    n := len(s2)
+    stride := n + 1
+    dp: vector[int] := []
+    total := (m + 1) * (n + 1)
+    i := 0
+    while i < total:
+        dp.push(0)
+        i = i + 1
+
+    max_score := 0
+    i = 1
+    j := 0
+    while i <= m:
+        j = 1
+        while j <= n:
+            score := mismatch_penalty
+            if byte_at(s1, i - 1) == byte_at(s2, j - 1): score = match_score
+            diag := dp[((i - 1) * stride) + (j - 1)] + score
+            up := dp[((i - 1) * stride) + j] + gap_penalty
+            left := dp[(i * stride) + (j - 1)] + gap_penalty
+            val := max4(0, diag, up, left)
+            dp[(i * stride) + j] = val
+            if val > max_score: max_score = val
+            j = j + 1
+        i = i + 1
+    return max_score

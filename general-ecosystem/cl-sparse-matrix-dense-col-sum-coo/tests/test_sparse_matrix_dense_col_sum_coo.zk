@@ -1,0 +1,15 @@
+// cl-sparse-matrix-dense-col-sum-coo: Test Suite
+import "../coo_col.zk"
+
+fn test_coo_col():
+    cols: vector[int] := [0, 1, 0]
+    vals: vector[float] := [2.5, 4.0, 3.5]
+    sums: vector[float] := [0.0, 0.0]
+    sparse_coo_col_sums(sums, cols, vals)
+    // col 0 = 2.5 + 3.5 = 6.0, col 1 = 4.0
+    if sums[0] != 6.0 or sums[1] != 4.0: sys_exit(1)
+    print("test_coo_col passed")
+
+fn main():
+    test_coo_col()
+    print("✓ All tests passed for cl-sparse-matrix-dense-col-sum-coo!")

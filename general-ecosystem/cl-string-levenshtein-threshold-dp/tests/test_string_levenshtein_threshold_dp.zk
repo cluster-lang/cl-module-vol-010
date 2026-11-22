@@ -1,0 +1,12 @@
+// cl-string-levenshtein-threshold-dp: Test Suite
+import "../lev_thresh_dp.zk"
+
+fn test_lev_thresh_dp():
+    row: vector[int] := [4, 5, 6, 7]
+    if row_exceeds_threshold(row, 3) != 1: sys_exit(1)
+    if row_exceeds_threshold(row, 4) != 0: sys_exit(1)
+    print("test_lev_thresh_dp passed: row threshold filter verified")
+
+fn main():
+    test_lev_thresh_dp()
+    print("✓ All tests passed for cl-string-levenshtein-threshold-dp!")

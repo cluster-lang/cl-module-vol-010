@@ -1,0 +1,14 @@
+// cl-sphere-aabb-intersect: Test Suite
+import "../sphere_aabb.zk"
+
+fn test_sph_aabb():
+    // Sphere at (0, 0, 0) r=2, AABB at (1, 1, 1) to (3, 3, 3)
+    // Closest point is (1, 1, 1), dist_sq is 1+1+1 = 3 <= 4 -> hit!
+    if sphere_aabb_intersect(0.0, 0.0, 0.0, 2.0, 1.0, 1.0, 1.0, 3.0, 3.0, 3.0) != 1: sys_exit(1)
+    // Sphere r=1 -> dist_sq 3 > 1 -> no hit!
+    if sphere_aabb_intersect(0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 3.0) != 0: sys_exit(1)
+    print("test_sph_aabb passed: sphere vs AABB collision verified")
+
+fn main():
+    test_sph_aabb()
+    print("✓ All tests passed for cl-sphere-aabb-intersect!")

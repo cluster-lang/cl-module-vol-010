@@ -1,0 +1,11 @@
+// cl-sparse-matrix-add: Test Suite
+import "../coo_add.zk"
+
+fn test_coo():
+    if coo_entry_matches(2, 3, 2, 3) != 1: sys_exit(1)
+    if coo_entry_matches(2, 3, 2, 4) != 0: sys_exit(1)
+    print("test_coo passed: coordinate equality match verified")
+
+fn main():
+    test_coo()
+    print("✓ All tests passed for cl-sparse-matrix-add!")

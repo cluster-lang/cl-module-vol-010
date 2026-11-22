@@ -1,0 +1,14 @@
+// UUID v4 Generation Module
+
+fn v4() -> string:
+    result := ""
+    cpp_inject "static const char chars[] = \"0123456789abcdef\";"
+    cpp_inject "std::string out;"
+    cpp_inject "for (int i = 0; i < 36; ++i) {"
+    cpp_inject "  if (i == 8 || i == 13 || i == 18 || i == 23) out += '-';"
+    cpp_inject "  else if (i == 14) out += '4';"
+    cpp_inject "  else if (i == 19) out += chars[(rand() % 4) + 8];"
+    cpp_inject "  else out += chars[rand() % 16];"
+    cpp_inject "}"
+    cpp_inject "result = out;"
+    return result

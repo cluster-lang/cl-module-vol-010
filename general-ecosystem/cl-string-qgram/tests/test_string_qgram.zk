@@ -1,0 +1,13 @@
+// cl-string-qgram: Test Suite
+import "../qgram.zk"
+
+fn test_qgram():
+    bg: vector[int] := []
+    string_bigrams("abc", bg)
+    if bg.len() != 2: sys_exit(1)
+    if bg[0] != ((97 << 8) | 98): sys_exit(1)
+    print("test_qgram passed: bigram sequence verified")
+
+fn main():
+    test_qgram()
+    print("✓ All tests passed for cl-string-qgram!")

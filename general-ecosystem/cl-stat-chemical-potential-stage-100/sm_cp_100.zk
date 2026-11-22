@@ -1,0 +1,6 @@
+// cl-stat-chemical-potential-stage-100: Chemical Potential Finite Difference Stage 100
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn chemical_pot_100(dg: float, dn: float) -> float:
+    return (dg / dn) * 100.0

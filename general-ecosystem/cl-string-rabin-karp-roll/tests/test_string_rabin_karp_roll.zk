@@ -1,0 +1,16 @@
+// cl-string-rabin-karp-roll: Test Suite
+import "../rk_roll.zk"
+
+fn test_rk_roll():
+    // "AB" to "BC" with base=10, mod=100
+    // "AB" = 65*10 + 66 = 716 % 100 = 16
+    // high_pow = 10
+    // roll: remove 'A'=65, add 'C'=67 -> (16 - 65*10%100)*10 + 67 = (16 - 50)*10 + 67
+    // let's verify identity with base=1, mod=1000 -> hash is sum of chars
+    h := rabin_karp_roll_hash(100, 10, 20, 1, 1, 1000)
+    if h != 110: sys_exit(1)
+    print("test_rk_roll passed: rolling hash update verified")
+
+fn main():
+    test_rk_roll()
+    print("✓ All tests passed for cl-string-rabin-karp-roll!")

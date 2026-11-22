@@ -1,0 +1,11 @@
+// cl-stat-pdf-exponential: Exponential Distribution PDF Approx
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pdf_exponential(x: float, lambda_val: float) -> float:
+    if x < 0.0 or lambda_val <= 0.0: return 0.0
+    // lambda * exp(-lambda * x) approx for x=0 is lambda
+    if x == 0.0: return lambda_val
+    // 1 / (1 + lambda*x + 0.5*(lambda*x)^2)
+    lx := lambda_val * x
+    return lambda_val / (1.0 + lx + 0.5 * lx * lx)

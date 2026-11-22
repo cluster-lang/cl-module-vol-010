@@ -1,0 +1,11 @@
+// cl-vec2-max-element: Test Suite
+import "../vec2_max.zk"
+
+fn test_v2_max():
+    v: vector[float] := [5.0, 12.0]
+    if vec2_max_element(v) != 12.0: sys_exit(1)
+    print("test_v2_max passed")
+
+fn main():
+    test_v2_max()
+    print("✓ All tests passed for cl-vec2-max-element!")

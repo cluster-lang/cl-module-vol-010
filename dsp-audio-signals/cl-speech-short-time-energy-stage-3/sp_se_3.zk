@@ -1,0 +1,6 @@
+// cl-speech-short-time-energy-stage-3: Speech Frame Short-Time Energy Accumulator Stage 3
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ste_sample_3(s: float) -> float:
+    return (s * s) * 3.0

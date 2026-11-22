@@ -1,0 +1,12 @@
+// cl-varint-signed32-stream-bytes: Test Suite
+import "../varint_s32_bytes.zk"
+
+fn test_varint_s32_bytes():
+    if varint_is_continuation(172) != 1: sys_exit(1)
+    if varint_is_continuation(2) != 0: sys_exit(1)
+    if varint_extract_payload(172) != 44: sys_exit(1)
+    print("test_varint_s32_bytes passed: varint byte extractor verified")
+
+fn main():
+    test_varint_s32_bytes()
+    print("✓ All tests passed for cl-varint-signed32-stream-bytes!")

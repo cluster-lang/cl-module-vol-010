@@ -1,0 +1,18 @@
+// cl-sparse-matrix-filter-coo: Test Suite
+import "../sparse_filt.zk"
+
+fn test_sparse_filt():
+    r: vector[int] := [0, 1]
+    c: vector[int] := [0, 1]
+    v: vector[int] := [5, 15]
+    out_r: vector[int] := []
+    out_c: vector[int] := []
+    out_v: vector[int] := []
+    sparse_coo_filter_into(out_r, out_c, out_v, r, c, v, 10)
+    if out_v.len() != 1: sys_exit(1)
+    if out_v[0] != 15: sys_exit(1)
+    print("test_sparse_filt passed: COO sparse filter verified")
+
+fn main():
+    test_sparse_filt()
+    print("✓ All tests passed for cl-sparse-matrix-filter-coo!")

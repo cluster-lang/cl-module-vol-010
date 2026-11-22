@@ -1,0 +1,13 @@
+// cl-vec16-scale: Test Suite
+import "../vec16_scale.zk"
+
+fn test_v16_scale():
+    v: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vec16_scale(out, v, 5.0)
+    if out[0] != 5.0 or out[15] != 5.0: sys_exit(1)
+    print("test_v16_scale passed")
+
+fn main():
+    test_v16_scale()
+    print("✓ All tests passed for cl-vec16-scale!")

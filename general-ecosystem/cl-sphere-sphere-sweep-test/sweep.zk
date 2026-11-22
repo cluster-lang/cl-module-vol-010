@@ -1,0 +1,43 @@
+// cl-sphere-sphere-sweep-test: Continuous Collision Detection for Moving Spheres
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0:
+        return 0.0
+    x := val
+    i := 0
+    while i < 15:
+        x = 0.5 * (x + val / x)
+        i = i + 1
+    return x
+
+fn sphere_sweep_collision(c1x: float, c1y: float, c1z: float, v1x: float, v1y: float, v1z: float, r1: float, c2x: float, c2y: float, c2z: float, v2x: float, v2y: float, v2z: float, r2: float) -> float:
+    // Relative center and velocity
+    cx := c1x - c2x
+    cy := c1y - c2y
+    cz := c1z - c2z
+    vx := v1x - v2x
+    vy := v1y - v2y
+    vz := v1z - v2z
+    r := r1 + r2
+
+    c_sq := cx * cx + cy * cy + cz * cz
+    if c_sq <= r * r:
+        return 0.0 // Already overlapping at t=0
+
+    a := vx * vx + vy * vy + vz * vz
+    if a == 0.0:
+        return 0.0 - 1.0
+
+    b := 2.0 * (cx * vx + cy * vy + cz * vz)
+    c := c_sq - r * r
+    disc := b * b - 4.0 * a * c
+    if disc < 0.0:
+        return 0.0 - 1.0
+
+    t := (0.0 - b - sqrt_approx(disc)) / (2.0 * a)
+    if t >= 0.0 and t <= 1.0:
+        return t
+
+    return 0.0 - 1.0

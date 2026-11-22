@@ -1,0 +1,14 @@
+// cl-xoroshiro128: Test Suite
+import "../xoroshiro.zk"
+
+fn test_xoroshiro():
+    st: vector[int] := [123456789, 987654321]
+    r1 := xoroshiro_next(st)
+    r2 := xoroshiro_next(st)
+    if r1 == r2: sys_exit(1)
+    if r1 != 1111111110: sys_exit(1)
+    print("test_xoroshiro passed: Xoroshiro128+ state rotation verified")
+
+fn main():
+    test_xoroshiro()
+    print("✓ All tests passed for cl-xoroshiro128!")

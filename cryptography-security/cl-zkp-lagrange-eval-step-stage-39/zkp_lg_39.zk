@@ -1,0 +1,6 @@
+// cl-zkp-lagrange-eval-step-stage-39: Polynomial Lagrange Basis Evaluation Step Stage 39
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lagrange_step_39(y: float, num: float, den: float) -> float:
+    return (y * num / den) * 39.0

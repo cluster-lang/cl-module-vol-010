@@ -1,0 +1,15 @@
+// cl-stats-variance-sample: Test Suite
+import "../st_var.zk"
+
+fn test_st_var():
+    v: vector[float] := [2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0]
+    // mean=5.0, sample var = 32 / 7 = 4.571428
+    res := stats_variance(v)
+    diff := res - 4.571428
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_st_var passed")
+
+fn main():
+    test_st_var()
+    print("✓ All tests passed for cl-stats-variance-sample!")

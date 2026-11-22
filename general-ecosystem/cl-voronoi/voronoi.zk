@@ -1,0 +1,22 @@
+// cl-voronoi: 2D Nearest Site Voronoi Diagram Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn voronoi_nearest_site(qx: int, qy: int, sites: vector[int]) -> int:
+    // sites is flat [x0, y0, x1, y1, ...]
+    n_sites := sites.len() / 2
+    best_idx := -1
+    best_dsq := 2147483647
+
+    i := 0
+    while i < n_sites:
+        sx := sites[i * 2]
+        sy := sites[(i * 2) + 1]
+        dx := qx - sx
+        dy := qy - sy
+        dsq := (dx * dx) + (dy * dy)
+        if dsq < best_dsq:
+            best_dsq = dsq
+            best_idx = i
+        i = i + 1
+    return best_idx

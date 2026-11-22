@@ -1,0 +1,15 @@
+// cl-stats-p-norm-three: Test Suite
+import "../st_p3.zk"
+
+fn test_st_p3():
+    v: vector[float] := [1.0, 2.0, 3.0]
+    // 1 + 8 + 27 = 36.0
+    res := stats_l3_sum(v)
+    diff := res - 36.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_st_p3 passed")
+
+fn main():
+    test_st_p3()
+    print("✓ All tests passed for cl-stats-p-norm-three!")

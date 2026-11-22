@@ -1,0 +1,23 @@
+// cl-string-levenshtein-matrix-row: Single Row Transition in Levenshtein DP
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn levenshtein_next_row(prev_row: vector[int], s1_char: int, s2: vector[int], row_idx: int) -> vector[int]:
+    n := s2.len()
+    new_row: vector[int] := [row_idx]
+    j := 1
+    while j <= n:
+        cost := 1
+        if s1_char == s2[j - 1]: cost = 0
+        del_cost := prev_row[j] + 1
+        ins_cost := new_row[j - 1] + 1
+        sub_cost := prev_row[j - 1] + cost
+        new_row.push(min3(del_cost, ins_cost, sub_cost))
+        j = j + 1
+    return new_row

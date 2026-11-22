@@ -1,0 +1,9 @@
+name: "cl-usb"
+version: "0.1.0"
+description: "USB device access (libusb)"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: []
+cpp_requires:
+  - "libusb"
+EOP

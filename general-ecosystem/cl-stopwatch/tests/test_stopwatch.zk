@@ -1,0 +1,21 @@
+// cl-stopwatch: Test Suite
+import "../stopwatch.zk"
+
+fn test_stopwatch():
+    sw := stopwatch_new()
+    stopwatch_start(sw)
+    stopwatch_tick(sw, 50)
+    stopwatch_tick(sw, 50)
+    if sw.elapsed_ms != 100: sys_exit(1)
+    l1 := stopwatch_lap(sw)
+    if l1 != 100: sys_exit(1)
+    stopwatch_tick(sw, 75)
+    stopwatch_stop(sw)
+    stopwatch_tick(sw, 100) // stopped, should not increase
+    if sw.elapsed_ms != 175: sys_exit(1)
+    if stopwatch_lap_count(sw) != 1: sys_exit(1)
+    print("test_stopwatch passed: telemetry verified")
+
+fn main():
+    test_stopwatch()
+    print("✓ All tests passed for cl-stopwatch!")

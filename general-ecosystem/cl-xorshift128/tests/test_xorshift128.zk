@@ -1,0 +1,14 @@
+// cl-xorshift128: Test Suite
+import "../xorshift128.zk"
+
+fn test_xorshift128():
+    st: vector[int] := [123456789, 362436069, 521288629, 88675123]
+    r1 := xorshift128_next(st)
+    r2 := xorshift128_next(st)
+    if r1 == r2: sys_exit(1)
+    if r1 == 0: sys_exit(1)
+    print("test_xorshift128 passed: 128-bit 4-word PRNG verified")
+
+fn main():
+    test_xorshift128()
+    print("✓ All tests passed for cl-xorshift128!")

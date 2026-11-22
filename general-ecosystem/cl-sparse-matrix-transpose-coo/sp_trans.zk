@@ -1,0 +1,19 @@
+// cl-sparse-matrix-transpose-coo: COO Sparse Matrix Transposition Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_coo_transpose(rows: vector[int], cols: vector[int]) -> vector[int]:
+    // Returns concatenated [new_rows, new_cols]
+    out: vector[int] := []
+    n := rows.len()
+    // Transposed rows are original cols
+    i := 0
+    while i < n:
+        out.push(cols[i])
+        i = i + 1
+    // Transposed cols are original rows
+    i = 0
+    while i < n:
+        out.push(rows[i])
+        i = i + 1
+    return out

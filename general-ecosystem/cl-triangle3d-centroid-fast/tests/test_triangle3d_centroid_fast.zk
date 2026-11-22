@@ -1,0 +1,20 @@
+// cl-triangle3d-centroid-fast: Test Suite
+import "../tri_cent.zk"
+
+fn test_tri_cent():
+    v0: vector[float] := [0.0, 0.0, 0.0]
+    v1: vector[float] := [3.0, 0.0, 0.0]
+    v2: vector[float] := [0.0, 6.0, 0.0]
+    out: vector[float] := []
+    triangle3d_centroid_fast(out, v0, v1, v2)
+    diff0 := out[0] - 1.0
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    if diff0 > 0.001: sys_exit(1)
+    diff1 := out[1] - 2.0
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff1 > 0.001: sys_exit(1)
+    print("test_tri_cent passed: centroid (1.0, 2.0, 0.0) verified")
+
+fn main():
+    test_tri_cent()
+    print("✓ All tests passed for cl-triangle3d-centroid-fast!")

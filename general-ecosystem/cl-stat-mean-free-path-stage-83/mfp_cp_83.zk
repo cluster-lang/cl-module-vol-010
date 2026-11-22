@@ -1,0 +1,7 @@
+// cl-stat-mean-free-path-stage-83: Kinetic Theory Mean Free Path Component Stage 83
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn mean_free_path_comp_83(num_density: float, diam_sq: float) -> float:
+    if num_density <= 0.0001: return 0.0
+    return (1.0 / (num_density * diam_sq * 4.44288)) * 83.0

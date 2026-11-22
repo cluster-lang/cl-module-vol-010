@@ -1,0 +1,10 @@
+// cl-varint-zigzag-decode16-fast Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-varint-zigzag-decode16-fast"
+version := "1.0.0"
+description := "Fast 16-bit Zigzag Integer Decoder"
+main := "zz16_dec.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

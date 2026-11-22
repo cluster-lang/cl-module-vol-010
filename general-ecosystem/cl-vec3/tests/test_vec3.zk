@@ -1,0 +1,15 @@
+// cl-vec3: Test Suite
+import "../vec3.zk"
+
+fn test_vec3():
+    v1 := Vec3(1, 0, 0)
+    v2 := Vec3(0, 1, 0)
+    c := vec3_cross(v1, v2)
+    if c.x != 0 or c.y != 0 or c.z != 1: sys_exit(1)
+    if vec3_dot(v1, v2) != 0: sys_exit(1)
+    if vec3_len_sq(v1) != 1: sys_exit(1)
+    print("test_vec3 passed: 3D vector algebra verified")
+
+fn main():
+    test_vec3()
+    print("✓ All tests passed for cl-vec3!")

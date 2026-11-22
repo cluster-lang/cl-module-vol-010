@@ -1,0 +1,14 @@
+// cl-varint-zigzag-decode64-fast: Test Suite
+import "../zz_dec64.zk"
+
+fn test_zz_dec64():
+    // 0 -> 0, 1 -> -1, 2 -> 1, 3 -> -2
+    if zigzag_decode64_fast(0) != 0: sys_exit(1)
+    if zigzag_decode64_fast(1) != -1: sys_exit(2)
+    if zigzag_decode64_fast(2) != 1: sys_exit(3)
+    if zigzag_decode64_fast(3) != -2: sys_exit(4)
+    print("test_zz_dec64 passed: 64-bit zigzag decoding verified")
+
+fn main():
+    test_zz_dec64()
+    print("✓ All tests passed for cl-varint-zigzag-decode64-fast!")

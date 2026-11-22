@@ -1,0 +1,12 @@
+// cl-triangle2d: Test Suite
+import "../tri2d.zk"
+
+fn test_tri2d():
+    c := tri2d_centroid(0, 0, 9, 0, 0, 9)
+    if c[0] != 3: sys_exit(1)
+    if c[1] != 3: sys_exit(1)
+    print("test_tri2d passed: 2D triangle centroid verified")
+
+fn main():
+    test_tri2d()
+    print("✓ All tests passed for cl-triangle2d!")

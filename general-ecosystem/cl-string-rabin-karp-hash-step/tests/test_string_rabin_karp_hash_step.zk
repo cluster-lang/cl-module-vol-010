@@ -1,0 +1,11 @@
+// cl-string-rabin-karp-hash-step: Test Suite
+import "../rk_step.zk"
+
+fn test_rk_step():
+    h := rk_step_hash(100, 10, 20, 1, 1, 1000)
+    if h != 110: sys_exit(1)
+    print("test_rk_step passed: sliding window hash step verified")
+
+fn main():
+    test_rk_step()
+    print("✓ All tests passed for cl-string-rabin-karp-hash-step!")

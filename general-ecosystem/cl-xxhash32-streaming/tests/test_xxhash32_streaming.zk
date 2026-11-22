@@ -1,0 +1,11 @@
+// cl-xxhash32-streaming: Test Suite
+import "../xxh_stream.zk"
+
+fn test_xxh_stream():
+    acc := xxh32_round(0, 123456789)
+    if acc == 0: sys_exit(1)
+    print("test_xxh_stream passed: XXHash32 streaming round verified")
+
+fn main():
+    test_xxh_stream()
+    print("✓ All tests passed for cl-xxhash32-streaming!")

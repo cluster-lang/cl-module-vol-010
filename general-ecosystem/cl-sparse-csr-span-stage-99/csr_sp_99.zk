@@ -1,0 +1,6 @@
+// cl-sparse-csr-span-stage-99: CSR Row Pointer Span Length Stage 99
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn csr_row_span_99(row_start: int, row_end: int) -> int:
+    return (row_end - row_start) * 99

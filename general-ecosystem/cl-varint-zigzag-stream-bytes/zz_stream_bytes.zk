@@ -1,0 +1,12 @@
+// cl-varint-zigzag-stream-bytes: Compute Varint Wire Length in Bytes
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn varint_wire_length(zigzag_val: int) -> int:
+    if zigzag_val <= 0: return 1
+    v := zigzag_val
+    bytes := 0
+    while v > 0:
+        bytes = bytes + 1
+        v = v >> 7
+    return bytes

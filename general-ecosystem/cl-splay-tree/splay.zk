@@ -1,0 +1,11 @@
+// cl-splay-tree: Binary Search Tree Rotation Primitives
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn bst_rotate_right_root(root_val: int, left_child_val: int, left_right_child_val: int) -> vector[int]:
+    // Right rotation: left child becomes new root
+    res: vector[int] := []
+    res.push(left_child_val)        // new root
+    res.push(root_val)              // new right child
+    res.push(left_right_child_val)  // new left-right child
+    return res

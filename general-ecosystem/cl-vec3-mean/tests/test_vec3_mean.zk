@@ -1,0 +1,14 @@
+// cl-vec3-mean: Test Suite
+import "../vec3_mean.zk"
+
+fn test_v3_mean():
+    v: vector[float] := [10.0, 20.0, 30.0]
+    res := vec3_mean(v)
+    diff := res - 20.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v3_mean passed")
+
+fn main():
+    test_v3_mean()
+    print("✓ All tests passed for cl-vec3-mean!")

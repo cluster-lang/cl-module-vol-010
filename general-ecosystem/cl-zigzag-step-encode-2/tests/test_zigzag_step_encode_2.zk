@@ -1,0 +1,11 @@
+// cl-zigzag-step-encode-2: Test Suite
+import "../zz_enc_2.zk"
+
+fn test_run():
+    res := zigzag_enc_2(2)
+    if res != 4: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zigzag-step-encode-2!")

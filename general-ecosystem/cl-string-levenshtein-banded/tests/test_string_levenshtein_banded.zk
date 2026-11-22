@@ -1,0 +1,11 @@
+// cl-string-levenshtein-banded: Test Suite
+import "../lev_band.zk"
+
+fn test_lev_band():
+    if len_diff_exceeds("cluster", "cat", 2) != 1: sys_exit(1)
+    if len_diff_exceeds("cluster", "cloud", 3) != 0: sys_exit(1)
+    print("test_lev_band passed: length disparity bound filter verified")
+
+fn main():
+    test_lev_band()
+    print("✓ All tests passed for cl-string-levenshtein-banded!")

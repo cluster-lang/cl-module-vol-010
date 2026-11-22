@@ -1,0 +1,14 @@
+// cl-string-suffix-array-sort: Test Suite
+import "../sa_comp.zk"
+
+fn test_sa_comp():
+    s := "banana"
+    // suffix 5 ("a") vs suffix 3 ("ana"): "a" < "ana" -> -1
+    if suffix_compare(s, 5, 3) != -1: sys_exit(1)
+    // suffix 1 ("anana") vs suffix 3 ("ana"): "anana" > "ana" -> 1
+    if suffix_compare(s, 1, 3) != 1: sys_exit(1)
+    print("test_sa_comp passed: suffix comparator verified")
+
+fn main():
+    test_sa_comp()
+    print("✓ All tests passed for cl-string-suffix-array-sort!")

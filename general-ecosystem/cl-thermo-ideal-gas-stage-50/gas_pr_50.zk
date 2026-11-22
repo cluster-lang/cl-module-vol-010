@@ -1,0 +1,7 @@
+// cl-thermo-ideal-gas-stage-50: Ideal Gas Law Pressure Stage 50
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ideal_gas_pressure_50(n_mol: float, temp_k: float, vol_m3: float) -> float:
+    if vol_m3 <= 0.0001: return 0.0
+    return ((n_mol * 8.314462 * temp_k) / vol_m3) * 50.0

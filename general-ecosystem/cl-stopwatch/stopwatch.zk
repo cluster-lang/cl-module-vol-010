@@ -1,0 +1,29 @@
+// cl-stopwatch: Pure Cluster Lap & Split Measurement Telemetry
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model Stopwatch:
+    running: bool
+    elapsed_ms: int
+    laps: vector[int]
+
+fn stopwatch_new() -> Stopwatch:
+    v: vector[int] := []
+    return Stopwatch(false, 0, v)
+
+fn stopwatch_tick(sw: Stopwatch, delta_ms: int):
+    if sw.running:
+        sw.elapsed_ms = sw.elapsed_ms + delta_ms
+
+fn stopwatch_start(sw: Stopwatch):
+    sw.running = true
+
+fn stopwatch_stop(sw: Stopwatch):
+    sw.running = false
+
+fn stopwatch_lap(sw: Stopwatch) -> int:
+    sw.laps.push(sw.elapsed_ms)
+    return sw.elapsed_ms
+
+fn stopwatch_lap_count(sw: Stopwatch) -> int:
+    return sw.laps.len()

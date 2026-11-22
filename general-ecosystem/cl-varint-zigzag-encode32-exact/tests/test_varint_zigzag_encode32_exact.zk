@@ -1,0 +1,14 @@
+// cl-varint-zigzag-encode32-exact: Test Suite
+import "../zz32.zk"
+
+fn test_zz32():
+    // 0 -> 0, -1 -> 1, 1 -> 2, -2 -> 3
+    if zigzag_encode32(0) != 0: sys_exit(1)
+    if zigzag_encode32(-1) != 1: sys_exit(1)
+    if zigzag_encode32(1) != 2: sys_exit(1)
+    if zigzag_encode32(-2) != 3: sys_exit(1)
+    print("test_zz32 passed")
+
+fn main():
+    test_zz32()
+    print("✓ All tests passed for cl-varint-zigzag-encode32-exact!")

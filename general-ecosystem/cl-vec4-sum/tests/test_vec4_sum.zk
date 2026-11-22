@@ -1,0 +1,14 @@
+// cl-vec4-sum: Test Suite
+import "../vec4_sum.zk"
+
+fn test_v4_sum():
+    v: vector[float] := [10.0, 20.0, 30.0, 40.0]
+    res := vec4_sum(v)
+    diff := res - 100.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v4_sum passed")
+
+fn main():
+    test_v4_sum()
+    print("✓ All tests passed for cl-vec4-sum!")

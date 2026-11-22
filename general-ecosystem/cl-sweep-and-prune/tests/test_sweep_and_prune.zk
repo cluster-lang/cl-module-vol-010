@@ -1,0 +1,14 @@
+// cl-sweep-and-prune: Test Suite
+import "../sap.zk"
+
+fn test_sap():
+    // [0, 10], [5, 15], [20, 30]
+    starts: vector[int] := [0, 5, 20]
+    ends: vector[int] := [10, 15, 30]
+    c := sap_count_overlaps_bruteforce(starts, ends)
+    if c != 1: sys_exit(1) // Only [0,10] and [5,15] overlap
+    print("test_sap passed: sweep-and-prune overlap count verified")
+
+fn main():
+    test_sap()
+    print("✓ All tests passed for cl-sweep-and-prune!")

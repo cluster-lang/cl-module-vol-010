@@ -1,0 +1,11 @@
+// cl-uuid-v1: Test Suite
+import "../uuid_v1.zk"
+
+fn test_uuid1():
+    u := uuid1_dummy_format(0)
+    if len(u) != 36 or byte_at(u, 14) != 49: sys_exit(1) // '1'
+    print("test_uuid1 passed: UUID v1 format verified")
+
+fn main():
+    test_uuid1()
+    print("✓ All tests passed for cl-uuid-v1!")

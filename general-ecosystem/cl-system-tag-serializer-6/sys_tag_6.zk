@@ -1,0 +1,7 @@
+// cl-system-tag-serializer-6: System Binary Serialization Tag Marker 6
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sys_serialize_tag_6(base_tag: int) -> int:
+    mask32 := 4294967295
+    return (base_tag + 6000) & mask32

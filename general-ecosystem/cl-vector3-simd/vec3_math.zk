@@ -1,0 +1,16 @@
+// cl-vector3-simd: 3D Vector Math Primitives
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_dot(x1: int, y1: int, z1: int, x2: int, y2: int, z2: int) -> int:
+    return (x1 * x2) + (y1 * y2) + (z1 * z2)
+
+fn vec3_cross(x1: int, y1: int, z1: int, x2: int, y2: int, z2: int) -> vector[int]:
+    res: vector[int] := []
+    res.push((y1 * z2) - (z1 * y2))
+    res.push((z1 * x2) - (x1 * z2))
+    res.push((x1 * y2) - (y1 * x2))
+    return res
+
+fn vec3_len_sq(x: int, y: int, z: int) -> int:
+    return (x * x) + (y * y) + (z * z)

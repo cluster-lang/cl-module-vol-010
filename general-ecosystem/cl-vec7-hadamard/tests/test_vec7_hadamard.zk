@@ -1,0 +1,31 @@
+// cl-vec7-hadamard: Test Suite
+import "../v7_had.zk"
+
+fn test_run():
+    res := vec7_hadamard([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0], [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
+    diff0 := res[0] - 2.0000
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    if diff0 > 0.001: sys_exit(1)
+    diff1 := res[1] - 4.0000
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff1 > 0.001: sys_exit(1)
+    diff2 := res[2] - 6.0000
+    if diff2 < 0.0: diff2 = 0.0 - diff2
+    if diff2 > 0.001: sys_exit(1)
+    diff3 := res[3] - 8.0000
+    if diff3 < 0.0: diff3 = 0.0 - diff3
+    if diff3 > 0.001: sys_exit(1)
+    diff4 := res[4] - 10.0000
+    if diff4 < 0.0: diff4 = 0.0 - diff4
+    if diff4 > 0.001: sys_exit(1)
+    diff5 := res[5] - 12.0000
+    if diff5 < 0.0: diff5 = 0.0 - diff5
+    if diff5 > 0.001: sys_exit(1)
+    diff6 := res[6] - 14.0000
+    if diff6 < 0.0: diff6 = 0.0 - diff6
+    if diff6 > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-vec7-hadamard!")

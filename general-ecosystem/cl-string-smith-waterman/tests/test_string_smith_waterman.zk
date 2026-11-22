@@ -1,0 +1,12 @@
+// cl-string-smith-waterman: Test Suite
+import "../smith_waterman.zk"
+
+fn test_sw():
+    // Substring match "bc" inside "abc" and "xbc" -> 2
+    sc := smith_waterman_max("abc", "xbc", 1, -1, -1)
+    if sc != 2: sys_exit(1)
+    print("test_sw passed: local alignment max score verified")
+
+fn main():
+    test_sw()
+    print("✓ All tests passed for cl-string-smith-waterman!")

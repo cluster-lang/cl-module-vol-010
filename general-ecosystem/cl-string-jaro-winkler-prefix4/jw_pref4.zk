@@ -1,0 +1,19 @@
+// cl-string-jaro-winkler-prefix4: Common Prefix Length Up to 4 Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jw_extract_prefix4(s1: vector[int], s2: vector[int]) -> int:
+    p := 0
+    limit := 4
+    if s1.len() < limit: limit = s1.len()
+    if s2.len() < limit: limit = s2.len()
+    cont := 1
+    while cont == 1:
+        if p < limit:
+            if s1[p] == s2[p]:
+                p = p + 1
+            else:
+                cont = 0
+        else:
+            cont = 0
+    return p

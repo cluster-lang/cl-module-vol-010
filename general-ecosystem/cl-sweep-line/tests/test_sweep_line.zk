@@ -1,0 +1,12 @@
+// cl-sweep-line: Test Suite
+import "../sweep_line.zk"
+
+fn test_sweep():
+    if sweep_event_cmp(1, 5, 2, 3) != -1: sys_exit(1)
+    if sweep_event_cmp(2, 3, 2, 5) != -1: sys_exit(1)
+    if sweep_event_cmp(2, 3, 2, 3) != 0: sys_exit(1)
+    print("test_sweep passed: sweep line event ordering verified")
+
+fn main():
+    test_sweep()
+    print("✓ All tests passed for cl-sweep-line!")

@@ -1,0 +1,7 @@
+// cl-spatial-index-to-grid-x-2d: Extract X Coordinate from 1D Flattened 2D Index
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn index_to_grid_x(index: int, width: int) -> int:
+    if width <= 0: return 0
+    return index % width

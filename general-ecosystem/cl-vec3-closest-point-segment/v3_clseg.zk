@@ -1,0 +1,17 @@
+// cl-vec3-closest-point-segment: Closest Point on 3D Line Segment Clamped to Ends
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_closest_point_segment(p: vector[float], a: vector[float], b: vector[float]) -> vector[float]:
+    abx := b[0] - a[0]
+    aby := b[1] - a[1]
+    abz := b[2] - a[2]
+    ab_sq := abx*abx + aby*aby + abz*abz
+    if ab_sq <= 0.000001: return a
+    apx := p[0] - a[0]
+    apy := p[1] - a[1]
+    apz := p[2] - a[2]
+    t := (apx*abx + apy*aby + apz*abz) / ab_sq
+    if t < 0.0: t = 0.0
+    if t > 1.0: t = 1.0
+    return [a[0] + t * abx, a[1] + t * aby, a[2] + t * abz]

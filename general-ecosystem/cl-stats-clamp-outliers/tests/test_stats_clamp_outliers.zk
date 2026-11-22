@@ -1,0 +1,11 @@
+// cl-stats-clamp-outliers: Test Suite
+import "../st_cout.zk"
+
+fn test_st_cout():
+    if stats_clamp_outlier(15.0, 0.0, 10.0) != 10.0: sys_exit(1)
+    if stats_clamp_outlier(-5.0, 0.0, 10.0) != 0.0: sys_exit(1)
+    print("test_st_cout passed")
+
+fn main():
+    test_st_cout()
+    print("✓ All tests passed for cl-stats-clamp-outliers!")

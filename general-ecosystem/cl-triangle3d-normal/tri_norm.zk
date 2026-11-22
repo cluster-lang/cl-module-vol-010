@@ -1,0 +1,17 @@
+// cl-triangle3d-normal: 3D Triangle Surface Normal Vector
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle3d_normal(out: vector[float], v0: vector[float], v1: vector[float], v2: vector[float]):
+    e1_0 := v1[0] - v0[0]
+    e1_1 := v1[1] - v0[1]
+    e1_2 := v1[2] - v0[2]
+    e2_0 := v2[0] - v0[0]
+    e2_1 := v2[1] - v0[1]
+    e2_2 := v2[2] - v0[2]
+    nx := e1_1 * e2_2 - e1_2 * e2_1
+    ny := e1_2 * e2_0 - e1_0 * e2_2
+    nz := e1_0 * e2_1 - e1_1 * e2_0
+    out.push(nx)
+    out.push(ny)
+    out.push(nz)

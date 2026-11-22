@@ -1,0 +1,13 @@
+// cl-string-jaro-metric-match-window: Test Suite
+import "../jaro_win.zk"
+
+fn test_jaro_win():
+    w1 := jaro_match_window(6, 6) // max=6 -> (6/2)-1 = 2
+    w2 := jaro_match_window(1, 2) // max=2 -> (2/2)-1 = 0
+    w3 := jaro_match_window(1, 1) // max=1 -> (1/2)-1 = -1 -> 0
+    if w1 != 2 or w2 != 0 or w3 != 0: sys_exit(1)
+    print("test_jaro_win passed")
+
+fn main():
+    test_jaro_win()
+    print("✓ All tests passed for cl-string-jaro-metric-match-window!")

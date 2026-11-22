@@ -1,0 +1,13 @@
+// cl-stat-helmholtz-free-energy-stage-46: Test Suite
+import "../sm_fe_46.zk"
+
+fn test_run():
+    res := free_energy_46(1000.0, 300.0, 2.5)
+    diff := res - 11500.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-helmholtz-free-energy-stage-46!")

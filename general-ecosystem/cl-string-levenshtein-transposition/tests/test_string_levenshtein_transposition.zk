@@ -1,0 +1,12 @@
+// cl-string-levenshtein-transposition: Test Suite
+import "../trans_step.zk"
+
+fn test_trans_step():
+    // "ab" vs "ba" at i=2, j=2
+    if can_transpose("ab", "ba", 2, 2) != 1: sys_exit(1)
+    if can_transpose("aa", "ba", 2, 2) != 0: sys_exit(1)
+    print("test_trans_step passed: adjacent character swap check verified")
+
+fn main():
+    test_trans_step()
+    print("✓ All tests passed for cl-string-levenshtein-transposition!")

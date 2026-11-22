@@ -1,0 +1,19 @@
+// cl-triangle-barycentric3d: 2D Projection Barycentric Coordinates
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Returns u (weight for A), v (weight for B), w (weight for C)
+fn barycentric2d_weights(out: vector[float], px: float, py: float, ax: float, ay: float, bx: float, by: float, cx: float, cy: float):
+    v0x := bx - ax
+    v0y := by - ay
+    v1x := cx - ax
+    v1y := cy - ay
+    v2x := px - ax
+    v2y := py - ay
+    den := (v0x * v1y) - (v1x * v0y)
+    v := ((v2x * v1y) - (v1x * v2y)) / den
+    w := ((v0x * v2y) - (v2x * v0y)) / den
+    u := 1.0 - v - w
+    out.push(u)
+    out.push(v)
+    out.push(w)

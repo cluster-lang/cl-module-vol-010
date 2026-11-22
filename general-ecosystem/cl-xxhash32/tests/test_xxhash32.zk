@@ -1,0 +1,11 @@
+// cl-xxhash32: Test Suite
+import "../xxhash32.zk"
+
+fn test_xxhash32():
+    if xxhash32("", 0) != 46947589: sys_exit(1)
+    if xxhash32("abc", 0) != 852579327: sys_exit(1)
+    print("test_xxhash32 passed: official xxHash32 vectors verified")
+
+fn main():
+    test_xxhash32()
+    print("✓ All tests passed for cl-xxhash32!")

@@ -1,0 +1,12 @@
+// cl-string-levenshtein-transposition-damerau: Test Suite
+import "../damerau.zk"
+
+fn test_damerau():
+    // "AB" vs "BA"
+    if is_adjacent_transposition(65, 66, 66, 65) != 1: sys_exit(1)
+    if is_adjacent_transposition(65, 66, 67, 65) != 0: sys_exit(1)
+    print("test_damerau passed: adjacent transposition check verified")
+
+fn main():
+    test_damerau()
+    print("✓ All tests passed for cl-string-levenshtein-transposition-damerau!")

@@ -1,0 +1,9 @@
+// cl-spatial-quadtree-child-index: Determine 2D Quadtree Child Index [0..3]
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn quadtree_child_index(center_x: float, center_y: float, px: float, py: float) -> int:
+    idx := 0
+    if px >= center_x: idx = idx | 1
+    if py >= center_y: idx = idx | 2
+    return idx

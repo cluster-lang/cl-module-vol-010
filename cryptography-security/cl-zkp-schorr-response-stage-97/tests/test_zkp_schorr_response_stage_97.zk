@@ -1,0 +1,11 @@
+// cl-zkp-schorr-response-stage-97: Test Suite
+import "../zkp_sr_97.zk"
+
+fn test_run():
+    res := schnorr_resp_97(10, 4, 25)
+    if res != 207: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-schorr-response-stage-97!")

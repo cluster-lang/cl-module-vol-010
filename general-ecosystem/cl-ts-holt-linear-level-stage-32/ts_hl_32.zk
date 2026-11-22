@@ -1,0 +1,6 @@
+// cl-ts-holt-linear-level-stage-32: Holt Linear Trend Level Equation Stage 32
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn holt_level_32(yt: float, lp: float, bp: float, a: float) -> float:
+    return (a * yt + (1.0 - a) * (lp + bp)) * 32.0

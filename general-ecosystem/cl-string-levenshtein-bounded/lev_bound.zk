@@ -1,0 +1,9 @@
+// cl-string-levenshtein-bounded: Levenshtein Distance Early Bound Filter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lev_length_within_bound(len1: int, len2: int, max_k: int) -> int:
+    d := len1 - len2
+    if d < 0: d = 0 - d
+    if d > max_k: return 0
+    return 1

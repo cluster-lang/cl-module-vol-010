@@ -1,0 +1,9 @@
+// cl-string-levenshtein-matrix-alloc: Initial Row Vector Generator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn init_lev_row(out: vector[int], m: int):
+    j := 0
+    while j <= m:
+        out.push(j)
+        j = j + 1

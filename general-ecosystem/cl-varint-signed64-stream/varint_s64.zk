@@ -1,0 +1,19 @@
+// cl-varint-signed64-stream: 64-bit Varint Byte Stream Encoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lshr64(val: int, shift: int) -> int:
+    mask := (1 << (64 - shift)) - 1
+    return (val >> shift) & mask
+
+fn encode_u64_varint_bytes(out: vector[int], val: int):
+    v := val
+    cont := 1
+    while cont == 1:
+        byte_val := v & 127
+        v = lshr64(v, 7)
+        if v != 0:
+            out.push(byte_val | 128)
+        else:
+            out.push(byte_val)
+            cont = 0

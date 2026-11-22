@@ -1,0 +1,12 @@
+// cl-string-levenshtein-damerau-cell: Test Suite
+import "../dam_cell.zk"
+
+fn test_dam_cell():
+    c1 := damerau_cell(3, 4, 5, 2, 1) // can_trans=1, trans_c=2 is smallest
+    c2 := damerau_cell(3, 4, 5, 2, 0) // can_trans=0, del_c=3 is smallest
+    if c1 != 2 or c2 != 3: sys_exit(1)
+    print("test_dam_cell passed")
+
+fn main():
+    test_dam_cell()
+    print("✓ All tests passed for cl-string-levenshtein-damerau-cell!")

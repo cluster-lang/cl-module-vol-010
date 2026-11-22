@@ -1,0 +1,10 @@
+// cl-vec14-sum Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-vec14-sum"
+version := "0.1.0"
+description := "14D Vector Sum of Components"
+main := "v14_sum.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

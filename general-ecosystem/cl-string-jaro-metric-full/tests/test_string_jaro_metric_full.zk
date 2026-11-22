@@ -1,0 +1,16 @@
+// cl-string-jaro-metric-full: Test Suite
+import "../jaro_full.zk"
+
+fn test_jaro_full():
+    // "MARTHA" vs "MARHTA": matches=6, transpositions=2 -> t=1. score = (1 + 1 + 5/6) / 3 = 0.9444
+    s1: vector[int] := [77, 65, 82, 84, 72, 65]
+    s2: vector[int] := [77, 65, 82, 72, 84, 65]
+    score := jaro_similarity(s1, s2)
+    diff := score - 0.9444
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.01: sys_exit(1)
+    print("test_jaro_full passed: Jaro score ~0.944 verified")
+
+fn main():
+    test_jaro_full()
+    print("✓ All tests passed for cl-string-jaro-metric-full!")

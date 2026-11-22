@@ -1,0 +1,11 @@
+// cl-spatial-chebyshev-grid-dist: Integer Chebyshev Distance (Chessboard Distance)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_chebyshev_dist(x1: int, y1: int, x2: int, y2: int) -> int:
+    dx := x1 - x2
+    if dx < 0: dx = 0 - dx
+    dy := y1 - y2
+    if dy < 0: dy = 0 - dy
+    if dx > dy: return dx
+    return dy

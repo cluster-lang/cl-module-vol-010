@@ -1,0 +1,11 @@
+// cl-url: Test Suite
+import "../url.zk"
+
+fn test_url():
+    u := parse_simple_http("https://example.com/api/v1")
+    if u.scheme != "https" or u.host != "example.com" or u.path != "/api/v1": sys_exit(1)
+    print("test_url passed: URL components verified")
+
+fn main():
+    test_url()
+    print("✓ All tests passed for cl-url!")

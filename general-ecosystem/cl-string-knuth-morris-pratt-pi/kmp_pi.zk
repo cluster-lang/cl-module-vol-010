@@ -1,0 +1,26 @@
+// cl-string-knuth-morris-pratt-pi: KMP Prefix Function Pi Generator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn kmp_compute_pi(pattern: string, pi: vector[int]):
+    m := len(pattern)
+    i := 0
+    while i < m:
+        pi.push(0)
+        i = i + 1
+    k := 0
+    q := 1
+    while q < m:
+        cont := 1
+        while cont == 1:
+            if k > 0:
+                if byte_at(pattern, k) != byte_at(pattern, q):
+                    k = pi[k - 1]
+                else:
+                    cont = 0
+            else:
+                cont = 0
+        if byte_at(pattern, k) == byte_at(pattern, q):
+            k = k + 1
+        pi[q] = k
+        q = q + 1

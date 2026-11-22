@@ -1,0 +1,43 @@
+// cl-string-rabin-karp-all-indices: Rabin-Karp Multi-Match Index Search
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rabin_karp_all_matches(matches: vector[int], text: vector[int], pattern: vector[int]) -> int:
+    tlen := text.len()
+    plen := pattern.len()
+    if plen == 0 or tlen < plen:
+        return 0
+    base := 257
+    mod := 1000000007
+    p_hash := 0
+    t_hash := 0
+    h := 1
+    i := 0
+    while i < plen - 1:
+        h = (h * base) % mod
+        i = i + 1
+    i = 0
+    while i < plen:
+        p_hash = (p_hash * base + pattern[i]) % mod
+        t_hash = (t_hash * base + text[i]) % mod
+        i = i + 1
+    count := 0
+    i = 0
+    while i <= tlen - plen:
+        if p_hash == t_hash:
+            match_found := 1
+            j := 0
+            while j < plen:
+                if text[i + j] != pattern[j]:
+                    match_found = 0
+                    j = plen
+                j = j + 1
+            if match_found == 1:
+                matches.push(i)
+                count = count + 1
+        if i < tlen - plen:
+            t_hash = (base * (t_hash - text[i] * h) + text[i + plen]) % mod
+            if t_hash < 0:
+                t_hash = t_hash + mod
+        i = i + 1
+    return count

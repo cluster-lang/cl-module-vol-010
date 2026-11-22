@@ -1,0 +1,17 @@
+// cl-string-rabin-karp-rolling: Test Suite
+import "../rk_roll.zk"
+
+fn test_rk_roll():
+    base := 256
+    mod_val := 1000000007
+    // Hash of "ab": ('a'*256 + 'b') % mod
+    h_ab := ((97 * base) + 98) % mod_val
+    // Roll from "ab" to "bc": remove 'a', add 'c'
+    h_bc := rk_roll_next(h_ab, 97, 99, base, base, mod_val)
+    expected := ((98 * base) + 99) % mod_val
+    if h_bc != expected: sys_exit(1)
+    print("test_rk_roll passed: rolling window hash match verified")
+
+fn main():
+    test_rk_roll()
+    print("✓ All tests passed for cl-string-rabin-karp-rolling!")

@@ -1,0 +1,12 @@
+// cl-string-damerau-osa: Test Suite
+import "../damerau.zk"
+
+fn test_damerau():
+    // Transposition: "ca" -> "ac" is 1 operation in Damerau
+    dist := damerau_osa_distance("ca", "ac")
+    if dist != 1: sys_exit(1)
+    print("test_damerau passed: transposition distance is 1")
+
+fn main():
+    test_damerau()
+    print("✓ All tests passed for cl-string-damerau-osa!")

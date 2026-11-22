@@ -1,0 +1,12 @@
+// cl-string-levenshtein-wagner: Test Suite
+import "../wagner_fischer.zk"
+
+fn test_wagner():
+    // "cat" to "car" with sub_cost=2 -> cost is 2
+    d := wagner_fischer_dist("cat", "car", 2)
+    if d != 2: sys_exit(1)
+    print("test_wagner passed: weighted distance verified")
+
+fn main():
+    test_wagner()
+    print("✓ All tests passed for cl-string-levenshtein-wagner!")

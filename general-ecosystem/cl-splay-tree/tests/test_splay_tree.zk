@@ -1,0 +1,12 @@
+// cl-splay-tree: Test Suite
+import "../splay.zk"
+
+fn test_splay():
+    r := bst_rotate_right_root(50, 30, 40)
+    if r[0] != 30: sys_exit(1) // new root
+    if r[1] != 50: sys_exit(1) // old root now right child
+    print("test_splay passed: tree rotation primitives verified")
+
+fn main():
+    test_splay()
+    print("✓ All tests passed for cl-splay-tree!")

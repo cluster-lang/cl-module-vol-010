@@ -1,0 +1,11 @@
+// cl-stats-median-of-five: Test Suite
+import "../st_med5.zk"
+
+fn test_st_med5():
+    v: vector[float] := [9.0, 1.0, 5.0, 3.0, 7.0]
+    if stats_median_five(v) != 5.0: sys_exit(1)
+    print("test_st_med5 passed")
+
+fn main():
+    test_st_med5()
+    print("✓ All tests passed for cl-stats-median-of-five!")

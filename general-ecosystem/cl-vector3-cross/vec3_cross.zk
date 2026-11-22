@@ -1,0 +1,11 @@
+// cl-vector3-cross: 3D Vector Cross Product & Dot Product
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_cross(out: vector[float], ax: float, ay: float, az: float, bx: float, by: float, bz: float):
+    out.push((ay * bz) - (az * by))
+    out.push((az * bx) - (ax * bz))
+    out.push((ax * by) - (ay * bx))
+
+fn vec3_dot(ax: float, ay: float, az: float, bx: float, by: float, bz: float) -> float:
+    return (ax * bx) + (ay * by) + (az * bz)

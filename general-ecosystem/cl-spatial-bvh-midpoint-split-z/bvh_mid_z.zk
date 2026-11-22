@@ -1,0 +1,6 @@
+// cl-spatial-bvh-midpoint-split-z: Compute BVH Bounding Box Midpoint Split on Z
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn bvh_split_mid_z(min_z: float, max_z: float) -> float:
+    return 0.5 * (min_z + max_z)

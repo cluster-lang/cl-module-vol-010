@@ -1,0 +1,15 @@
+// cl-stats: Test Suite
+import "../stats.zk"
+
+fn test_stats():
+    vals: vector[int] := [10, 20, 30, 40, 50]
+    if stats_sum(vals) != 150: sys_exit(1)
+    if stats_mean(vals) != 30: sys_exit(1)
+    if stats_min(vals) != 10: sys_exit(1)
+    if stats_max(vals) != 50: sys_exit(1)
+    if stats_variance(vals) != 200: sys_exit(1)
+    print("test_stats passed: statistics verified")
+
+fn main():
+    test_stats()
+    print("✓ All tests passed for cl-stats!")

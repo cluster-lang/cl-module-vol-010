@@ -1,0 +1,14 @@
+// cl-vec3-sub: Test Suite
+import "../vec3_sub.zk"
+
+fn test_v3_sub():
+    a: vector[float] := [10.0, 20.0, 30.0]
+    b: vector[float] := [1.0, 2.0, 3.0]
+    out: vector[float] := [0.0, 0.0, 0.0]
+    vec3_sub(out, a, b)
+    if out[0] != 9.0 or out[1] != 18.0 or out[2] != 27.0: sys_exit(1)
+    print("test_v3_sub passed")
+
+fn main():
+    test_v3_sub()
+    print("✓ All tests passed for cl-vec3-sub!")

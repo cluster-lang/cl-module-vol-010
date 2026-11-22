@@ -1,0 +1,44 @@
+// cl-string-jaro-metric-common: Jaro Distance Common Character Window Counter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn count_jaro_matches(s1: vector[int], s2: vector[int]) -> int:
+    len1 := s1.len()
+    len2 := s2.len()
+    if len1 == 0 or len2 == 0:
+        return 0
+
+    max_len := len1
+    if len2 > max_len:
+        max_len = len2
+
+    match_dist := (max_len / 2) - 1
+    if match_dist < 0:
+        match_dist = 0
+
+    s2_matched: vector[int] := []
+    k := 0
+    while k < len2:
+        s2_matched.push(0)
+        k = k + 1
+
+    matches := 0
+    i := 0
+    while i < len1:
+        start_j := i - match_dist
+        if start_j < 0:
+            start_j = 0
+        end_j := i + match_dist + 1
+        if end_j > len2:
+            end_j = len2
+
+        j := start_j
+        found := 0
+        while j < end_j and found == 0:
+            if s2_matched[j] == 0 and s1[i] == s2[j]:
+                s2_matched[j] = 1
+                matches = matches + 1
+                found = 1
+            j = j + 1
+        i = i + 1
+    return matches

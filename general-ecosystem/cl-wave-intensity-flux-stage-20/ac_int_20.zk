@@ -1,0 +1,7 @@
+// cl-wave-intensity-flux-stage-20: Acoustic Wave Intensity Energy Flux Stage 20
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn wave_intensity_20(p_rms: float, z_impedance: float) -> float:
+    if z_impedance <= 0.0001: return 0.0
+    return ((p_rms * p_rms) / z_impedance) * 20.0

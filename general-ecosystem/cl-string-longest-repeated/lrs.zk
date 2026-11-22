@@ -1,0 +1,16 @@
+// cl-string-longest-repeated: Common Prefix Length Evaluator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lcp_length(s: string, idx1: int, idx2: int) -> int:
+    slen := len(s)
+    count := 0
+    p1 := idx1
+    p2 := idx2
+    while p1 < slen:
+        if p2 >= slen: return count
+        if byte_at(s, p1) != byte_at(s, p2): return count
+        count = count + 1
+        p1 = p1 + 1
+        p2 = p2 + 1
+    return count

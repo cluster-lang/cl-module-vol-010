@@ -1,0 +1,9 @@
+// cl-triangle3d-centroid-fast: Fast 3D Triangle Centroid Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle3d_centroid_fast(out: vector[float], v0: vector[float], v1: vector[float], v2: vector[float]):
+    i := 0
+    while i < 3:
+        out.push((v0[i] + v1[i] + v2[i]) / 3.0)
+        i = i + 1

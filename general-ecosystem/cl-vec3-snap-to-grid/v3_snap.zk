@@ -1,0 +1,10 @@
+// cl-vec3-snap-to-grid: Snap 3D Vector to Nearest Uniform Grid Cell
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_snap(v: vector[float], grid_size: float) -> vector[float]:
+    if grid_size <= 0.0: return v
+    gx := float(int((v[0] + 0.5 * grid_size) / grid_size)) * grid_size
+    gy := float(int((v[1] + 0.5 * grid_size) / grid_size)) * grid_size
+    gz := float(int((v[2] + 0.5 * grid_size) / grid_size)) * grid_size
+    return [gx, gy, gz]

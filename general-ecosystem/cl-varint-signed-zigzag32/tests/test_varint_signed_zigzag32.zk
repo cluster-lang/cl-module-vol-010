@@ -1,0 +1,15 @@
+// cl-varint-signed-zigzag32: Test Suite
+import "../zigzag32_pair.zk"
+
+fn test_zigzag32_pair():
+    if zigzag32_encode_val(0) != 0: sys_exit(1)
+    if zigzag32_encode_val(-1) != 1: sys_exit(1)
+    if zigzag32_encode_val(1) != 2: sys_exit(1)
+    if zigzag32_decode_val(0) != 0: sys_exit(1)
+    if zigzag32_decode_val(1) != -1: sys_exit(1)
+    if zigzag32_decode_val(2) != 1: sys_exit(1)
+    print("test_zigzag32_pair passed: 32-bit ZigZag encode/decode verified")
+
+fn main():
+    test_zigzag32_pair()
+    print("✓ All tests passed for cl-varint-signed-zigzag32!")

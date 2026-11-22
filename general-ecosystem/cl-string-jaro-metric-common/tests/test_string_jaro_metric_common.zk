@@ -1,0 +1,13 @@
+// cl-string-jaro-metric-common: Test Suite
+import "../jaro_comm.zk"
+
+fn test_jaro_comm():
+    s1: vector[int] := [77, 65, 82, 84, 72, 65]
+    s2: vector[int] := [77, 65, 82, 72, 84, 65]
+    m := count_jaro_matches(s1, s2)
+    if m != 6: sys_exit(1)
+    print("test_jaro_comm passed: 6 common characters verified")
+
+fn main():
+    test_jaro_comm()
+    print("✓ All tests passed for cl-string-jaro-metric-common!")

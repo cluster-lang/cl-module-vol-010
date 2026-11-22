@@ -1,0 +1,13 @@
+// cl-string-jaro-winkler-prefix: Test Suite
+import "../jw_prefix.zk"
+
+fn test_jw_prefix():
+    s1: vector[int] := [65, 66, 67, 68, 69] // "ABCDE"
+    s2: vector[int] := [65, 66, 67, 88, 89] // "ABCXY"
+    p := common_prefix_max4(s1, s2)
+    if p != 3: sys_exit(1)
+    print("test_jw_prefix passed: prefix length 3 verified")
+
+fn main():
+    test_jw_prefix()
+    print("✓ All tests passed for cl-string-jaro-winkler-prefix!")

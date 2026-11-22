@@ -1,0 +1,13 @@
+// cl-vec6-scale: Test Suite
+import "../vec6_scale.zk"
+
+fn test_v6_scale():
+    v: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vec6_scale(out, v, 5.0)
+    if out[0] != 5.0 or out[5] != 5.0: sys_exit(1)
+    print("test_v6_scale passed")
+
+fn main():
+    test_v6_scale()
+    print("✓ All tests passed for cl-vec6-scale!")

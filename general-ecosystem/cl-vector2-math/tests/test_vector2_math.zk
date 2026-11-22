@@ -1,0 +1,15 @@
+// cl-vector2-math: Test Suite
+import "../vec2_math.zk"
+
+fn test_vec2():
+    if vec2_dot(1, 2, 3, 4) != 11: sys_exit(1) // 3 + 8 = 11
+    if vec2_perp_dot(1, 0, 0, 1) != 1: sys_exit(1)
+    // Reflect (1, -1) against normal (0, 1) -> (1, 1)
+    r := vec2_reflect(1, -1, 0, 1)
+    if r[0] != 1: sys_exit(1)
+    if r[1] != 1: sys_exit(1)
+    print("test_vec2 passed: 2D perp-dot & reflection verified")
+
+fn main():
+    test_vec2()
+    print("✓ All tests passed for cl-vector2-math!")

@@ -1,0 +1,15 @@
+// cl-string-suffix-lcp: Test Suite
+import "../kasai.zk"
+
+fn test_kasai():
+    sa: vector[int] := [2, 0, 1]
+    rank: vector[int] := []
+    build_suffix_rank(sa, rank)
+    if rank[2] != 0: sys_exit(1)
+    if rank[0] != 1: sys_exit(1)
+    if rank[1] != 2: sys_exit(1)
+    print("test_kasai passed: suffix rank inversion verified")
+
+fn main():
+    test_kasai()
+    print("✓ All tests passed for cl-string-suffix-lcp!")

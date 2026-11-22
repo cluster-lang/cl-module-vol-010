@@ -1,0 +1,40 @@
+// cl-string-levenshtein-threshold-check: Bounded Edit Distance Check
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn levenshtein_within_threshold(s1: vector[int], s2: vector[int], k: int) -> int:
+    len1 := s1.len()
+    len2 := s2.len()
+    len_diff := len1 - len2
+    if len_diff < 0: len_diff = 0 - len_diff
+    if len_diff > k: return 0
+
+    dp: vector[int] := []
+    j := 0
+    while j <= len2:
+        dp.push(j)
+        j = j + 1
+
+    i := 1
+    while i <= len1:
+        new_dp: vector[int] := [i]
+        j = 1
+        while j <= len2:
+            cost := 1
+            if s1[i - 1] == s2[j - 1]:
+                cost = 0
+            val := min3(dp[j] + 1, new_dp[j - 1] + 1, dp[j - 1] + cost)
+            new_dp.push(val)
+            j = j + 1
+        dp = new_dp
+        i = i + 1
+
+    if dp[len2] <= k:
+        return 1
+    return 0

@@ -1,0 +1,7 @@
+// cl-string-jaro-winkler-metric: Jaro-Winkler Prefix Scaler
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Returns Winkler bonus adjustment: prefix_len * p * (1.0 - jaro_sim)
+fn winkler_bonus(prefix_len: int, jaro_sim: float, p_scaling: float) -> float:
+    return (prefix_len * 1.0) * p_scaling * (1.0 - jaro_sim)

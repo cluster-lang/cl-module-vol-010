@@ -1,0 +1,15 @@
+// cl-string-jaro-metric-transposition-indices: Jaro Transposition Counter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jaro_count_transpositions(s1: vector[int], s2: vector[int], matches1: vector[int], matches2: vector[int]) -> int:
+    k := matches1.len()
+    if k != matches2.len() or k == 0:
+        return 0
+    mismatches := 0
+    i := 0
+    while i < k:
+        if s1[matches1[i]] != s2[matches2[i]]:
+            mismatches = mismatches + 1
+        i = i + 1
+    return mismatches / 2

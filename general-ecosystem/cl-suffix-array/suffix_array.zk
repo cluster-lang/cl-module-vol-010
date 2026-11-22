@@ -1,0 +1,47 @@
+// cl-suffix-array: Suffix Array String Indexing
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn suffix_compare(s: string, idx1: int, idx2: int) -> int:
+    slen := len(s)
+    p1 := idx1
+    p2 := idx2
+    loop := 1
+    while loop == 1:
+        if p1 >= slen:
+            loop = 0
+        else:
+            if p2 >= slen:
+                loop = 0
+            else:
+                c1 := byte_at(s, p1)
+                c2 := byte_at(s, p2)
+                if c1 < c2: return -1
+                if c1 > c2: return 1
+                p1 = p1 + 1
+                p2 = p2 + 1
+    if p1 == slen:
+        if p2 == slen: return 0
+        return -1
+    return 1
+
+fn build_suffix_array(s: string) -> vector[int]:
+    slen := len(s)
+    sa: vector[int] := []
+    i := 0
+    while i < slen:
+        sa.push(i)
+        i = i + 1
+
+    // Simple bubble sort suffixes
+    i = 0
+    while i < slen:
+        j := i + 1
+        while j < slen:
+            if suffix_compare(s, sa[i], sa[j]) > 0:
+                tmp := sa[i]
+                sa[i] = sa[j]
+                sa[j] = tmp
+            j = j + 1
+        i = i + 1
+    return sa

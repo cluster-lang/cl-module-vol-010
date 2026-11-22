@@ -1,0 +1,13 @@
+// cl-triangle3d-circumcircle-radius: Test Suite
+import "../circum.zk"
+
+fn test_circum():
+    r := triangle3d_circumradius(0.0, 0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0)
+    diff := r - 2.5
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.01: sys_exit(1)
+    print("test_circum passed: circumradius 2.5 verified")
+
+fn main():
+    test_circum()
+    print("✓ All tests passed for cl-triangle3d-circumcircle-radius!")

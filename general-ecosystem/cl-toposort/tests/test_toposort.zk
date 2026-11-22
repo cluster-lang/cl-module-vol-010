@@ -1,0 +1,15 @@
+// cl-toposort: Test Suite
+import "../toposort.zk"
+
+fn test_topo():
+    edges: vector[Edge] := []
+    edges.push(Edge(0, 1))
+    edges.push(Edge(1, 2))
+    edges.push(Edge(0, 2))
+    order := toposort(3, edges)
+    if order.len() != 3 or order[0] != 0: sys_exit(1)
+    print("test_topo passed: DAG topological sort verified")
+
+fn main():
+    test_topo()
+    print("✓ All tests passed for cl-toposort!")

@@ -1,0 +1,11 @@
+// cl-varint-zigzag-decode64-fast: Fast 64-bit Zigzag Integer Decoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_decode64_fast(n: int) -> int:
+    mask64 := 9223372036854775807
+    val := n & mask64
+    if (val & 1) == 0:
+        return val >> 1
+    else:
+        return 0 - ((val + 1) >> 1)

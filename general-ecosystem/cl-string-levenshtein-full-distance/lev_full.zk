@@ -1,0 +1,42 @@
+// cl-string-levenshtein-full-distance: Levenshtein Dynamic Programming Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn levenshtein_distance(s1: vector[int], s2: vector[int]) -> int:
+    n := s1.len()
+    m := s2.len()
+    if n == 0: return m
+    if m == 0: return n
+    cols := m + 1
+    rows := n + 1
+    dp: vector[int] := []
+    total_cells := rows * cols
+    i := 0
+    while i < total_cells:
+        dp.push(0)
+        i = i + 1
+    r := 0
+    while r < rows:
+        dp[r * cols + 0] = r
+        r = r + 1
+    c := 0
+    while c < cols:
+        dp[0 * cols + c] = c
+        c = c + 1
+    r = 1
+    while r <= n:
+        c = 1
+        while c <= m:
+            cost := 1
+            if s1[r - 1] == s2[c - 1]:
+                cost = 0
+            del_c := dp[(r - 1) * cols + c] + 1
+            ins_c := dp[r * cols + (c - 1)] + 1
+            sub_c := dp[(r - 1) * cols + (c - 1)] + cost
+            min_c := del_c
+            if ins_c < min_c: min_c = ins_c
+            if sub_c < min_c: min_c = sub_c
+            dp[r * cols + c] = min_c
+            c = c + 1
+        r = r + 1
+    return dp[n * cols + m]

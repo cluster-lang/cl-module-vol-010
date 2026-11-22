@@ -1,0 +1,11 @@
+// cl-varint-chunk-pack-3: Test Suite
+import "../vi_p_3.zk"
+
+fn test_run():
+    res := varint_pack_3(3)
+    if res != 131: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-varint-chunk-pack-3!")

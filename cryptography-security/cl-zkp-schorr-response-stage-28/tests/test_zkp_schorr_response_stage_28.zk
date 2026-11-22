@@ -1,0 +1,11 @@
+// cl-zkp-schorr-response-stage-28: Test Suite
+import "../zkp_sr_28.zk"
+
+fn test_run():
+    res := schnorr_resp_28(10, 4, 25)
+    if res != 138: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-schorr-response-stage-28!")

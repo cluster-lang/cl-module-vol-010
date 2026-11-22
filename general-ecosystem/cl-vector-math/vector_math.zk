@@ -1,0 +1,12 @@
+// cl-vector-math: Pure Cluster N-Dimensional Vector Helpers
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec_dot_product(a: vector[int], b: vector[int]) -> int:
+    sum := 0
+    i := 0
+    alen := a.len()
+    while i < alen:
+        sum = sum + (a[i] * b[i])
+        i = i + 1
+    return sum

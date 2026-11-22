@@ -1,0 +1,11 @@
+// cl-system-tag-serializer-1: Test Suite
+import "../sys_tag_1.zk"
+
+fn test_run():
+    res := sys_serialize_tag_1(100)
+    if res != 1100: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-system-tag-serializer-1!")

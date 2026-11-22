@@ -1,0 +1,11 @@
+// cl-string-metaphone: Test Suite
+import "../metaphone.zk"
+
+fn test_metaphone():
+    c := collapse_duplicates("bookkeeper")
+    if c != "bokeper": sys_exit(1)
+    print("test_metaphone passed: adjacent duplicate collapse verified")
+
+fn main():
+    test_metaphone()
+    print("✓ All tests passed for cl-string-metaphone!")

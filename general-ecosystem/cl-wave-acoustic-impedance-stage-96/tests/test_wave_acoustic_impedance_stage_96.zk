@@ -1,0 +1,13 @@
+// cl-wave-acoustic-impedance-stage-96: Test Suite
+import "../ac_imp_96.zk"
+
+fn test_run():
+    res := acoustic_impedance_96(1.2, 343.0)
+    diff := res - 39513.6000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-wave-acoustic-impedance-stage-96!")

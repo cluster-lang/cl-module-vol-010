@@ -1,0 +1,12 @@
+// cl-triangle3d-incenter: 3D Triangle Incenter Coordinates Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle_incenter_coord(out: vector[float], a: float, b: float, c: float, v0: vector[float], v1: vector[float], v2: vector[float]):
+    p := a + b + c
+    inv_p := 1.0 / p
+    i := 0
+    while i < 3:
+        coord := (a * v0[i] + b * v1[i] + c * v2[i]) * inv_p
+        out.push(coord)
+        i = i + 1

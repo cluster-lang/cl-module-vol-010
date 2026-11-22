@@ -1,0 +1,12 @@
+// cl-varint-signed-stream: Test Suite
+import "../sv_stream.zk"
+
+fn test_sv():
+    if zigzag_decode64(0) != 0: sys_exit(1)
+    if zigzag_decode64(1) != -1: sys_exit(1)
+    if zigzag_decode64(2) != 1: sys_exit(1)
+    print("test_sv passed: 64-bit zigzag decoding verified")
+
+fn main():
+    test_sv()
+    print("✓ All tests passed for cl-varint-signed-stream!")

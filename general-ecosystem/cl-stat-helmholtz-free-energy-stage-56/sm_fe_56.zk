@@ -1,0 +1,6 @@
+// cl-stat-helmholtz-free-energy-stage-56: Helmholtz Free Energy Thermodynamic Stage 56
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn free_energy_56(u: float, t: float, s: float) -> float:
+    return (u - t * s) * 56.0

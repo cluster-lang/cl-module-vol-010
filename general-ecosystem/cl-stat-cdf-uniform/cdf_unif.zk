@@ -1,0 +1,8 @@
+// cl-stat-cdf-uniform: Uniform Cumulative Distribution Function
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cdf_uniform(x: float, a: float, b: float) -> float:
+    if x <= a: return 0.0
+    if x >= b: return 1.0
+    return (x - a) / (b - a)

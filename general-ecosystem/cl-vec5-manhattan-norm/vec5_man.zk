@@ -1,0 +1,13 @@
+// cl-vec5-manhattan-norm: 5D Vector L1 Manhattan Norm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec5_manhattan_norm(v: vector[float]) -> float:
+    sum := 0.0
+    i := 0
+    while i < 5:
+        x := v[i]
+        if x < 0.0: x = 0.0 - x
+        sum = sum + x
+        i = i + 1
+    return sum

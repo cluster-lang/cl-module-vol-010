@@ -1,0 +1,10 @@
+// cl-vec4-min-element: 4D Vector Minimum Element
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_min_element(v: vector[float]) -> float:
+    min_v := v[0]
+    if v[1] < min_v: min_v = v[1]
+    if v[2] < min_v: min_v = v[2]
+    if v[3] < min_v: min_v = v[3]
+    return min_v

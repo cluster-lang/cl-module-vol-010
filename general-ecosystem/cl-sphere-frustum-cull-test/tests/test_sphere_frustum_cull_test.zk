@@ -1,0 +1,22 @@
+// cl-sphere-frustum-cull-test: Test Suite
+import "../frustum_cull.zk"
+
+fn test_frustum_cull():
+    // 6 planes: x>=-10, x<=10, y>=-10, y<=10, z>=-10, z<=10
+    // plane format: [a, b, c, d] for a*x + b*y + c*z + d >= 0
+    planes: vector[float] := [
+        1.0, 0.0, 0.0, 10.0,
+        -1.0, 0.0, 0.0, 10.0,
+        0.0, 1.0, 0.0, 10.0,
+        0.0, -1.0, 0.0, 10.0,
+        0.0, 0.0, 1.0, 10.0,
+        0.0, 0.0, -1.0, 10.0
+    ]
+    in_res := sphere_in_frustum(0.0, 0.0, 0.0, 2.0, planes)
+    out_res := sphere_in_frustum(20.0, 0.0, 0.0, 2.0, planes)
+    if in_res != 1 or out_res != 0: sys_exit(1)
+    print("test_frustum_cull passed")
+
+fn main():
+    test_frustum_cull()
+    print("✓ All tests passed for cl-sphere-frustum-cull-test!")

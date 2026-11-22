@@ -1,0 +1,13 @@
+// cl-sparse-matrix-scale-coo: Test Suite
+import "../coo_scale.zk"
+
+fn test_coo_scale():
+    t: vector[int] := [0, 1, 5, 2, 3, 10]
+    coo_scale(t, 2)
+    if t[2] != 10: sys_exit(1)
+    if t[5] != 20: sys_exit(1)
+    print("test_coo_scale passed: sparse matrix scalar scaling verified")
+
+fn main():
+    test_coo_scale()
+    print("✓ All tests passed for cl-sparse-matrix-scale-coo!")

@@ -1,0 +1,36 @@
+// cl-sparse-matrix-col-norm-coo: COO Sparse Matrix Column Euclidean Norms
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0:
+        return 0.0
+    x := val
+    i := 0
+    while i < 15:
+        x = 0.5 * (x + val / x)
+        i = i + 1
+    return x
+
+fn sparse_coo_col_norms(cols: vector[int], vals: vector[float], num_cols: int) -> vector[float]:
+    sum_sq: vector[float] := []
+    c := 0
+    while c < num_cols:
+        sum_sq.push(0.0)
+        c = c + 1
+
+    nnz := cols.len()
+    i := 0
+    while i < nnz:
+        col := cols[i]
+        if col >= 0 and col < num_cols:
+            v := vals[i]
+            sum_sq[col] = sum_sq[col] + v * v
+        i = i + 1
+
+    norms: vector[float] := []
+    c = 0
+    while c < num_cols:
+        norms.push(sqrt_approx(sum_sq[c]))
+        c = c + 1
+    return norms

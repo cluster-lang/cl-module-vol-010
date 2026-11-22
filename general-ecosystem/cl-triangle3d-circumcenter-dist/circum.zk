@@ -1,0 +1,19 @@
+// cl-triangle3d-circumcenter-dist: 2D Triangle Circumcenter Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle2d_circumcenter(out_c: vector[float], v0: vector[float], v1: vector[float], v2: vector[float]):
+    d := 2.0 * (v0[0] * (v1[1] - v2[1]) + v1[0] * (v2[1] - v0[1]) + v2[0] * (v0[1] - v1[1]))
+    d_abs := d
+    if d_abs < 0.0: d_abs = 0.0 - d_abs
+    if d_abs < 0.000001:
+        out_c[0] = 0.0
+        out_c[1] = 0.0
+        return
+    l0 := v0[0] * v0[0] + v0[1] * v0[1]
+    l1 := v1[0] * v1[0] + v1[1] * v1[1]
+    l2 := v2[0] * v2[0] + v2[1] * v2[1]
+    ux := (l0 * (v1[1] - v2[1]) + l1 * (v2[1] - v0[1]) + l2 * (v0[1] - v1[1])) / d
+    uy := (l0 * (v2[0] - v1[0]) + l1 * (v0[0] - v2[0]) + l2 * (v1[0] - v0[0])) / d
+    out_c[0] = ux
+    out_c[1] = uy

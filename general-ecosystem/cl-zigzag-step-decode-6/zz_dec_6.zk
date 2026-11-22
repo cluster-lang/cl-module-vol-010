@@ -1,0 +1,7 @@
+// cl-zigzag-step-decode-6: ZigZag Integer Decoder Stage 6
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_dec_6(z: int) -> int:
+    if (z % 2) == 0: return z / 2
+    return 0 - (z + 1) / 2

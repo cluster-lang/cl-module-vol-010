@@ -1,0 +1,14 @@
+// cl-vec3-cross-product: Test Suite
+import "../vec3_cross.zk"
+
+fn test_v3_cross():
+    a: vector[float] := [1.0, 0.0, 0.0]
+    b: vector[float] := [0.0, 1.0, 0.0]
+    out: vector[float] := [0.0, 0.0, 0.0]
+    vec3_cross(out, a, b)
+    if out[0] != 0.0 or out[1] != 0.0 or out[2] != 1.0: sys_exit(1)
+    print("test_v3_cross passed")
+
+fn main():
+    test_v3_cross()
+    print("✓ All tests passed for cl-vec3-cross-product!")

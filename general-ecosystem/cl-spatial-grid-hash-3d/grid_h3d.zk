@@ -1,0 +1,8 @@
+// cl-spatial-grid-hash-3d: Spatial Hash of 3D Grid Cell (cx, cy, cz)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_hash_3d(cx: int, cy: int, cz: int) -> int:
+    mask32 := 4294967295
+    h := (cx * 73856093 ^ cy * 19349663 ^ cz * 83492791) & mask32
+    return h

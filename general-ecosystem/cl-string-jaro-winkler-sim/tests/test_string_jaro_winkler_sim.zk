@@ -1,0 +1,15 @@
+// cl-string-jaro-winkler-sim: Test Suite
+import "../jw_sim.zk"
+
+fn test_jw_sim():
+    s1: vector[int] := [77, 65, 82, 84]
+    s2: vector[int] := [77, 65, 82, 72]
+    res := jaro_winkler_sim(s1, s2, 0.9)
+    diff := res - 0.93
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.01: sys_exit(1)
+    print("test_jw_sim passed: Jaro-Winkler score 0.93 verified")
+
+fn main():
+    test_jw_sim()
+    print("✓ All tests passed for cl-string-jaro-winkler-sim!")

@@ -1,0 +1,16 @@
+// cl-string-jaro-metric-transposition-indices: Test Suite
+import "../jaro_trans.zk"
+
+fn test_jaro_trans():
+    s1: vector[int] := [65, 66] // AB
+    s2: vector[int] := [66, 65] // BA
+    m1: vector[int] := [0, 1]
+    m2: vector[int] := [0, 1]
+    t := jaro_count_transpositions(s1, s2, m1, m2)
+    // 2 mismatched aligned pairs ('A' vs 'B', 'B' vs 'A') -> 1 transposition
+    if t != 1: sys_exit(1)
+    print("test_jaro_trans passed")
+
+fn main():
+    test_jaro_trans()
+    print("✓ All tests passed for cl-string-jaro-metric-transposition-indices!")

@@ -1,0 +1,20 @@
+// cl-string-rabin-karp-search-all: Rabin-Karp Substring Occurrence Counter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn count_substring_occurrences(text: vector[int], pat: vector[int]) -> int:
+    tlen := text.len()
+    plen := pat.len()
+    if plen > tlen: return 0
+    count := 0
+    i := 0
+    limit := tlen - plen
+    while i <= limit:
+        is_match := 1
+        j := 0
+        while j < plen:
+            if text[i + j] != pat[j]: is_match = 0
+            j = j + 1
+        if is_match == 1: count = count + 1
+        i = i + 1
+    return count

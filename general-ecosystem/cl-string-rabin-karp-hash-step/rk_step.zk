@@ -1,0 +1,8 @@
+// cl-string-rabin-karp-hash-step: Sliding Window Rolling Hash Step Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rk_step_hash(h_prev: int, out_char: int, in_char: int, pow_base: int, base: int, mod_val: int) -> int:
+    h := h_prev - (out_char * pow_base) % mod_val
+    if h < 0: h = h + mod_val
+    return ((h * base) + in_char) % mod_val

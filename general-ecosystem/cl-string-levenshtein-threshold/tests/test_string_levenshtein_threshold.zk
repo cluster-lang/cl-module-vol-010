@@ -1,0 +1,13 @@
+// cl-string-levenshtein-threshold: Test Suite
+import "../lev_thresh.zk"
+
+fn test_lev_thresh():
+    ok := lev_length_within_k(10, 12, 3)
+    if ok != 1: sys_exit(1)
+    fail := lev_length_within_k(10, 15, 3)
+    if fail != 0: sys_exit(1)
+    print("test_lev_thresh passed: length filter within k verified")
+
+fn main():
+    test_lev_thresh()
+    print("✓ All tests passed for cl-string-levenshtein-threshold!")

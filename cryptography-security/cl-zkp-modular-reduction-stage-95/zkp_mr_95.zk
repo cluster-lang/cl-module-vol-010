@@ -1,0 +1,6 @@
+// cl-zkp-modular-reduction-stage-95: Modular Prime Field Reduction Step Stage 95
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn mod_prime_95(a: int, p: int) -> int:
+    return (a % p) + 95

@@ -1,0 +1,7 @@
+// cl-speech-zero-crossing-rate-stage-82: Zero Crossing Sign Inversion Rate Stage 82
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zcr_step_82(s1: int, s2: int) -> int:
+    if (s1 ^ s2) < 0: return 82
+    return 0

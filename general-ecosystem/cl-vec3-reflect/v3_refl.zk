@@ -1,0 +1,7 @@
+// cl-vec3-reflect: 3D Vector Reflection across Normal
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_reflect(v: vector[float], n: vector[float]) -> vector[float]:
+    dot := v[0]*n[0] + v[1]*n[1] + v[2]*n[2]
+    return [v[0] - 2.0 * dot * n[0], v[1] - 2.0 * dot * n[1], v[2] - 2.0 * dot * n[2]]

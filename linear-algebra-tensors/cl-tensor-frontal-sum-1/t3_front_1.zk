@@ -1,0 +1,11 @@
+// cl-tensor-frontal-sum-1: 3x3x3 Tensor Frontal Slice Sum Stage 1
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_frontal_sum_1(t: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 9:
+        s = s + t[i] * 1.0
+        i = i + 1
+    return s

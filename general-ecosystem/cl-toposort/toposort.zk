@@ -1,0 +1,46 @@
+// cl-toposort: Pure Cluster Kahn's Topological Sort Algorithm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model Edge:
+    u: int
+    v: int
+
+fn toposort(n: int, edges: vector[Edge]) -> vector[int]:
+    indeg: vector[int] := []
+    i := 0
+    while i < n:
+        indeg.push(0)
+        i = i + 1
+
+    e_idx := 0
+    elen := edges.len()
+    while e_idx < elen:
+        dest := edges[e_idx].v
+        indeg[dest] = indeg[dest] + 1
+        e_idx = e_idx + 1
+
+    queue: vector[int] := []
+    i = 0
+    while i < n:
+        if indeg[i] == 0:
+            queue.push(i)
+        i = i + 1
+
+    order: vector[int] := []
+    head := 0
+    while head < queue.len():
+        curr := queue[head]
+        head = head + 1
+        order.push(curr)
+
+        e_idx = 0
+        while e_idx < elen:
+            e := edges[e_idx]
+            if e.u == curr:
+                indeg[e.v] = indeg[e.v] - 1
+                if indeg[e.v] == 0:
+                    queue.push(e.v)
+            e_idx = e_idx + 1
+
+    return order

@@ -1,0 +1,8 @@
+// cl-wave-doppler-shift-stage-61: Doppler Moving Source Frequency Factor Stage 61
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn doppler_factor_61(c_sound: float, v_source: float) -> float:
+    den := c_sound - v_source
+    if den <= 0.0001: return 0.0
+    return (c_sound / den) * 61.0

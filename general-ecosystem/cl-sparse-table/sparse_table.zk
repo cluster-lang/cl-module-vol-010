@@ -1,0 +1,44 @@
+// cl-sparse-table: Range Minimum Query (RMQ) Sparse Table
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min_i(a: int, b: int) -> int:
+    if a < b: return a
+    return b
+
+// Build sparse table up to power of 4 (16 elements max)
+fn sparse_table_build(arr: vector[int]) -> vector[int]:
+    n := arr.len()
+    // Stored flat: layer 0 (n elements), layer 1 (n elements), layer 2 (n elements), layer 3 (n elements)
+    st: vector[int] := []
+    i := 0
+    while i < (4 * n):
+        st.push(0)
+        i = i + 1
+
+    i = 0
+    while i < n:
+        st[i] = arr[i]
+        i = i + 1
+
+    k := 1
+    while k < 4:
+        len_k := 1 << (k - 1)
+        j := 0
+        while (j + (1 << k)) <= n:
+            idx1 := ((k - 1) * n) + j
+            idx2 := ((k - 1) * n) + (j + len_k)
+            st[(k * n) + j] = min_i(st[idx1], st[idx2])
+            j = j + 1
+        k = k + 1
+    return st
+
+fn sparse_table_query(st: vector[int], n: int, l: int, r: int) -> int:
+    length := (r - l) + 1
+    k := 0
+    while (1 << (k + 1)) <= length:
+        k = k + 1
+    len_k := 1 << k
+    idx1 := (k * n) + l
+    idx2 := (k * n) + ((r - len_k) + 1)
+    return min_i(st[idx1], st[idx2])

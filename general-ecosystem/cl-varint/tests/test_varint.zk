@@ -1,0 +1,16 @@
+// cl-varint: Test Suite
+import "../varint.zk"
+
+fn test_varint():
+    enc := varint_encode(300)
+    if enc.len() != 2: sys_exit(1)
+    if enc[0] != 172: sys_exit(1) // 300 = 0xAC, 0x02
+    if enc[1] != 2: sys_exit(1)
+
+    dec := varint_decode(enc)
+    if dec != 300: sys_exit(1)
+    print("test_varint passed: Protobuf LEB128 variable-length integer verified")
+
+fn main():
+    test_varint()
+    print("✓ All tests passed for cl-varint!")

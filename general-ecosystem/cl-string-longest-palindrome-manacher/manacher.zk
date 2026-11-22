@@ -1,0 +1,15 @@
+// cl-string-longest-palindrome-manacher: Manacher String Interleaver
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Transforms "aba" to "^#a#b#a#$"
+fn manacher_interleave(s: string, out: vector[int]):
+    out.push(94) // '^'
+    slen := len(s)
+    i := 0
+    while i < slen:
+        out.push(35) // '#'
+        out.push(byte_at(s, i))
+        i = i + 1
+    out.push(35) // '#'
+    out.push(36) // '$'

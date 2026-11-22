@@ -1,0 +1,13 @@
+// cl-trie-radix: Radix Trie Edge Match Predicate
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn radix_edge_matches(edge: string, query: string) -> int:
+    elen := len(edge)
+    qlen := len(query)
+    if elen > qlen: return 0
+    i := 0
+    while i < elen:
+        if byte_at(edge, i) != byte_at(query, i): return 0
+        i = i + 1
+    return 1

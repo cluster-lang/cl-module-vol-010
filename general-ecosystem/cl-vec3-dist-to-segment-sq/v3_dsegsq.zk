@@ -1,0 +1,27 @@
+// cl-vec3-dist-to-segment-sq: Squared Distance from Point to 3D Line Segment
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_dist_segment_sq(p: vector[float], a: vector[float], b: vector[float]) -> float:
+    abx := b[0] - a[0]
+    aby := b[1] - a[1]
+    abz := b[2] - a[2]
+    ab_sq := abx*abx + aby*aby + abz*abz
+    if ab_sq <= 0.000001:
+        dx := p[0] - a[0]
+        dy := p[1] - a[1]
+        dz := p[2] - a[2]
+        return dx*dx + dy*dy + dz*dz
+    apx := p[0] - a[0]
+    apy := p[1] - a[1]
+    apz := p[2] - a[2]
+    t := (apx*abx + apy*aby + apz*abz) / ab_sq
+    if t < 0.0: t = 0.0
+    if t > 1.0: t = 1.0
+    cpx := a[0] + t * abx
+    cpy := a[1] + t * aby
+    cpz := a[2] + t * abz
+    dx := p[0] - cpx
+    dy := p[1] - cpy
+    dz := p[2] - cpz
+    return dx*dx + dy*dy + dz*dz

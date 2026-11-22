@@ -1,0 +1,45 @@
+// cl-string-levenshtein-matrix: Full DP Levenshtein Edit Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn levenshtein_full(s1: string, s2: string) -> int:
+    m := len(s1)
+    n := len(s2)
+    stride := n + 1
+    dp: vector[int] := []
+    total := (m + 1) * (n + 1)
+    i := 0
+    while i < total:
+        dp.push(0)
+        i = i + 1
+
+    i = 0
+    while i <= m:
+        dp[i * stride] = i
+        i = i + 1
+
+    j := 0
+    while j <= n:
+        dp[j] = j
+        j = j + 1
+
+    i = 1
+    j = 1
+    while i <= m:
+        j = 1
+        while j <= n:
+            cost := 1
+            if byte_at(s1, i - 1) == byte_at(s2, j - 1): cost = 0
+            sub := dp[((i - 1) * stride) + (j - 1)] + cost
+            ins := dp[((i - 1) * stride) + j] + 1
+            dele := dp[(i * stride) + (j - 1)] + 1
+            dp[(i * stride) + j] = min3(sub, ins, dele)
+            j = j + 1
+        i = i + 1
+    return dp[(m * stride) + n]

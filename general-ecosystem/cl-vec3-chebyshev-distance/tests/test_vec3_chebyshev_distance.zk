@@ -1,0 +1,16 @@
+// cl-vec3-chebyshev-distance: Test Suite
+import "../vec3_cheb_dist.zk"
+
+fn test_v3_cheb_dist():
+    a: vector[float] := [1.0, 2.0, 3.0]
+    b: vector[float] := [4.0, 9.0, 5.0]
+    // dx=3, dy=7, dz=2 -> max is 7.0
+    res := vec3_chebyshev_distance(a, b)
+    diff := res - 7.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v3_cheb_dist passed")
+
+fn main():
+    test_v3_cheb_dist()
+    print("✓ All tests passed for cl-vec3-chebyshev-distance!")

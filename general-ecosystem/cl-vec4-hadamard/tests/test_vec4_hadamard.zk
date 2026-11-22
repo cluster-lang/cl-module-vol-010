@@ -1,0 +1,14 @@
+// cl-vec4-hadamard: Test Suite
+import "../vec4_had.zk"
+
+fn test_v4_had():
+    a: vector[float] := [2.0, 3.0, 4.0, 5.0]
+    b: vector[float] := [3.0, 4.0, 5.0, 6.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0]
+    vec4_hadamard(out, a, b)
+    if out[0] != 6.0 or out[1] != 12.0 or out[2] != 20.0 or out[3] != 30.0: sys_exit(1)
+    print("test_v4_had passed")
+
+fn main():
+    test_v4_had()
+    print("✓ All tests passed for cl-vec4-hadamard!")

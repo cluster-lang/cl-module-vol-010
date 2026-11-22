@@ -1,0 +1,6 @@
+// cl-synth-fm-operator-stage-8: 2-Operator FM Synthesis Modulation Phase Stage 8
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn fm_carrier_phase_8(c_ph: float, idx: float, m_sin: float) -> float:
+    return (c_ph + idx * m_sin) * 8.0

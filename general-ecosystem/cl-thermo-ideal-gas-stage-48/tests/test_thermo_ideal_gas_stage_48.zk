@@ -1,0 +1,13 @@
+// cl-thermo-ideal-gas-stage-48: Test Suite
+import "../gas_pr_48.zk"
+
+fn test_run():
+    res := ideal_gas_pressure_48(1.0, 300.0, 1.0)
+    diff := res - 119728.2528
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-thermo-ideal-gas-stage-48!")

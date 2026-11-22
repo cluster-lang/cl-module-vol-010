@@ -1,0 +1,13 @@
+// cl-triangle3d: 3D Triangle Normal & Ray Intersection
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tri3d_normal(ax: int, ay: int, az: int, bx: int, by: int, bz: int, cx: int, cy: int, cz: int) -> vector[int]:
+    abx := bx - ax; aby := by - ay; abz := bz - az
+    acx := cx - ax; acy := cy - ay; acz := cz - az
+
+    norm: vector[int] := []
+    norm.push((aby * acz) - (abz * acy))
+    norm.push((abz * acx) - (abx * acz))
+    norm.push((abx * acy) - (aby * acx))
+    return norm

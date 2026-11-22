@@ -1,0 +1,14 @@
+// cl-vec4-chebyshev-distance: 4D Chebyshev L-infinity Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_chebyshev_distance(a: vector[float], b: vector[float]) -> float:
+    dx := a[0] - b[0]; if dx < 0.0: dx = 0.0 - dx
+    dy := a[1] - b[1]; if dy < 0.0: dy = 0.0 - dy
+    dz := a[2] - b[2]; if dz < 0.0: dz = 0.0 - dz
+    dw := a[3] - b[3]; if dw < 0.0: dw = 0.0 - dw
+    max_d := dx
+    if dy > max_d: max_d = dy
+    if dz > max_d: max_d = dz
+    if dw > max_d: max_d = dw
+    return max_d

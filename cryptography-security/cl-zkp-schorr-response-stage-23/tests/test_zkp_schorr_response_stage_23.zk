@@ -1,0 +1,11 @@
+// cl-zkp-schorr-response-stage-23: Test Suite
+import "../zkp_sr_23.zk"
+
+fn test_run():
+    res := schnorr_resp_23(10, 4, 25)
+    if res != 133: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-schorr-response-stage-23!")

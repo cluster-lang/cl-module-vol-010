@@ -1,0 +1,11 @@
+// cl-vec6-sum: 6D Vector Element Sum
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec6_sum(v: vector[float]) -> float:
+    sum := 0.0
+    i := 0
+    while i < 6:
+        sum = sum + v[i]
+        i = i + 1
+    return sum

@@ -1,0 +1,14 @@
+// cl-vec8-hadamard: Test Suite
+import "../vec8_had.zk"
+
+fn test_v8_had():
+    a: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    b: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vec8_hadamard(out, a, b)
+    if out[0] != 4.0 or out[7] != 4.0: sys_exit(1)
+    print("test_v8_had passed")
+
+fn main():
+    test_v8_had()
+    print("✓ All tests passed for cl-vec8-hadamard!")

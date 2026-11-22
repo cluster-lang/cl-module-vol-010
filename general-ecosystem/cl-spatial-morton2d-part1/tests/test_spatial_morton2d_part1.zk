@@ -1,0 +1,11 @@
+// cl-spatial-morton2d-part1: Test Suite
+import "../m2d_p1.zk"
+
+fn test_run():
+    res := morton2d_part1(3)
+    if res != 5: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-morton2d-part1!")

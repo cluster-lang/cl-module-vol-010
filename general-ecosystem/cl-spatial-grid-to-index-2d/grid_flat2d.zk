@@ -1,0 +1,6 @@
+// cl-spatial-grid-to-index-2d: Flatten 2D Grid Cell (x, y) to Row-Major 1D Index
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_to_index_2d(x: int, y: int, width: int) -> int:
+    return y * width + x

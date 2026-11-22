@@ -1,0 +1,13 @@
+// cl-string-jaro-metric: Jaro Transposition Counter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn count_half_transpositions(matches1: string, matches2: string) -> int:
+    m := len(matches1)
+    trans := 0
+    i := 0
+    while i < m:
+        if byte_at(matches1, i) != byte_at(matches2, i):
+            trans = trans + 1
+        i = i + 1
+    return trans / 2

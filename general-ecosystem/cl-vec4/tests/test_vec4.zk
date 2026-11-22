@@ -1,0 +1,15 @@
+// cl-vec4: Test Suite
+import "../vec4.zk"
+
+fn test_vec4():
+    v1 := Vec4(1, 2, 3, 4)
+    v2 := Vec4(4, 3, 2, 1)
+    v_add := vec4_add(v1, v2)
+    if v_add.x != 5 or v_add.w != 5: sys_exit(1)
+    if vec4_dot(v1, v2) != 20: sys_exit(1)
+    if vec4_len_sq(v1) != 30: sys_exit(1)
+    print("test_vec4 passed: 4D vector algebra verified")
+
+fn main():
+    test_vec4()
+    print("✓ All tests passed for cl-vec4!")

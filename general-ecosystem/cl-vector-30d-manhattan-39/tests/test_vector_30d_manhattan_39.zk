@@ -1,0 +1,13 @@
+// cl-vector-30d-manhattan-39: Test Suite
+import "../v30_l1_39.zk"
+
+fn test_run():
+    res := vec30_l1_norm_39([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+    diff := res - 1170.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-vector-30d-manhattan-39!")

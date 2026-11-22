@@ -1,0 +1,15 @@
+// cl-string-rabin-karp-find-first: Test Suite
+import "../rk_find.zk"
+
+fn test_rk_find():
+    t: vector[int] := [65, 66, 67, 68, 69] // "ABCDE"
+    p: vector[int] := [67, 68]             // "CD"
+    idx := rabin_karp_find_first(t, p)
+    if idx != 2: sys_exit(1)
+    p_miss: vector[int] := [90]            // "Z"
+    if rabin_karp_find_first(t, p_miss) != -1: sys_exit(2)
+    print("test_rk_find passed: substring index 2 verified")
+
+fn main():
+    test_rk_find()
+    print("✓ All tests passed for cl-string-rabin-karp-find-first!")

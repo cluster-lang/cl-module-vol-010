@@ -1,0 +1,9 @@
+// cl-vec3-distance-squared: 3D Squared Euclidean Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_distance_squared(a: vector[float], b: vector[float]) -> float:
+    dx := a[0] - b[0]
+    dy := a[1] - b[1]
+    dz := a[2] - b[2]
+    return dx * dx + dy * dy + dz * dz

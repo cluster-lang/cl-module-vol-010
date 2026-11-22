@@ -1,0 +1,6 @@
+// cl-ts-ma1-predict-stage-73: Moving Average MA(1) Step Stage 73
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ma1_step_73(mu: float, th: float, eps: float) -> float:
+    return (mu + th * eps) * 73.0

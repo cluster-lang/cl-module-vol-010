@@ -1,0 +1,16 @@
+// cl-vec2: Test Suite
+import "../vec2.zk"
+
+fn test_vec2():
+    v1 := Vec2(3, 4)
+    v2 := Vec2(1, 2)
+    v_add := vec2_add(v1, v2)
+    if v_add.x != 4 or v_add.y != 6: sys_exit(1)
+    if vec2_dot(v1, v2) != 11: sys_exit(1)
+    if vec2_len_sq(v1) != 25: sys_exit(1)
+    if vec2_dist_sq(v1, v2) != 8: sys_exit(1)
+    print("test_vec2 passed: 2D vector algebra verified")
+
+fn main():
+    test_vec2()
+    print("✓ All tests passed for cl-vec2!")

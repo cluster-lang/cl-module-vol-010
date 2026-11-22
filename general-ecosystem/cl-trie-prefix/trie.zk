@@ -1,0 +1,23 @@
+// cl-trie-prefix: String Prefix Trie Search
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn str_starts_with(s: string, prefix: string) -> int:
+    slen := len(s)
+    plen := len(prefix)
+    if plen > slen: return 0
+    i := 0
+    while i < plen:
+        if byte_at(s, i) != byte_at(prefix, i): return 0
+        i = i + 1
+    return 1
+
+fn trie_prefix_search(words: vector[string], prefix: string) -> int:
+    count := 0
+    i := 0
+    wlen := words.len()
+    while i < wlen:
+        if str_starts_with(words[i], prefix) == 1:
+            count = count + 1
+        i = i + 1
+    return count

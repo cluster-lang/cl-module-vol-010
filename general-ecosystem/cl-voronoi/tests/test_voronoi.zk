@@ -1,0 +1,14 @@
+// cl-voronoi: Test Suite
+import "../voronoi.zk"
+
+fn test_voronoi():
+    // 4 sites: (0,0), (10,0), (0,10), (10,10)
+    sites: vector[int] := [0, 0, 10, 0, 0, 10, 10, 10]
+    if voronoi_nearest_site(1, 2, sites) != 0: sys_exit(1)
+    if voronoi_nearest_site(9, 8, sites) != 3: sys_exit(1)
+    if voronoi_nearest_site(9, 1, sites) != 1: sys_exit(1)
+    print("test_voronoi passed: nearest site Voronoi cells verified")
+
+fn main():
+    test_voronoi()
+    print("✓ All tests passed for cl-voronoi!")

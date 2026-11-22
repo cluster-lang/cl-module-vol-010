@@ -1,0 +1,6 @@
+// cl-stat-distance-cosine-3d: Cosine Distance (1.0 - Cosine Similarity) 3D
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cosine_distance_3d(cos_sim: float) -> float:
+    return 1.0 - cos_sim

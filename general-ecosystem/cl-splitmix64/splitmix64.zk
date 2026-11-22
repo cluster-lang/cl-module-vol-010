@@ -1,0 +1,16 @@
+// cl-splitmix64: SplitMix64 High-Performance Pseudo-Random Generator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lshr64(x: int, n: int) -> int:
+    mask := (1 << (64 - n)) - 1
+    return (x >> n) & mask
+
+fn splitmix64_next(state: vector[int]) -> int:
+    s := state[0] + (-7046029254386353131) // 0x9e3779b97f4a7c15
+    state[0] = s
+
+    z := s
+    z = (z ^ lshr64(z, 30)) * (-4659178972627914311) // 0xbf58476d1ce4e5b9
+    z = (z ^ lshr64(z, 27)) * (-7723598762587074069) // 0x94d049bb133111eb
+    return z ^ lshr64(z, 31)

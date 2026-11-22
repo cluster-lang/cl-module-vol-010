@@ -1,0 +1,8 @@
+// cl-sparse-matrix-sparsity-coo: Matrix Sparsity Ratio Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_coo_sparsity(nnz: int, rows: int, cols: int) -> float:
+    total_cells := rows * cols
+    if total_cells == 0: return 1.0
+    return 1.0 - (float(nnz) / float(total_cells))

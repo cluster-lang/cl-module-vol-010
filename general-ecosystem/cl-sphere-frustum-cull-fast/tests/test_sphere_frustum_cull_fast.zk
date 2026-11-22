@@ -1,0 +1,13 @@
+// cl-sphere-frustum-cull-fast: Test Suite
+import "../sphere_frustum.zk"
+
+fn test_sphere_frustum():
+    hit := sphere_inside_box_frustum(0.0, 0.0, 0.0, 5.0)
+    if hit != 1: sys_exit(1)
+    miss := sphere_inside_box_frustum(150.0, 0.0, 0.0, 5.0)
+    if miss != 0: sys_exit(1)
+    print("test_sphere_frustum passed: sphere frustum test verified")
+
+fn main():
+    test_sphere_frustum()
+    print("✓ All tests passed for cl-sphere-frustum-cull-fast!")

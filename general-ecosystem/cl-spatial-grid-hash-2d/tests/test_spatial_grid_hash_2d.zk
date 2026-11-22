@@ -1,0 +1,11 @@
+// cl-spatial-grid-hash-2d: Test Suite
+import "../grid_h2d.zk"
+
+fn test_run():
+    res := grid_hash_2d(1, 1)
+    if res != 88192194: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-grid-hash-2d!")

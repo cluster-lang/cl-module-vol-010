@@ -1,0 +1,21 @@
+// cl-sphere-aabb-clamp-closest: Sphere-AABB Clamped Distance Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sphere_aabb_closest_dist_sq(cx: float, cy: float, cz: float, min_pt: vector[float], max_pt: vector[float]) -> float:
+    qx := cx
+    if qx < min_pt[0]: qx = min_pt[0]
+    if qx > max_pt[0]: qx = max_pt[0]
+
+    qy := cy
+    if qy < min_pt[1]: qy = min_pt[1]
+    if qy > max_pt[1]: qy = max_pt[1]
+
+    qz := cz
+    if qz < min_pt[2]: qz = min_pt[2]
+    if qz > max_pt[2]: qz = max_pt[2]
+
+    dx := cx - qx
+    dy := cy - qy
+    dz := cz - qz
+    return dx * dx + dy * dy + dz * dz

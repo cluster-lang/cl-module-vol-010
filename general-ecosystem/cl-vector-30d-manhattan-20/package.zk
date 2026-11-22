@@ -1,0 +1,10 @@
+// cl-vector-30d-manhattan-20 Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-vector-30d-manhattan-20"
+version := "0.1.0"
+description := "30D Vector Manhattan L1 Norm Stage 20"
+main := "v30_l1_20.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

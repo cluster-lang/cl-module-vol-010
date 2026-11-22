@@ -1,0 +1,18 @@
+// cl-string-rabin-karp-rolling-update: Test Suite
+import "../rk_roll.zk"
+
+fn test_rk_roll():
+    base := 257
+    mod := 1000000007
+    h := 257
+    // "AB" hash = (65 * 257 + 66) % mod = 16771
+    h_ab := (65 * base + 66) % mod
+    // Roll from "AB" removing 'A'(65) and adding 'C'(67) -> "BC" hash = (66 * 257 + 67) % mod = 17029
+    h_bc := rabin_karp_roll(h_ab, 65, 67, h, base, mod)
+    expected := (66 * base + 67) % mod
+    if h_bc != expected: sys_exit(1)
+    print("test_rk_roll passed")
+
+fn main():
+    test_rk_roll()
+    print("✓ All tests passed for cl-string-rabin-karp-rolling-update!")

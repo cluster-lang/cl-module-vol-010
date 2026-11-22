@@ -1,0 +1,9 @@
+// cl-vec6-scale: 6D Vector Scalar Multiplication
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec6_scale(out: vector[float], v: vector[float], s: float):
+    i := 0
+    while i < 6:
+        out[i] = v[i] * s
+        i = i + 1

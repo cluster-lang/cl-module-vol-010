@@ -1,0 +1,10 @@
+// cl-unpack-u16-high-byte: Test Suite
+import "../un16_h.zk"
+
+fn test_un16_h():
+    if unpack_u16_high(4660) != 18: sys_exit(1)
+    print("test_un16_h passed")
+
+fn main():
+    test_un16_h()
+    print("✓ All tests passed for cl-unpack-u16-high-byte!")

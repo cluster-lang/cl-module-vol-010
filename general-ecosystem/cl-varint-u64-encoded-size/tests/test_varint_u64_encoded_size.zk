@@ -1,0 +1,12 @@
+// cl-varint-u64-encoded-size: Test Suite
+import "../v64_size.zk"
+
+fn test_v64_size():
+    if varint64_size(0) != 1: sys_exit(1)
+    if varint64_size(127) != 1: sys_exit(1)
+    if varint64_size(128) != 2: sys_exit(1)
+    print("test_v64_size passed")
+
+fn main():
+    test_v64_size()
+    print("✓ All tests passed for cl-varint-u64-encoded-size!")

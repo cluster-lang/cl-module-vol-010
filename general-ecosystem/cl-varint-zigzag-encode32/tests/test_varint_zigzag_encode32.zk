@@ -1,0 +1,12 @@
+// cl-varint-zigzag-encode32: Test Suite
+import "../zigzag_enc32.zk"
+
+fn test_zigzag_enc32():
+    if zigzag_encode32(0) != 0: sys_exit(1)
+    if zigzag_encode32(-1) != 1: sys_exit(1)
+    if zigzag_encode32(1) != 2: sys_exit(1)
+    print("test_zigzag_enc32 passed: 32-bit ZigZag encoder verified")
+
+fn main():
+    test_zigzag_enc32()
+    print("✓ All tests passed for cl-varint-zigzag-encode32!")

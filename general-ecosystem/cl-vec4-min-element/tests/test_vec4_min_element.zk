@@ -1,0 +1,11 @@
+// cl-vec4-min-element: Test Suite
+import "../vec4_min.zk"
+
+fn test_v4_min():
+    v: vector[float] := [5.0, -10.0, 3.0, 8.0]
+    if vec4_min_element(v) != -10.0: sys_exit(1)
+    print("test_v4_min passed")
+
+fn main():
+    test_v4_min()
+    print("✓ All tests passed for cl-vec4-min-element!")

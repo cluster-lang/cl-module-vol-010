@@ -1,0 +1,6 @@
+// cl-ts-autocorrelation-lag1-stage-100: Sample Autocorrelation Lag-1 Term Stage 100
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn autocorr_lag1_100(xt: float, xt1: float, m: float) -> float:
+    return ((xt - m) * (xt1 - m)) * 100.0

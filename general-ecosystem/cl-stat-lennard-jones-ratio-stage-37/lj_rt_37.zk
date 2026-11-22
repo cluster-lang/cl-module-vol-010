@@ -1,0 +1,7 @@
+// cl-stat-lennard-jones-ratio-stage-37: Lennard-Jones Inverse Distance Ratio Stage 37
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lj_inv_r6_37(sigma_over_r: float) -> float:
+    s2 := sigma_over_r * sigma_over_r
+    return s2 * s2 * s2 * 37.0

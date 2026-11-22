@@ -1,0 +1,11 @@
+// cl-varint-u32-encoded-size: 32-bit Varint Byte Count Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn varint32_size(val: int) -> int:
+    v := val & 4294967295
+    if v < 128: return 1
+    if v < 16384: return 2
+    if v < 2097152: return 3
+    if v < 268435456: return 4
+    return 5

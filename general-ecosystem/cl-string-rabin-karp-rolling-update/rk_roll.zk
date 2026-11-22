@@ -1,0 +1,9 @@
+// cl-string-rabin-karp-rolling-update: O(1) Rabin-Karp Rolling Hash Updater
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rabin_karp_roll(curr_hash: int, out_char: int, in_char: int, h: int, base: int, mod: int) -> int:
+    next_h := (base * (curr_hash - out_char * h) + in_char) % mod
+    if next_h < 0:
+        next_h = next_h + mod
+    return next_h

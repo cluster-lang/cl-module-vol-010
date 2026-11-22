@@ -1,0 +1,9 @@
+// cl-zigzag: Protocol Buffers ZigZag Signed Integer Codec
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_encode(n: int) -> int:
+    return (n << 1) ^ (n >> 63)
+
+fn zigzag_decode(z: int) -> int:
+    return (z >> 1) ^ (0 - (z & 1))

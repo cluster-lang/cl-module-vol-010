@@ -1,0 +1,11 @@
+// cl-tensor-4d-hypercube-norm-28: 4D 2x2x2x2 Hypercube Tensor Norm Stage 28
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_4d_norm_28(t: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 16:
+        s = s + t[i] * t[i]
+        i = i + 1
+    return s * 14.00

@@ -1,0 +1,14 @@
+// cl-vec5-hadamard: Test Suite
+import "../vec5_had.zk"
+
+fn test_v5_had():
+    a: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0]
+    b: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0]
+    vec5_hadamard(out, a, b)
+    if out[0] != 4.0 or out[4] != 4.0: sys_exit(1)
+    print("test_v5_had passed")
+
+fn main():
+    test_v5_had()
+    print("✓ All tests passed for cl-vec5-hadamard!")

@@ -1,0 +1,13 @@
+// cl-vec4-abs: Test Suite
+import "../vec4_abs.zk"
+
+fn test_v4_abs():
+    v: vector[float] := [-1.0, -2.0, 3.0, -4.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0]
+    vec4_abs(out, v)
+    if out[0] != 1.0 or out[1] != 2.0 or out[2] != 3.0 or out[3] != 4.0: sys_exit(1)
+    print("test_v4_abs passed")
+
+fn main():
+    test_v4_abs()
+    print("✓ All tests passed for cl-vec4-abs!")

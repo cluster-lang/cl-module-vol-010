@@ -1,0 +1,13 @@
+// cl-vec4-clamp: Test Suite
+import "../vec4_clamp.zk"
+
+fn test_v4_clamp():
+    v: vector[float] := [-2.0, 5.0, 15.0, 8.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0]
+    vec4_clamp(out, v, 0.0, 10.0)
+    if out[0] != 0.0 or out[1] != 5.0 or out[2] != 10.0 or out[3] != 8.0: sys_exit(1)
+    print("test_v4_clamp passed")
+
+fn main():
+    test_v4_clamp()
+    print("✓ All tests passed for cl-vec4-clamp!")

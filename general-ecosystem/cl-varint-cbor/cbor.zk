@@ -1,0 +1,10 @@
+// cl-varint-cbor: RFC 8949 CBOR Header Length Tag
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cbor_initial_byte(major_type: int, val: int) -> int:
+    mt := (major_type & 7) << 5
+    if val < 24: return mt | val
+    if val <= 255: return mt | 24
+    if val <= 65535: return mt | 25
+    return mt | 26

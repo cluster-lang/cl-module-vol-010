@@ -1,0 +1,19 @@
+// cl-string-jaro-winkler-prefix: Common Prefix Length Up to 4 Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn common_prefix_max4(s1: vector[int], s2: vector[int]) -> int:
+    max_len := 4
+    if s1.len() < max_len: max_len = s1.len()
+    if s2.len() < max_len: max_len = s2.len()
+    prefix := 0
+    cont := 1
+    while cont == 1:
+        if prefix < max_len:
+            if s1[prefix] == s2[prefix]:
+                prefix = prefix + 1
+            else:
+                cont = 0
+        else:
+            cont = 0
+    return prefix

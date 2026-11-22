@@ -1,0 +1,8 @@
+// cl-spatial-euclidean-dist-sq-2d-int: Squared Euclidean Distance between Two Integer Grid Points
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_dist_sq_2d(x1: int, y1: int, x2: int, y2: int) -> int:
+    dx := x1 - x2
+    dy := y1 - y2
+    return dx*dx + dy*dy

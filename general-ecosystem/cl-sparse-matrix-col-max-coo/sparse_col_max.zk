@@ -1,0 +1,20 @@
+// cl-sparse-matrix-col-max-coo: COO Sparse Matrix Column Maximum Entry
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_coo_col_max(cols: vector[int], vals: vector[int], target_col: int) -> int:
+    max_val := -2147483648
+    found := 0
+    i := 0
+    nnz := cols.len()
+    while i < nnz:
+        if cols[i] == target_col:
+            if found == 0:
+                max_val = vals[i]
+                found = 1
+            else:
+                if vals[i] > max_val:
+                    max_val = vals[i]
+        i = i + 1
+    if found == 0: return 0
+    return max_val

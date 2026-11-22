@@ -1,0 +1,9 @@
+// cl-string-levenshtein-threshold: Early Length Threshold Filter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lev_length_within_k(len1: int, len2: int, k: int) -> int:
+    diff := len1 - len2
+    if diff < 0: diff = 0 - diff
+    if diff > k: return 0
+    return 1

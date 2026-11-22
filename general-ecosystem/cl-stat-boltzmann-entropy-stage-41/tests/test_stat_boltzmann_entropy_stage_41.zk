@@ -1,0 +1,13 @@
+// cl-stat-boltzmann-entropy-stage-41: Test Suite
+import "../boltz_s_41.zk"
+
+fn test_run():
+    res := boltzmann_entropy_factor_41(10.0)
+    diff := res - 566.0661
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-boltzmann-entropy-stage-41!")

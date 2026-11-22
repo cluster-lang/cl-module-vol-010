@@ -1,0 +1,6 @@
+// cl-tensor-mode2-contract-stage-23: Tensor Mode-2 Vector Contraction Stage 23
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_mode2_contract_23(t0: float, t1: float, v0: float, v1: float) -> float:
+    return (t0*v0 + t1*v1) * 23.0

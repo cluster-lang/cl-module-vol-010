@@ -1,0 +1,9 @@
+// cl-varint-zigzag-encode32-exact: 32-bit Zigzag Sign-Encoding Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_encode32(n: int) -> int:
+    mask32 := 4294967295
+    shifted := (n << 1) & mask32
+    sign_ext := (n >> 31) & mask32
+    return (shifted ^ sign_ext) & mask32

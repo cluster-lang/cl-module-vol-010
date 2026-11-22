@@ -1,0 +1,12 @@
+// cl-varint-u32-encoded-size: Test Suite
+import "../v32_size.zk"
+
+fn test_v32_size():
+    if varint32_size(100) != 1: sys_exit(1)
+    if varint32_size(300) != 2: sys_exit(1)
+    if varint32_size(70000) != 3: sys_exit(1)
+    print("test_v32_size passed")
+
+fn main():
+    test_v32_size()
+    print("✓ All tests passed for cl-varint-u32-encoded-size!")

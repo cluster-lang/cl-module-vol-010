@@ -1,0 +1,11 @@
+// cl-sparse-csr-span-stage-99: Test Suite
+import "../csr_sp_99.zk"
+
+fn test_run():
+    res := csr_row_span_99(5, 12)
+    if res != 693: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-sparse-csr-span-stage-99!")

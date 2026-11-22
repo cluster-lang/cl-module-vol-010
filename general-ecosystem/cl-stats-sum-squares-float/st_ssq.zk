@@ -1,0 +1,12 @@
+// cl-stats-sum-squares-float: Sum of Squares Accumulator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_sum_squares(v: vector[float]) -> float:
+    sum := 0.0
+    n := v.len()
+    i := 0
+    while i < n:
+        sum = sum + v[i] * v[i]
+        i = i + 1
+    return sum

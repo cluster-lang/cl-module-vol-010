@@ -1,0 +1,47 @@
+// cl-string-rabin-karp-count: Count Non-Overlapping Pattern Matches
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rabin_karp_count_matches(text: vector[int], pattern: vector[int]) -> int:
+    t_len := text.len()
+    p_len := pattern.len()
+    if p_len == 0 or p_len > t_len: return 0
+
+    base := 256
+    modulus := 1000000007
+
+    h := 1
+    i := 0
+    while i < (p_len - 1):
+        h = (h * base) % modulus
+        i = i + 1
+
+    p_hash := 0
+    t_hash := 0
+    i = 0
+    while i < p_len:
+        p_hash = (p_hash * base + (pattern[i] & 255)) % modulus
+        t_hash = (t_hash * base + (text[i] & 255)) % modulus
+        i = i + 1
+
+    count := 0
+    i = 0
+    while i <= (t_len - p_len):
+        if p_hash == t_hash:
+            is_match := 1
+            j := 0
+            while j < p_len and is_match == 1:
+                if text[i + j] != pattern[j]:
+                    is_match = 0
+                j = j + 1
+            if is_match == 1:
+                count = count + 1
+                i = i + p_len - 1
+
+        if i < (t_len - p_len):
+            leading := (text[i] & 255) * h
+            t_hash = (t_hash - (leading % modulus) + modulus) % modulus
+            t_hash = (t_hash * base + (text[i + p_len] & 255)) % modulus
+        i = i + 1
+
+    return count

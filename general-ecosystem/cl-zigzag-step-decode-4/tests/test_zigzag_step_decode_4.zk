@@ -1,0 +1,11 @@
+// cl-zigzag-step-decode-4: Test Suite
+import "../zz_dec_4.zk"
+
+fn test_run():
+    res := zigzag_dec_4(8)
+    if res != 4: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zigzag-step-decode-4!")

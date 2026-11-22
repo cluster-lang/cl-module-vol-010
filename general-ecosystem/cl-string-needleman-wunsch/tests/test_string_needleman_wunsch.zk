@@ -1,0 +1,12 @@
+// cl-string-needleman-wunsch: Test Suite
+import "../needleman.zk"
+
+fn test_needleman():
+    // Identical strings "abc" and "abc", match=+1, mismatch=-1, gap=-1 -> score +3
+    sc := needleman_wunsch_score("abc", "abc", 1, -1, -1)
+    if sc != 3: sys_exit(1)
+    print("test_needleman passed: identical alignment score verified")
+
+fn main():
+    test_needleman()
+    print("✓ All tests passed for cl-string-needleman-wunsch!")

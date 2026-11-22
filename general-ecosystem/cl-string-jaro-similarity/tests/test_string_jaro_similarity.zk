@@ -1,0 +1,13 @@
+// cl-string-jaro-similarity: Test Suite
+import "../jaro_sim.zk"
+
+fn test_jaro_sim():
+    score := jaro_similarity_score(5, 5, 5, 0)
+    diff := score - 1.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_jaro_sim passed: exact match jaro score 1.0 verified")
+
+fn main():
+    test_jaro_sim()
+    print("✓ All tests passed for cl-string-jaro-similarity!")

@@ -1,0 +1,13 @@
+// cl-varint-signed: Protobuf Signed ZigZag Varint Encoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_encode(n: int) -> int:
+    return (n << 1) ^ (n >> 63)
+
+fn zigzag_varint_encode(val: int, out: vector[int]):
+    u := zigzag_encode(val)
+    while (u & -128) != 0: // 0xFFFFFFFFFFFFFF80
+        out.push((u & 127) | 128)
+        u = (u >> 7) & 144115188075855871 // mask after right shift
+    out.push(u & 127)

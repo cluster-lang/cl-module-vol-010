@@ -1,0 +1,16 @@
+// cl-stat-similarity-jaccard-int: Jaccard Index on Integer Bitmasks (Intersection / Union)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jaccard_bitmask_8(m1: int, m2: int) -> float:
+    inter := m1 & m2
+    union_m := m1 | m2
+    if union_m == 0: return 1.0
+    c_inter := 0
+    c_union := 0
+    i := 0
+    while i < 8:
+        if (inter & (1 << i)) != 0: c_inter = c_inter + 1
+        if (union_m & (1 << i)) != 0: c_union = c_union + 1
+        i = i + 1
+    return float(c_inter) / float(c_union)

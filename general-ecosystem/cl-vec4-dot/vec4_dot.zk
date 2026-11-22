@@ -1,0 +1,6 @@
+// cl-vec4-dot: 4D Vector Dot Product Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_dot(a: vector[float], b: vector[float]) -> float:
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3]

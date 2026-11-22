@@ -1,0 +1,10 @@
+// cl-unpack-u32-byte2: Test Suite
+import "../un32_2.zk"
+
+fn test_un32_2():
+    if unpack_u32_b2(305419896) != 52: sys_exit(1)
+    print("test_un32_2 passed")
+
+fn main():
+    test_un32_2()
+    print("✓ All tests passed for cl-unpack-u32-byte2!")

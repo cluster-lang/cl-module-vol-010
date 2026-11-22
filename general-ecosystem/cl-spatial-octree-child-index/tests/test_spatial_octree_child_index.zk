@@ -1,0 +1,11 @@
+// cl-spatial-octree-child-index: Test Suite
+import "../ot_cidx.zk"
+
+fn test_run():
+    res := octree_child_index(0.0, 0.0, 0.0, 5.0, 5.0, 5.0)
+    if res != 7: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-octree-child-index!")

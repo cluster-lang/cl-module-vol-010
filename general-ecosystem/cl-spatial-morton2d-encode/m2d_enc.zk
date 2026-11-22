@@ -1,0 +1,17 @@
+// cl-spatial-morton2d-encode: Interleave 16-Bit X and Y Coordinates into 32-Bit Morton Code
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn morton2d_encode(x: int, y: int) -> int:
+    mask32 := 4294967295
+    nx := x & 65535
+    nx = (nx ^ (nx << 8)) & 16711935
+    nx = (nx ^ (nx << 4)) & 252645135
+    nx = (nx ^ (nx << 2)) & 858993459
+    nx = (nx ^ (nx << 1)) & 1431655765
+    ny := y & 65535
+    ny = (ny ^ (ny << 8)) & 16711935
+    ny = (ny ^ (ny << 4)) & 252645135
+    ny = (ny ^ (ny << 2)) & 858993459
+    ny = (ny ^ (ny << 1)) & 1431655765
+    return (nx | (ny << 1)) & mask32

@@ -1,0 +1,13 @@
+// cl-triangle3d-area: Test Suite
+import "../tri_area.zk"
+
+fn test_tri_area():
+    // Right triangle in XY: (0,0,0), (4,0,0), (0,3,0) -> area is 0.5 * 4 * 3 = 6.0
+    a := triangle3d_area(0.0, 0.0, 0.0, 4.0, 0.0, 0.0, 0.0, 3.0, 0.0)
+    if a < 5.99: sys_exit(1)
+    if a > 6.01: sys_exit(1)
+    print("test_tri_area passed: 3D triangle surface area verified")
+
+fn main():
+    test_tri_area()
+    print("✓ All tests passed for cl-triangle3d-area!")

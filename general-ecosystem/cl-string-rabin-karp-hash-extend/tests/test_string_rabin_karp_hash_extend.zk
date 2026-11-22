@@ -1,0 +1,12 @@
+// cl-string-rabin-karp-hash-extend: Test Suite
+import "../rk_extend.zk"
+
+fn test_rk_extend():
+    h := rk_append_char(10, 5, 256, 1000000007)
+    // 10 * 256 + 5 = 2565
+    if h != 2565: sys_exit(1)
+    print("test_rk_extend passed: rolling hash character append verified")
+
+fn main():
+    test_rk_extend()
+    print("✓ All tests passed for cl-string-rabin-karp-hash-extend!")

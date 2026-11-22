@@ -1,0 +1,14 @@
+// cl-vec4-lerp: Test Suite
+import "../vec4_lerp.zk"
+
+fn test_v4_lerp():
+    a: vector[float] := [0.0, 10.0, 20.0, 30.0]
+    b: vector[float] := [10.0, 20.0, 30.0, 40.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0]
+    vec4_lerp(out, a, b, 0.5)
+    if out[0] != 5.0 or out[1] != 15.0 or out[2] != 25.0 or out[3] != 35.0: sys_exit(1)
+    print("test_v4_lerp passed")
+
+fn main():
+    test_v4_lerp()
+    print("✓ All tests passed for cl-vec4-lerp!")

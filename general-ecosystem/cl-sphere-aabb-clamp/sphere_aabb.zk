@@ -1,0 +1,17 @@
+// cl-sphere-aabb-clamp: Sphere-AABB Clamped Distance Squared
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sphere_aabb_dist_sq(c: vector[float], min_b: vector[float], max_b: vector[float]) -> float:
+    dsq := 0.0
+    i := 0
+    while i < 3:
+        val := c[i]
+        if val < min_b[i]:
+            d := min_b[i] - val
+            dsq = dsq + d * d
+        if val > max_b[i]:
+            d := val - max_b[i]
+            dsq = dsq + d * d
+        i = i + 1
+    return dsq

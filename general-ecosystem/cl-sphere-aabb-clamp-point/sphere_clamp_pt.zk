@@ -1,0 +1,12 @@
+// cl-sphere-aabb-clamp-point: Closest Point on AABB to Sphere Center Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn closest_point_on_aabb3d(out: vector[float], sc: vector[float], min_b: vector[float], max_b: vector[float]):
+    i := 0
+    while i < 3:
+        val := sc[i]
+        if val < min_b[i]: val = min_b[i]
+        if val > max_b[i]: val = max_b[i]
+        out.push(val)
+        i = i + 1

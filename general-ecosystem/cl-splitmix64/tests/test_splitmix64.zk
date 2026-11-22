@@ -1,0 +1,14 @@
+// cl-splitmix64: Test Suite
+import "../splitmix64.zk"
+
+fn test_splitmix():
+    st: vector[int] := [0]
+    out1 := splitmix64_next(st)
+    if out1 != -2905860778229888552: sys_exit(1) // 0xe220a8397b1dcdaf
+    out2 := splitmix64_next(st)
+    if out2 != 3438444970889121767: sys_exit(1)  // 0x6e789e6aa1b965f4
+    print("test_splitmix passed: official SplitMix64 test vectors verified")
+
+fn main():
+    test_splitmix()
+    print("✓ All tests passed for cl-splitmix64!")

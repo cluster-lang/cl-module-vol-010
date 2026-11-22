@@ -1,0 +1,6 @@
+// cl-stat-maxwell-speed-sq-stage-97: Maxwell-Boltzmann Speed Density Factor Stage 97
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn maxwell_speed_factor_97(v: float) -> float:
+    return v * v * 97.0

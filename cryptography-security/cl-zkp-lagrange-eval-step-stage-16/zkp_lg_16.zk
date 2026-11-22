@@ -1,0 +1,6 @@
+// cl-zkp-lagrange-eval-step-stage-16: Polynomial Lagrange Basis Evaluation Step Stage 16
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lagrange_step_16(y: float, num: float, den: float) -> float:
+    return (y * num / den) * 16.0

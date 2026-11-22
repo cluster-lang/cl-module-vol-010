@@ -1,0 +1,13 @@
+// cl-vec4-homogenize: Test Suite
+import "../vec4_homo.zk"
+
+fn test_v4_homo():
+    v: vector[float] := [4.0, 6.0, 8.0, 2.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0]
+    vec4_homogenize(out, v)
+    if out[0] != 2.0 or out[1] != 3.0 or out[2] != 4.0 or out[3] != 1.0: sys_exit(1)
+    print("test_v4_homo passed")
+
+fn main():
+    test_v4_homo()
+    print("✓ All tests passed for cl-vec4-homogenize!")

@@ -1,0 +1,12 @@
+// cl-varint-zigzag-stream: Test Suite
+import "../zz_stream.zk"
+
+fn test_zz():
+    if zigzag_decode32(0) != 0: sys_exit(1)
+    if zigzag_decode32(1) != -1: sys_exit(1)
+    if zigzag_decode32(2) != 1: sys_exit(1)
+    print("test_zz passed: zigzag decoding verified")
+
+fn main():
+    test_zz()
+    print("✓ All tests passed for cl-varint-zigzag-stream!")

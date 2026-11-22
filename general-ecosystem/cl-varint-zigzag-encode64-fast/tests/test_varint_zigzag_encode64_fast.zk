@@ -1,0 +1,13 @@
+// cl-varint-zigzag-encode64-fast: Test Suite
+import "../zz64_fast.zk"
+
+fn test_zz64_fast():
+    if zigzag_encode64_fast(0) != 0: sys_exit(1)
+    if zigzag_encode64_fast(-1) != 1: sys_exit(2)
+    if zigzag_encode64_fast(1) != 2: sys_exit(3)
+    if zigzag_encode64_fast(-2) != 3: sys_exit(4)
+    print("test_zz64_fast passed: 64-bit zigzag encoding verified")
+
+fn main():
+    test_zz64_fast()
+    print("✓ All tests passed for cl-varint-zigzag-encode64-fast!")

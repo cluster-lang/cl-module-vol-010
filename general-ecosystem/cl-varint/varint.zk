@@ -1,0 +1,31 @@
+// cl-varint: Protocol Buffers LEB128 Varint Codec
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn varint_encode(val: int) -> vector[int]:
+    bytes: vector[int] := []
+    v := val
+    while v >= 128:
+        bytes.push((v & 127) | 128)
+        v = v >> 7
+    bytes.push(v & 127)
+    return bytes
+
+fn varint_decode(bytes: vector[int]) -> int:
+    val := 0
+    shift := 0
+    i := 0
+    blen := bytes.len()
+    loop := 1
+    while loop == 1:
+        if i >= blen:
+            loop = 0
+        else:
+            b := bytes[i]
+            val = val | ((b & 127) << shift)
+            if (b & 128) == 0:
+                loop = 0
+            else:
+                shift = shift + 7
+                i = i + 1
+    return val

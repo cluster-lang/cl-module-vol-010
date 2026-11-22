@@ -1,0 +1,13 @@
+// cl-string-jaro-winkler-prefix4: Test Suite
+import "../jw_pref4.zk"
+
+fn test_jw_pref4():
+    s1: vector[int] := [65, 66, 67, 68]
+    s2: vector[int] := [65, 66, 67, 69]
+    p := jw_extract_prefix4(s1, s2)
+    if p != 3: sys_exit(1)
+    print("test_jw_pref4 passed: prefix 3 verified")
+
+fn main():
+    test_jw_pref4()
+    print("✓ All tests passed for cl-string-jaro-winkler-prefix4!")

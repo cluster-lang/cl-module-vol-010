@@ -1,0 +1,18 @@
+// cl-spooky-hash32: SpookyHash 32-bit Fast Mixer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn spooky32_mix(s: string, seed: int) -> int:
+    mask32 := 4294967295
+    sc := 3735928559 // 0xDEADBEEF
+    h := (seed + sc) & mask32
+    i := 0
+    slen := len(s)
+    while i < slen:
+        b := byte_at(s, i) & 255
+        h = (h + (b * 2654435761)) & mask32 // Knuth golden ratio
+        h = (h ^ (h >> 13)) & mask32
+        h = (h + (h << 7)) & mask32
+        i = i + 1
+    h = (h ^ (h >> 15)) & mask32
+    return h

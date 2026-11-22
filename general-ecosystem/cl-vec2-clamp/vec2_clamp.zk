@@ -1,0 +1,13 @@
+// cl-vec2-clamp: 2D Vector Component-wise Clamping
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_clamp(out: vector[float], v: vector[float], min_val: float, max_val: float):
+    x := v[0]
+    if x < min_val: x = min_val
+    if x > max_val: x = max_val
+    y := v[1]
+    if y < min_val: y = min_val
+    if y > max_val: y = max_val
+    out[0] = x
+    out[1] = y

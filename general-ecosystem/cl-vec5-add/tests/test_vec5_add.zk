@@ -1,0 +1,14 @@
+// cl-vec5-add: Test Suite
+import "../vec5_add.zk"
+
+fn test_v5_add():
+    a: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0]
+    b: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0]
+    vec5_add(out, a, b)
+    if out[0] != 3.0 or out[4] != 3.0: sys_exit(1)
+    print("test_v5_add passed")
+
+fn main():
+    test_v5_add()
+    print("✓ All tests passed for cl-vec5-add!")

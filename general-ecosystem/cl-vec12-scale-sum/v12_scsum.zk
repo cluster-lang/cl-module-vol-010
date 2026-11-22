@@ -1,0 +1,11 @@
+// cl-vec12-scale-sum: 12D Vector Scaled Component Sum
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec12_scale_sum(a: vector[float], s: float) -> float:
+    sum := 0.0
+    i := 0
+    while i < 12:
+        sum = sum + a[i]
+        i = i + 1
+    return sum * s

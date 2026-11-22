@@ -1,0 +1,20 @@
+// cl-triangle3d-circumcenter-dist: Test Suite
+import "../circum.zk"
+
+fn test_circum():
+    // Right triangle at (0,0), (4,0), (0,6): circumcenter is midpoint of hypotenuse = (2, 3)
+    v0: vector[float] := [0.0, 0.0]
+    v1: vector[float] := [4.0, 0.0]
+    v2: vector[float] := [0.0, 6.0]
+    c: vector[float] := [0.0, 0.0]
+    triangle2d_circumcenter(c, v0, v1, v2)
+    diff_x := c[0] - 2.0
+    if diff_x < 0.0: diff_x = 0.0 - diff_x
+    diff_y := c[1] - 3.0
+    if diff_y < 0.0: diff_y = 0.0 - diff_y
+    if diff_x > 0.0001 or diff_y > 0.0001: sys_exit(1)
+    print("test_circum passed")
+
+fn main():
+    test_circum()
+    print("✓ All tests passed for cl-triangle3d-circumcenter-dist!")

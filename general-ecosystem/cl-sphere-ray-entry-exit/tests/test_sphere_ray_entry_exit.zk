@@ -1,0 +1,16 @@
+// cl-sphere-ray-entry-exit: Test Suite
+import "../sphere_entry.zk"
+
+fn test_sphere_entry():
+    hits := sphere_ray_entry_exit(0.0, 0.0, -5.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0)
+    diff0 := hits[0] - 3.0
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    if diff0 > 0.01: sys_exit(1)
+    diff1 := hits[1] - 7.0
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff1 > 0.01: sys_exit(2)
+    print("test_sphere_entry passed: t0=3, t1=7 verified")
+
+fn main():
+    test_sphere_entry()
+    print("✓ All tests passed for cl-sphere-ray-entry-exit!")

@@ -1,0 +1,13 @@
+// cl-ts-ar1-predict-stage-46: Test Suite
+import "../ts_ar_46.zk"
+
+fn test_run():
+    res := ar1_predict_46(2.0, 0.8, 10.0)
+    diff := res - 460.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ts-ar1-predict-stage-46!")

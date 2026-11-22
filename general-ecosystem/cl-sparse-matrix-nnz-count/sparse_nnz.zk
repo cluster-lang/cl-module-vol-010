@@ -1,0 +1,12 @@
+// cl-sparse-matrix-nnz-count: Non-Zero Threshold Counter Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_count_above_threshold(vals: vector[int], threshold: int) -> int:
+    count := 0
+    i := 0
+    n := vals.len()
+    while i < n:
+        if vals[i] > threshold: count = count + 1
+        i = i + 1
+    return count

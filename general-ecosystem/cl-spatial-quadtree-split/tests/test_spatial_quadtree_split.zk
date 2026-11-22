@@ -1,0 +1,14 @@
+// cl-spatial-quadtree-split: Test Suite
+import "../qt_split.zk"
+
+fn test_qt_split():
+    // mid at (50, 50)
+    if quadtree_quadrant(20, 20, 50, 50) != 0: sys_exit(1) // SW
+    if quadtree_quadrant(80, 20, 50, 50) != 1: sys_exit(1) // SE
+    if quadtree_quadrant(20, 80, 50, 50) != 2: sys_exit(1) // NW
+    if quadtree_quadrant(80, 80, 50, 50) != 3: sys_exit(1) // NE
+    print("test_qt_split passed: quadrant routing verified")
+
+fn main():
+    test_qt_split()
+    print("✓ All tests passed for cl-spatial-quadtree-split!")

@@ -1,0 +1,14 @@
+// cl-string-edit-distance-filter: Test Suite
+import "../ed_filt.zk"
+
+fn test_ed_filt():
+    f1: vector[int] := [1, 2, 3]
+    f2: vector[int] := [1, 0, 5]
+    // |1-1| + |2-0| + |3-5| = 0 + 2 + 2 = 4
+    d := l1_frequency_dist(f1, f2)
+    if d != 4: sys_exit(1)
+    print("test_ed_filt passed: L1 frequency metric verified")
+
+fn main():
+    test_ed_filt()
+    print("✓ All tests passed for cl-string-edit-distance-filter!")

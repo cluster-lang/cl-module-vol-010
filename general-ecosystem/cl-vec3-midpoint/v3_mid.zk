@@ -1,0 +1,6 @@
+// cl-vec3-midpoint: Midpoint Between Two 3D Points
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_midpoint(a: vector[float], b: vector[float]) -> vector[float]:
+    return [0.5 * (a[0] + b[0]), 0.5 * (a[1] + b[1]), 0.5 * (a[2] + b[2])]

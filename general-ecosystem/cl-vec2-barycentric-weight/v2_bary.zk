@@ -1,0 +1,12 @@
+// cl-vec2-barycentric-weight: Linear Interpolation Weight for 1D Segment Projection
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_segment_param(p: vector[float], a: vector[float], b: vector[float]) -> float:
+    abx := b[0] - a[0]
+    aby := b[1] - a[1]
+    ab_sq := abx*abx + aby*aby
+    if ab_sq <= 0.000001: return 0.0
+    apx := p[0] - a[0]
+    apy := p[1] - a[1]
+    return (apx*abx + apy*aby) / ab_sq

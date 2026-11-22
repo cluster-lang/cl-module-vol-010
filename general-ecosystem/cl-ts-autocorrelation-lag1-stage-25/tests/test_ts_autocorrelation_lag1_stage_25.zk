@@ -1,0 +1,13 @@
+// cl-ts-autocorrelation-lag1-stage-25: Test Suite
+import "../ts_ac_25.zk"
+
+fn test_run():
+    res := autocorr_lag1_25(12.0, 11.0, 10.0)
+    diff := res - 50.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ts-autocorrelation-lag1-stage-25!")

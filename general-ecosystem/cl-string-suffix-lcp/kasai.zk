@@ -1,0 +1,14 @@
+// cl-string-suffix-lcp: Inverted Suffix Array Rank Array Builder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn build_suffix_rank(sa: vector[int], rank: vector[int]):
+    n := sa.len()
+    i := 0
+    while i < n:
+        rank.push(0)
+        i = i + 1
+    i = 0
+    while i < n:
+        rank[sa[i]] = i
+        i = i + 1

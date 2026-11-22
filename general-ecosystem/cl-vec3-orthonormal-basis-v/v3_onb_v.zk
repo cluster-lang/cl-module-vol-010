@@ -1,0 +1,10 @@
+// cl-vec3-orthonormal-basis-v: Generate Orthonormal Vector V from N and U
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_onb_v(n: vector[float], u: vector[float]) -> vector[float]:
+    // cross(n, u)
+    cx := n[1]*u[2] - n[2]*u[1]
+    cy := n[2]*u[0] - n[0]*u[2]
+    cz := n[0]*u[1] - n[1]*u[0]
+    return [cx, cy, cz]

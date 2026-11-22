@@ -1,0 +1,13 @@
+// cl-sparse-matrix-filter-coo: Filter COO Matrix Entries Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_coo_filter_into(out_r: vector[int], out_c: vector[int], out_v: vector[int], r: vector[int], c: vector[int], v: vector[int], min_val: int):
+    i := 0
+    nnz := r.len()
+    while i < nnz:
+        if v[i] >= min_val:
+            out_r.push(r[i])
+            out_c.push(c[i])
+            out_v.push(v[i])
+        i = i + 1

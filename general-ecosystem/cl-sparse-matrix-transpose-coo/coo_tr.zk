@@ -1,0 +1,13 @@
+// cl-sparse-matrix-transpose-coo: COO Sparse Matrix Transposition
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Triplet format: [r, c, v] -> swapped to [c, r, v]
+fn coo_transpose(out: vector[int], in_triplets: vector[int]):
+    n := in_triplets.len() / 3
+    i := 0
+    while i < n:
+        out.push(in_triplets[(i * 3) + 1])
+        out.push(in_triplets[i * 3])
+        out.push(in_triplets[(i * 3) + 2])
+        i = i + 1

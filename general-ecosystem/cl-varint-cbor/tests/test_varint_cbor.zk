@@ -1,0 +1,13 @@
+// cl-varint-cbor: Test Suite
+import "../cbor.zk"
+
+fn test_cbor():
+    // Major type 0 (unsigned int)
+    if cbor_initial_byte(0, 10) != 10: sys_exit(1)
+    if cbor_initial_byte(0, 100) != 24: sys_exit(1)
+    if cbor_initial_byte(0, 1000) != 25: sys_exit(1)
+    print("test_cbor passed: CBOR header tag byte verified")
+
+fn main():
+    test_cbor()
+    print("✓ All tests passed for cl-varint-cbor!")

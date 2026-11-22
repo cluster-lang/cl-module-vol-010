@@ -1,0 +1,17 @@
+// cl-sparse-matrix-csc: Compressed Sparse Column Vector Product
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn csc_matvec(vals: vector[int], row_idx: vector[int], col_ptr: vector[int], x: vector[int], y: vector[int]):
+    num_cols := col_ptr.len() - 1
+    c := 0
+    while c < num_cols:
+        start_idx := col_ptr[c]
+        end_idx := col_ptr[c + 1]
+        xc := x[c]
+        p := start_idx
+        while p < end_idx:
+            r := row_idx[p]
+            y[r] = y[r] + (vals[p] * xc)
+            p = p + 1
+        c = c + 1

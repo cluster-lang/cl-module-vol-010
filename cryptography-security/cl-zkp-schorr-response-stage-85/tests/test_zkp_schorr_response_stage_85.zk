@@ -1,0 +1,11 @@
+// cl-zkp-schorr-response-stage-85: Test Suite
+import "../zkp_sr_85.zk"
+
+fn test_run():
+    res := schnorr_resp_85(10, 4, 25)
+    if res != 195: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-schorr-response-stage-85!")

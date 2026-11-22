@@ -1,0 +1,16 @@
+// cl-stat-distance-bray-curtis-3d: Bray-Curtis Dissimilarity Distance 3D
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn bray_curtis_3d(u: vector[float], v: vector[float]) -> float:
+    diff_sum := 0.0
+    total_sum := 0.0
+    i := 0
+    while i < 3:
+        d := u[i] - v[i]
+        if d < 0.0: d = 0.0 - d
+        diff_sum = diff_sum + d
+        total_sum = total_sum + u[i] + v[i]
+        i = i + 1
+    if total_sum <= 0.000001: return 0.0
+    return diff_sum / total_sum

@@ -1,0 +1,20 @@
+// cl-xoroshiro128: Xoroshiro128+ Fast Pseudo-Random Generator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rotl_64(x: int, b: int) -> int:
+    mask := (1 << b) - 1
+    right := (x >> (64 - b)) & mask
+    left := x << b
+    return left | right
+
+fn xoroshiro_next(state: vector[int]) -> int:
+    s0 := state[0]
+    s1 := state[1]
+    result := s0 + s1
+
+    s1 = s1 ^ s0
+    state[0] = rotl_64(s0, 24) ^ s1 ^ (s1 << 16)
+    state[1] = rotl_64(s1, 37)
+
+    return result

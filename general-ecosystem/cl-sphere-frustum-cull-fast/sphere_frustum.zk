@@ -1,0 +1,16 @@
+// cl-sphere-frustum-cull-fast: Fast Sphere Frustum Culling
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sphere_outside_plane(cx: float, cy: float, cz: float, r: float, a: float, b: float, c: float, d: float) -> int:
+    dist := a * cx + b * cy + c * cz + d
+    if dist < (0.0 - r):
+        return 1
+    return 0
+
+fn sphere_inside_box_frustum(cx: float, cy: float, cz: float, r: float) -> int:
+    if sphere_outside_plane(cx, cy, cz, r, 1.0, 0.0, 0.0, 100.0) == 1:
+        return 0
+    if sphere_outside_plane(cx, cy, cz, r, -1.0, 0.0, 0.0, 100.0) == 1:
+        return 0
+    return 1

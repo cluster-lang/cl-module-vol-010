@@ -1,0 +1,12 @@
+// cl-vec24-dist-squared: 24D Vector Squared Euclidean Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec24_dist_sq(a: vector[float], b: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 24:
+        d := a[i] - b[i]
+        s = s + d * d
+        i = i + 1
+    return s

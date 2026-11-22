@@ -1,0 +1,13 @@
+// cl-string-rabin-karp-count: Test Suite
+import "../rk_count.zk"
+
+fn test_rk_count():
+    t: vector[int] := [65, 66, 65, 66, 65, 66, 65]
+    p: vector[int] := [65, 66, 65]
+    c := rabin_karp_count_matches(t, p)
+    if c != 2: sys_exit(1)
+    print("test_rk_count passed: 2 non-overlapping occurrences verified")
+
+fn main():
+    test_rk_count()
+    print("✓ All tests passed for cl-string-rabin-karp-count!")

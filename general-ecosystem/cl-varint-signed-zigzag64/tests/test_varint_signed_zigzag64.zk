@@ -1,0 +1,15 @@
+// cl-varint-signed-zigzag64: Test Suite
+import "../zigzag64.zk"
+
+fn test_zigzag64():
+    if zigzag64_encode(0) != 0: sys_exit(1)
+    if zigzag64_encode(-1) != 1: sys_exit(1)
+    if zigzag64_encode(1) != 2: sys_exit(1)
+    if zigzag64_decode(0) != 0: sys_exit(1)
+    if zigzag64_decode(1) != -1: sys_exit(1)
+    if zigzag64_decode(2) != 1: sys_exit(1)
+    print("test_zigzag64 passed: 64-bit ZigZag encode/decode verified")
+
+fn main():
+    test_zigzag64()
+    print("✓ All tests passed for cl-varint-signed-zigzag64!")

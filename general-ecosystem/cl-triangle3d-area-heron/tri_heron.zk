@@ -1,0 +1,19 @@
+// cl-triangle3d-area-heron: Triangle Area via Heron's Formula
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0: return 0.0
+    s := val * 0.5
+    if s < 1.0: s = 1.0
+    iter := 0
+    while iter < 6:
+        s = (s + val / s) * 0.5
+        iter = iter + 1
+    return s
+
+fn triangle_heron_area(a: float, b: float, c: float) -> float:
+    s := (a + b + c) * 0.5
+    prod := s * (s - a) * (s - b) * (s - c)
+    if prod <= 0.0: return 0.0
+    return sqrt_approx(prod)

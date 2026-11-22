@@ -1,0 +1,15 @@
+// cl-string-levenshtein-matrix-row: Test Suite
+import "../lev_row.zk"
+
+fn test_lev_row():
+    prev: vector[int] := [0, 1, 2]
+    s2: vector[int] := [97, 98]
+    next_row := levenshtein_next_row(prev, 97, s2, 1)
+    if next_row[0] != 1: sys_exit(1)
+    if next_row[1] != 0: sys_exit(2)
+    if next_row[2] != 1: sys_exit(3)
+    print("test_lev_row passed: single DP row update verified")
+
+fn main():
+    test_lev_row()
+    print("✓ All tests passed for cl-string-levenshtein-matrix-row!")

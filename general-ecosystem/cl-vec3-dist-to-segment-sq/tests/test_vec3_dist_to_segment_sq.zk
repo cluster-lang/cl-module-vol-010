@@ -1,0 +1,13 @@
+// cl-vec3-dist-to-segment-sq: Test Suite
+import "../v3_dsegsq.zk"
+
+fn test_op():
+    res := vec3_dist_segment_sq([5.0, 5.0, 0.0], [0.0, 0.0, 0.0], [10.0, 0.0, 0.0])
+    diff := float(res) - 25.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_op()
+    print("✓ All tests passed for cl-vec3-dist-to-segment-sq!")

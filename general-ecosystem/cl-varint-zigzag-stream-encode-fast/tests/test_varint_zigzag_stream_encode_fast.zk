@@ -1,0 +1,13 @@
+// cl-varint-zigzag-stream-encode-fast: Test Suite
+import "../zz_enc_stream.zk"
+
+fn test_zz_enc_stream():
+    ints: vector[int] := [0, -1, 1, -2]
+    enc: vector[int] := []
+    zigzag_encode_stream(enc, ints)
+    if enc[0] != 0 or enc[1] != 1 or enc[2] != 2 or enc[3] != 3: sys_exit(1)
+    print("test_zz_enc_stream passed")
+
+fn main():
+    test_zz_enc_stream()
+    print("✓ All tests passed for cl-varint-zigzag-stream-encode-fast!")

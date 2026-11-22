@@ -1,0 +1,8 @@
+// cl-sphere-ray-hit-point: 3D Sphere Surface Hit Point Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sphere_surface_hit_point(out: vector[float], ro: vector[float], rd: vector[float], t: float):
+    out.push(ro[0] + t * rd[0])
+    out.push(ro[1] + t * rd[1])
+    out.push(ro[2] + t * rd[2])

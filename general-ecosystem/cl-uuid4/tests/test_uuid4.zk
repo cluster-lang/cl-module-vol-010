@@ -1,0 +1,12 @@
+// cl-uuid4: Test Suite
+import "../uuid4.zk"
+
+fn test_uuid4():
+    u := uuid4_generate(42)
+    if not uuid4_validate(u): sys_exit(1)
+    print("Generated UUID v4: " + u)
+    print("test_uuid4 passed: RFC 4122 format verified")
+
+fn main():
+    test_uuid4()
+    print("✓ All tests passed for cl-uuid4!")

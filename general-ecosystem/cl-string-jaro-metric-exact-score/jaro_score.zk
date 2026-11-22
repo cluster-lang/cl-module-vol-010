@@ -1,0 +1,13 @@
+// cl-string-jaro-metric-exact-score: Full Jaro String Metric Evaluator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jaro_similarity_score(matches: int, transpositions: int, len1: int, len2: int) -> float:
+    if matches <= 0 or len1 <= 0 or len2 <= 0:
+        return 0.0
+    m_f := float(matches)
+    t_f := float(transpositions)
+    term1 := m_f / float(len1)
+    term2 := m_f / float(len2)
+    term3 := (m_f - t_f) / m_f
+    return (term1 + term2 + term3) / 3.0

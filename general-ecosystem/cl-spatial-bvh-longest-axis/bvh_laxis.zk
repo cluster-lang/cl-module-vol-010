@@ -1,0 +1,11 @@
+// cl-spatial-bvh-longest-axis: Determine Longest Axis of 3D Bounding Box (0=X, 1=Y, 2=Z)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn bvh_longest_axis(min_b: vector[float], max_b: vector[float]) -> int:
+    dx := max_b[0] - min_b[0]
+    dy := max_b[1] - min_b[1]
+    dz := max_b[2] - min_b[2]
+    if dx >= dy and dx >= dz: return 0
+    if dy >= dx and dy >= dz: return 1
+    return 2

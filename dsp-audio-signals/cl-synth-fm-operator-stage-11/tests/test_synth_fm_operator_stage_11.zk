@@ -1,0 +1,13 @@
+// cl-synth-fm-operator-stage-11: Test Suite
+import "../syn_fm_11.zk"
+
+fn test_run():
+    res := fm_carrier_phase_11(1.5, 2.0, 0.5)
+    diff := res - 27.5000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-synth-fm-operator-stage-11!")

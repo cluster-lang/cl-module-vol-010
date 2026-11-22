@@ -1,0 +1,14 @@
+// cl-vec6-norm-squared: Test Suite
+import "../vec6_nsq.zk"
+
+fn test_v6_nsq():
+    v: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    res := vec6_norm_squared(v)
+    diff := res - 24.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v6_nsq passed")
+
+fn main():
+    test_v6_nsq()
+    print("✓ All tests passed for cl-vec6-norm-squared!")

@@ -1,0 +1,11 @@
+// cl-xxhash64-lite: Test Suite
+import "../xxh64_lite.zk"
+
+fn test_xxh64():
+    acc := xxh64_round(0, 123456789)
+    if acc == 0: sys_exit(1)
+    print("test_xxh64 passed: core round verified")
+
+fn main():
+    test_xxh64()
+    print("✓ All tests passed for cl-xxhash64-lite!")

@@ -1,0 +1,7 @@
+// cl-spatial-grid-cell-1d: Compute Uniform 1D Grid Cell Index
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_cell_1d(pos: float, cell_size: float) -> int:
+    if cell_size <= 0.000001: return 0
+    return int(pos / cell_size)

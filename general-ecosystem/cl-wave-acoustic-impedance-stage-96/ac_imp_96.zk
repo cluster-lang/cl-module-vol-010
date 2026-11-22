@@ -1,0 +1,6 @@
+// cl-wave-acoustic-impedance-stage-96: Acoustic Specific Impedance Stage 96
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn acoustic_impedance_96(rho: float, c_sound: float) -> float:
+    return rho * c_sound * 96.0

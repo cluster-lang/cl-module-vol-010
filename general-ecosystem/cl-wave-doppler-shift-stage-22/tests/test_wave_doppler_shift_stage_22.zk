@@ -1,0 +1,13 @@
+// cl-wave-doppler-shift-stage-22: Test Suite
+import "../dop_sh_22.zk"
+
+fn test_run():
+    res := doppler_factor_22(340.0, 34.0)
+    diff := res - 24.4444
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-wave-doppler-shift-stage-22!")

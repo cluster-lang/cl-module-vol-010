@@ -1,0 +1,6 @@
+// cl-vec2-rotate-90-cw: Rotate 2D Vector 90 Degrees Clockwise
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_rotate_90_cw(v: vector[float]) -> vector[float]:
+    return [v[1], 0.0 - v[0]]

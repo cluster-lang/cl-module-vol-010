@@ -1,0 +1,16 @@
+// cl-vec3-manhattan-distance: Test Suite
+import "../vec3_man_dist.zk"
+
+fn test_v3_man_dist():
+    a: vector[float] := [1.0, 2.0, 3.0]
+    b: vector[float] := [4.0, 6.0, 8.0]
+    // 3 + 4 + 5 = 12.0
+    res := vec3_manhattan_distance(a, b)
+    diff := res - 12.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v3_man_dist passed")
+
+fn main():
+    test_v3_man_dist()
+    print("✓ All tests passed for cl-vec3-manhattan-distance!")

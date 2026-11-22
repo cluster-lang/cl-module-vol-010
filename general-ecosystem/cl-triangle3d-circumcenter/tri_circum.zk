@@ -1,0 +1,17 @@
+// cl-triangle3d-circumcenter: 2D Projection Circumcenter Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle2d_circumcenter(out: vector[float], ax: float, ay: float, bx: float, by: float, cx: float, cy: float):
+    d := 2.0 * (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by))
+    if d == 0.0:
+        out.push(ax)
+        out.push(ay)
+        return
+    a2 := ax * ax + ay * ay
+    b2 := bx * bx + by * by
+    c2 := cx * cx + cy * cy
+    ux := (a2 * (by - cy) + b2 * (cy - ay) + c2 * (ay - by)) / d
+    uy := (a2 * (cx - bx) + b2 * (ax - cx) + c2 * (bx - ax)) / d
+    out.push(ux)
+    out.push(uy)

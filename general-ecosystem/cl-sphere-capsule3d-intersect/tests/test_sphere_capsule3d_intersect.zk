@@ -1,0 +1,13 @@
+// cl-sphere-capsule3d-intersect: Test Suite
+import "../caps_sph.zk"
+
+fn test_caps_sph():
+    hit := sphere_capsule3d_overlap(5.0, 2.0, 0.0, 1.5, 0.0, 0.0, 0.0, 10.0, 0.0, 0.0, 1.0)
+    if hit != 1: sys_exit(1)
+    miss := sphere_capsule3d_overlap(5.0, 5.0, 0.0, 1.0, 0.0, 0.0, 0.0, 10.0, 0.0, 0.0, 1.0)
+    if miss != 0: sys_exit(2)
+    print("test_caps_sph passed: sphere-capsule overlap verified")
+
+fn main():
+    test_caps_sph()
+    print("✓ All tests passed for cl-sphere-capsule3d-intersect!")

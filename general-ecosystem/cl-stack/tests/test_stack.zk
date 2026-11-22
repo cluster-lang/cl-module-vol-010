@@ -1,0 +1,18 @@
+// cl-stack: Test Suite
+import "../stack.zk"
+
+fn test_stack():
+    s := stack_new()
+    stack_push(s, 10)
+    stack_push(s, 20)
+    stack_push(s, 30)
+    if stack_size(s) != 3: sys_exit(1)
+    if stack_peek(s) != 30: sys_exit(1)
+    if stack_pop(s) != 30: sys_exit(1)
+    if stack_pop(s) != 20: sys_exit(1)
+    if stack_size(s) != 1: sys_exit(1)
+    print("test_stack passed: LIFO verified")
+
+fn main():
+    test_stack()
+    print("✓ All tests passed for cl-stack!")

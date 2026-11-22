@@ -1,0 +1,13 @@
+// cl-tensor-khatri-rao-stage-79: Test Suite
+import "../kht_r_79.zk"
+
+fn test_run():
+    res := khatri_rao_col_79(2.0, 2.0, 2.0)
+    diff := res - 632.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-tensor-khatri-rao-stage-79!")

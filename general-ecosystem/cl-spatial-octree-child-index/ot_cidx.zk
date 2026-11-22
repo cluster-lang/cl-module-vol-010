@@ -1,0 +1,10 @@
+// cl-spatial-octree-child-index: Determine 3D Octree Child Index [0..7]
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn octree_child_index(cx: float, cy: float, cz: float, px: float, py: float, pz: float) -> int:
+    idx := 0
+    if px >= cx: idx = idx | 1
+    if py >= cy: idx = idx | 2
+    if pz >= cz: idx = idx | 4
+    return idx

@@ -1,0 +1,13 @@
+// cl-varint-zigzag-stream-bytes: Test Suite
+import "../zz_stream_bytes.zk"
+
+fn test_zz_stream_bytes():
+    if varint_wire_length(0) != 1: sys_exit(1)
+    if varint_wire_length(127) != 1: sys_exit(2)
+    if varint_wire_length(128) != 2: sys_exit(3)
+    if varint_wire_length(16384) != 3: sys_exit(4)
+    print("test_zz_stream_bytes passed: varint wire length verified")
+
+fn main():
+    test_zz_stream_bytes()
+    print("✓ All tests passed for cl-varint-zigzag-stream-bytes!")

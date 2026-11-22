@@ -1,0 +1,13 @@
+// cl-zkp-lagrange-eval-step-stage-7: Test Suite
+import "../zkp_lg_7.zk"
+
+fn test_run():
+    res := lagrange_step_7(5.0, 12.0, 3.0)
+    diff := res - 140.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-lagrange-eval-step-stage-7!")

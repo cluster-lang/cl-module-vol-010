@@ -1,0 +1,11 @@
+// cl-zkp-modular-reduction-stage-2: Test Suite
+import "../zkp_mr_2.zk"
+
+fn test_run():
+    res := mod_prime_2(1055, 997)
+    if res != 60: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-modular-reduction-stage-2!")

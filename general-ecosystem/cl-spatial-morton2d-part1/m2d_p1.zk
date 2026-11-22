@@ -1,0 +1,12 @@
+// cl-spatial-morton2d-part1: Spread Lower 16 Bits of Integer with 0s (Part 1 of Morton 2D)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn morton2d_part1(x: int) -> int:
+    mask32 := 4294967295
+    n := x & 65535
+    n = (n ^ (n << 8)) & 16711935
+    n = (n ^ (n << 4)) & 252645135
+    n = (n ^ (n << 2)) & 858993459
+    n = (n ^ (n << 1)) & 1431655765
+    return n & mask32

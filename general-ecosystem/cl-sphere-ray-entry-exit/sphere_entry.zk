@@ -1,0 +1,32 @@
+// cl-sphere-ray-entry-exit: Compute Ray Entry and Exit Distances for Sphere
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0:
+        return 0.0
+    x := val
+    i := 0
+    while i < 15:
+        x = 0.5 * (x + val / x)
+        i = i + 1
+    return x
+
+fn sphere_ray_entry_exit(ox: float, oy: float, oz: float, dx: float, dy: float, dz: float, cx: float, cy: float, cz: float, radius: float) -> vector[float]:
+    ocx := ox - cx
+    ocy := oy - cy
+    ocz := oz - cz
+
+    b := ocx * dx + ocy * dy + ocz * dz
+    c := ocx * ocx + ocy * ocy + ocz * ocz - radius * radius
+    disc := b * b - c
+
+    if disc < 0.0:
+        res_none: vector[float] := [-1.0, -1.0]
+        return res_none
+
+    s_disc := sqrt_approx(disc)
+    t0 := 0.0 - b - s_disc
+    t1 := 0.0 - b + s_disc
+    res: vector[float] := [t0, t1]
+    return res

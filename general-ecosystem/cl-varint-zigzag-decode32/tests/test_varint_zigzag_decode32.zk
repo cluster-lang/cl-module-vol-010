@@ -1,0 +1,13 @@
+// cl-varint-zigzag-decode32: Test Suite
+import "../zigzag_dec32.zk"
+
+fn test_zigzag_dec32():
+    if zigzag_decode32_val(0) != 0: sys_exit(1)
+    if zigzag_decode32_val(1) != -1: sys_exit(1)
+    if zigzag_decode32_val(2) != 1: sys_exit(1)
+    if zigzag_decode32_val(3) != -2: sys_exit(1)
+    print("test_zigzag_dec32 passed: 32-bit ZigZag decoder verified")
+
+fn main():
+    test_zigzag_dec32()
+    print("✓ All tests passed for cl-varint-zigzag-decode32!")

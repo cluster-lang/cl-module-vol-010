@@ -1,0 +1,6 @@
+name: "cl-test"
+version: "0.1.0"
+description: "Testing framework with describe/test/assert"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: []

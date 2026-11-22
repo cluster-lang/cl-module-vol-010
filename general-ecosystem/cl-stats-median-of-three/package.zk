@@ -1,0 +1,10 @@
+// cl-stats-median-of-three Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-stats-median-of-three"
+version := "1.0.0"
+description := "Fast Median of Three Numbers"
+main := "st_med3.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

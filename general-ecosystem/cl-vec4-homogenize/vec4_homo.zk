@@ -1,0 +1,19 @@
+// cl-vec4-homogenize: 4D Vector Perspective Homogenization
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_homogenize(out: vector[float], v: vector[float]):
+    w := v[3]
+    w_abs := w
+    if w_abs < 0.0: w_abs = 0.0 - w_abs
+    if w_abs > 0.000001:
+        inv_w := 1.0 / w
+        out[0] = v[0] * inv_w
+        out[1] = v[1] * inv_w
+        out[2] = v[2] * inv_w
+        out[3] = 1.0
+    else:
+        out[0] = v[0]
+        out[1] = v[1]
+        out[2] = v[2]
+        out[3] = 0.0

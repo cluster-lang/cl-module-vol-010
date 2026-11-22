@@ -1,0 +1,22 @@
+// cl-sparse-matrix-coo: Coordinate Format (COO) Sparse Matrix
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// COO representation: rows vector, cols vector, vals vector
+// Multiplies sparse matrix by dense vector x
+fn coo_mat_vec_mul(rows: vector[int], cols: vector[int], vals: vector[int], n_rows: int, x: vector[int]) -> vector[int]:
+    y: vector[int] := []
+    i := 0
+    while i < n_rows:
+        y.push(0)
+        i = i + 1
+
+    nnz := vals.len()
+    k := 0
+    while k < nnz:
+        r := rows[k]
+        c := cols[k]
+        v := vals[k]
+        y[r] = y[r] + (v * x[c])
+        k = k + 1
+    return y

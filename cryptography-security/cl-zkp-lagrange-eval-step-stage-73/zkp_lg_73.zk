@@ -1,0 +1,6 @@
+// cl-zkp-lagrange-eval-step-stage-73: Polynomial Lagrange Basis Evaluation Step Stage 73
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lagrange_step_73(y: float, num: float, den: float) -> float:
+    return (y * num / den) * 73.0

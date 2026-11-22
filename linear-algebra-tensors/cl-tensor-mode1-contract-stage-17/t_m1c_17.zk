@@ -1,0 +1,6 @@
+// cl-tensor-mode1-contract-stage-17: Tensor Mode-1 Vector Contraction Stage 17
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_mode1_contract_17(t0: float, t1: float, t2: float, v0: float, v1: float, v2: float) -> float:
+    return (t0*v0 + t1*v1 + t2*v2) * 17.0

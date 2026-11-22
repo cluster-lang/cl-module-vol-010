@@ -1,0 +1,14 @@
+// cl-string-levenshtein-matrix-cell: Levenshtein DP Single Cell Solver
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn solve_lev_cell(top: int, left: int, diag: int, match_flag: int) -> int:
+    cost := 1
+    if match_flag == 1: cost = 0
+    return min3(top + 1, left + 1, diag + cost)

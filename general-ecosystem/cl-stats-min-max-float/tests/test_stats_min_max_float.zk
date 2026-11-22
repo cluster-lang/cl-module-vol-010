@@ -1,0 +1,13 @@
+// cl-stats-min-max-float: Test Suite
+import "../st_mm.zk"
+
+fn test_st_mm():
+    v: vector[float] := [5.0, -2.0, 10.0, 3.0]
+    out: vector[float] := [0.0, 0.0]
+    stats_min_max(out, v)
+    if out[0] != -2.0 or out[1] != 10.0: sys_exit(1)
+    print("test_st_mm passed")
+
+fn main():
+    test_st_mm()
+    print("✓ All tests passed for cl-stats-min-max-float!")

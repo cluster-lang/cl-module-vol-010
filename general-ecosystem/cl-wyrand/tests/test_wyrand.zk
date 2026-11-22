@@ -1,0 +1,14 @@
+// cl-wyrand: Test Suite
+import "../wyrand.zk"
+
+fn test_wyrand():
+    st: vector[int] := [42]
+    r1 := wyrand_next(st)
+    r2 := wyrand_next(st)
+    if r1 == r2: sys_exit(1)
+    if r1 == 0: sys_exit(1)
+    print("test_wyrand passed: Wyrand 64-bit generator verified")
+
+fn main():
+    test_wyrand()
+    print("✓ All tests passed for cl-wyrand!")

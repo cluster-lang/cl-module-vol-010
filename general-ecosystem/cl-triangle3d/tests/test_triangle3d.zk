@@ -1,0 +1,14 @@
+// cl-triangle3d: Test Suite
+import "../tri3d.zk"
+
+fn test_tri3d():
+    // Triangle in XY plane at z=0: (0,0,0), (1,0,0), (0,1,0)
+    n := tri3d_normal(0, 0, 0, 1, 0, 0, 0, 1, 0)
+    if n[0] != 0: sys_exit(1)
+    if n[1] != 0: sys_exit(1)
+    if n[2] != 1: sys_exit(1) // +Z normal
+    print("test_tri3d passed: 3D triangle face normal verified")
+
+fn main():
+    test_tri3d()
+    print("✓ All tests passed for cl-triangle3d!")

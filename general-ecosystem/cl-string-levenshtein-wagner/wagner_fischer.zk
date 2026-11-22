@@ -1,0 +1,35 @@
+// cl-string-levenshtein-wagner: Wagner-Fischer Weighted Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min_of_3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn wagner_fischer_dist(s1: string, s2: string, sub_cost: int) -> int:
+    m := len(s1)
+    n := len(s2)
+    row: vector[int] := []
+    j := 0
+    while j <= n:
+        row.push(j)
+        j = j + 1
+
+    i := 1
+    while i <= m:
+        c1 := byte_at(s1, i - 1)
+        prev := row[0]
+        row[0] = i
+        j = 1
+        while j <= n:
+            c2 := byte_at(s2, j - 1)
+            temp := row[j]
+            cost := 0
+            if c1 != c2: cost = sub_cost
+            row[j] = min_of_3(row[j] + 1, row[j - 1] + 1, prev + cost)
+            prev = temp
+            j = j + 1
+        i = i + 1
+    return row[n]

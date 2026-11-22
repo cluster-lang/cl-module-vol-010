@@ -1,0 +1,12 @@
+// cl-string-distance-hamming: Test Suite
+import "../hamm_dist.zk"
+
+fn test_hamm():
+    if string_hamming_distance("karolin", "kathrin") != 3: sys_exit(1)
+    if string_hamming_distance("1011101", "1001001") != 2: sys_exit(1)
+    if string_hamming_distance("abc", "abcd") != -1: sys_exit(1)
+    print("test_hamm passed: string Hamming distance verified")
+
+fn main():
+    test_hamm()
+    print("✓ All tests passed for cl-string-distance-hamming!")

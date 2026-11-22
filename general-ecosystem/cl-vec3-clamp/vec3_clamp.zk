@@ -1,0 +1,17 @@
+// cl-vec3-clamp: 3D Vector Component-wise Clamping
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_clamp(out: vector[float], v: vector[float], min_val: float, max_val: float):
+    x := v[0]
+    if x < min_val: x = min_val
+    if x > max_val: x = max_val
+    y := v[1]
+    if y < min_val: y = min_val
+    if y > max_val: y = max_val
+    z := v[2]
+    if z < min_val: z = min_val
+    if z > max_val: z = max_val
+    out[0] = x
+    out[1] = y
+    out[2] = z

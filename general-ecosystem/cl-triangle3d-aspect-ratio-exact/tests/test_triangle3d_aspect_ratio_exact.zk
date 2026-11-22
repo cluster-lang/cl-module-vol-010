@@ -1,0 +1,13 @@
+// cl-triangle3d-aspect-ratio-exact: Test Suite
+import "../tri_aspect.zk"
+
+fn test_tri_aspect():
+    ratio := triangle3d_aspect_ratio(0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 1.0, 1.7320508, 0.0)
+    diff := ratio - 1.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.02: sys_exit(1)
+    print("test_tri_aspect passed: equilateral triangle aspect ratio ~1.0 verified")
+
+fn main():
+    test_tri_aspect()
+    print("✓ All tests passed for cl-triangle3d-aspect-ratio-exact!")

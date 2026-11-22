@@ -1,0 +1,13 @@
+// cl-stat-equipartition-stage-99: Test Suite
+import "../eq_en_99.zk"
+
+fn test_run():
+    res := equipartition_energy_99(100.0)
+    diff := res - 6834.2125
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-equipartition-stage-99!")

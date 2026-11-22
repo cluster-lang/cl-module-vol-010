@@ -1,0 +1,11 @@
+// cl-xorshift64: Marsaglia Xorshift 64-bit Fast PRNG
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn xorshift64_next(state: vector[int]) -> int:
+    x := state[0]
+    x = x ^ (x << 13)
+    x = x ^ (x >> 7)
+    x = x ^ (x << 17)
+    state[0] = x
+    return x

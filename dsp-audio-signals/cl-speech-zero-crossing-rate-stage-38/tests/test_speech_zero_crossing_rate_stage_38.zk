@@ -1,0 +1,11 @@
+// cl-speech-zero-crossing-rate-stage-38: Test Suite
+import "../sp_zc_38.zk"
+
+fn test_run():
+    res := zcr_step_38(5, -3)
+    if res != 38: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-speech-zero-crossing-rate-stage-38!")

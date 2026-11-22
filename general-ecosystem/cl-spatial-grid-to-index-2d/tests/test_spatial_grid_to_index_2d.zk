@@ -1,0 +1,11 @@
+// cl-spatial-grid-to-index-2d: Test Suite
+import "../grid_flat2d.zk"
+
+fn test_run():
+    res := grid_to_index_2d(3, 4, 10)
+    if res != 43: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-grid-to-index-2d!")

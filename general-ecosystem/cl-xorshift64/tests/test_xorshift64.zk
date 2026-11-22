@@ -1,0 +1,14 @@
+// cl-xorshift64: Test Suite
+import "../xorshift64.zk"
+
+fn test_xorshift64():
+    st: vector[int] := [88172645463325252]
+    r1 := xorshift64_next(st)
+    r2 := xorshift64_next(st)
+    if r1 == r2: sys_exit(1)
+    if r1 == 0: sys_exit(1)
+    print("test_xorshift64 passed: 64-bit Marsaglia triple shift verified")
+
+fn main():
+    test_xorshift64()
+    print("✓ All tests passed for cl-xorshift64!")

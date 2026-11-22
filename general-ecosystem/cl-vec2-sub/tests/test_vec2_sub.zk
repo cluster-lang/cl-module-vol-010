@@ -1,0 +1,18 @@
+// cl-vec2-sub: Test Suite
+import "../vec2_sub.zk"
+
+fn test_v2_sub():
+    a: vector[float] := [10.0, 20.0]
+    b: vector[float] := [4.0, 8.0]
+    out: vector[float] := [0.0, 0.0]
+    vec2_sub(out, a, b)
+    diff0 := out[0] - 6.0
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    diff1 := out[1] - 12.0
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff0 > 0.0001 or diff1 > 0.0001: sys_exit(1)
+    print("test_v2_sub passed")
+
+fn main():
+    test_v2_sub()
+    print("✓ All tests passed for cl-vec2-sub!")

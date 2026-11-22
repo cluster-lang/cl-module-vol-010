@@ -1,0 +1,14 @@
+// cl-stats-range-float: Test Suite
+import "../st_rng.zk"
+
+fn test_st_rng():
+    v: vector[float] := [1.0, 8.0, 3.0, -2.0]
+    res := stats_range(v)
+    diff := res - 10.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_st_rng passed")
+
+fn main():
+    test_st_rng()
+    print("✓ All tests passed for cl-stats-range-float!")

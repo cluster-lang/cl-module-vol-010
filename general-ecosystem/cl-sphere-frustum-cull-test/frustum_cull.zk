@@ -1,0 +1,17 @@
+// cl-sphere-frustum-cull-test: Bounding Sphere 6-Plane Frustum Culling
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sphere_in_frustum(cx: float, cy: float, cz: float, r: float, planes: vector[float]) -> int:
+    i := 0
+    while i < 6:
+        base := i * 4
+        a := planes[base]
+        b := planes[base + 1]
+        c := planes[base + 2]
+        d := planes[base + 3]
+        dist := a * cx + b * cy + c * cz + d
+        if dist < (0.0 - r):
+            return 0
+        i = i + 1
+    return 1

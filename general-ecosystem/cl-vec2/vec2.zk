@@ -1,0 +1,29 @@
+// cl-vec2: Pure Cluster 2D Vector Mathematics
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model Vec2:
+    x: int
+    y: int
+
+fn vec2_add(a: Vec2, b: Vec2) -> Vec2:
+    return Vec2(a.x + b.x, a.y + b.y)
+
+fn vec2_sub(a: Vec2, b: Vec2) -> Vec2:
+    return Vec2(a.x - b.x, a.y - b.y)
+
+fn vec2_scale(a: Vec2, s: int) -> Vec2:
+    return Vec2(a.x * s, a.y * s)
+
+fn vec2_dot(a: Vec2, b: Vec2) -> int:
+    return (a.x * b.x) + (a.y * b.y)
+
+fn vec2_cross(a: Vec2, b: Vec2) -> int:
+    return (a.x * b.y) - (a.y * b.x)
+
+fn vec2_len_sq(a: Vec2) -> int:
+    return vec2_dot(a, a)
+
+fn vec2_dist_sq(a: Vec2, b: Vec2) -> int:
+    d := vec2_sub(a, b)
+    return vec2_len_sq(d)

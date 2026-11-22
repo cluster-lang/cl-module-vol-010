@@ -1,0 +1,6 @@
+// cl-synth-adsr-envelope-attack-stage-54: Linear ADSR Attack Segment Stage 54
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn adsr_attack_54(t: float, t_att: float) -> float:
+    return (t / t_att) * 54.0

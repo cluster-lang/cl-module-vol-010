@@ -1,0 +1,22 @@
+// cl-sparse-matrix-dense-mul-transpose-coo: Test Suite
+import "../coo_trans.zk"
+
+fn test_coo_trans():
+    rows: vector[int] := [0, 1]
+    cols: vector[int] := [1, 0]
+    vals: vector[float] := [3.0, 5.0]
+    x: vector[float] := [2.0, 4.0]
+    y: vector[float] := [0.0, 0.0]
+    sparse_coo_matvec_transpose_mul(y, rows, cols, vals, x)
+    // y[1] += vals[0] * x[0] = 3.0 * 2.0 = 6.0
+    // y[0] += vals[1] * x[1] = 5.0 * 4.0 = 20.0
+    diff0 := y[0] - 20.0
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    diff1 := y[1] - 6.0
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff0 > 0.0001 or diff1 > 0.0001: sys_exit(1)
+    print("test_coo_trans passed")
+
+fn main():
+    test_coo_trans()
+    print("✓ All tests passed for cl-sparse-matrix-dense-mul-transpose-coo!")

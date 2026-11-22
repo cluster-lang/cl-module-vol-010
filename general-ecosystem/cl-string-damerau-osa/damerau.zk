@@ -1,0 +1,57 @@
+// cl-string-damerau-osa: Optimal String Alignment (OSA) Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn damerau_osa_distance(s1: string, s2: string) -> int:
+    len1 := len(s1)
+    len2 := len(s2)
+    // Flattened 2D matrix of size (len1+1)*(len2+1)
+    stride := len2 + 1
+    d: vector[int] := []
+    total_cells := (len1 + 1) * (len2 + 1)
+    i := 0
+    while i < total_cells:
+        d.push(0)
+        i = i + 1
+
+    i = 0
+    while i <= len1:
+        d[i * stride] = i
+        i = i + 1
+
+    j := 0
+    while j <= len2:
+        d[j] = j
+        j = j + 1
+
+    i = 1
+    while i <= len1:
+        j = 1
+        while j <= len2:
+            cost := 1
+            if byte_at(s1, i - 1) == byte_at(s2, j - 1): cost = 0
+            sub := d[((i - 1) * stride) + (j - 1)] + cost
+            ins := d[((i - 1) * stride) + j] + 1
+            dele := d[(i * stride) + (j - 1)] + 1
+            best := min3(sub, ins, dele)
+            // Transposition check
+            if i > 1:
+                if j > 1:
+                    c1 := byte_at(s1, i - 1)
+                    c2 := byte_at(s2, j - 2)
+                    if c1 == c2:
+                        p1 := byte_at(s1, i - 2)
+                        p2 := byte_at(s2, j - 1)
+                        if p1 == p2:
+                            trans := d[((i - 2) * stride) + (j - 2)] + 1
+                            if trans < best: best = trans
+            d[(i * stride) + j] = best
+            j = j + 1
+        i = i + 1
+    return d[(len1 * stride) + len2]

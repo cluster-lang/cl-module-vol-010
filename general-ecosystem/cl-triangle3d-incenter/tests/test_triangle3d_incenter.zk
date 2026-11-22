@@ -1,0 +1,17 @@
+// cl-triangle3d-incenter: Test Suite
+import "../tri_incenter.zk"
+
+fn test_tri_incenter():
+    v0: vector[float] := [0.0, 0.0, 0.0]
+    v1: vector[float] := [10.0, 0.0, 0.0]
+    v2: vector[float] := [0.0, 10.0, 0.0]
+    out: vector[float] := []
+    triangle_incenter_coord(out, 1.0, 1.0, 1.0, v0, v1, v2)
+    diff0 := out[0] - (10.0 / 3.0)
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    if diff0 > 0.001: sys_exit(1)
+    print("test_tri_incenter passed: incenter coordinate verified")
+
+fn main():
+    test_tri_incenter()
+    print("✓ All tests passed for cl-triangle3d-incenter!")

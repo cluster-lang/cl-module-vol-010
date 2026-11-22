@@ -1,0 +1,13 @@
+// cl-stat-mean-free-path-stage-90: Test Suite
+import "../mfp_cp_90.zk"
+
+fn test_run():
+    res := mean_free_path_comp_90(1.0, 1.0)
+    diff := res - 20.2571
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-mean-free-path-stage-90!")

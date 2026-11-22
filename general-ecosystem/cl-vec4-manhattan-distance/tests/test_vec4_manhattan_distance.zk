@@ -1,0 +1,16 @@
+// cl-vec4-manhattan-distance: Test Suite
+import "../vec4_man_dist.zk"
+
+fn test_v4_man_dist():
+    a: vector[float] := [1.0, 1.0, 1.0, 1.0]
+    b: vector[float] := [2.0, 3.0, 4.0, 5.0]
+    // 1 + 2 + 3 + 4 = 10.0
+    res := vec4_manhattan_distance(a, b)
+    diff := res - 10.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v4_man_dist passed")
+
+fn main():
+    test_v4_man_dist()
+    print("✓ All tests passed for cl-vec4-manhattan-distance!")

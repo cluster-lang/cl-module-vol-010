@@ -1,0 +1,11 @@
+// cl-spatial-clamp-coord: Test Suite
+import "../clamp_coord.zk"
+
+fn test_run():
+    res := clamp_coordinate(15, 10)
+    if res != 9: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-clamp-coord!")

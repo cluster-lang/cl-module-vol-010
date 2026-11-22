@@ -1,0 +1,12 @@
+// cl-sparse-matrix-nnz-count: Test Suite
+import "../sparse_nnz.zk"
+
+fn test_sparse_nnz():
+    vals: vector[int] := [0, 5, 12, 3, 25]
+    c := sparse_count_above_threshold(vals, 4)
+    if c != 3: sys_exit(1)
+    print("test_sparse_nnz passed: count above threshold verified")
+
+fn main():
+    test_sparse_nnz()
+    print("✓ All tests passed for cl-sparse-matrix-nnz-count!")

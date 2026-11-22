@@ -1,0 +1,14 @@
+// cl-token-bucket: Test Suite
+import "../token_bucket.zk"
+
+fn test_tb():
+    tb := tb_new(10, 2)
+    if not tb_consume(tb, 8): sys_exit(1)
+    if tb_consume(tb, 5): sys_exit(1) // only 2 tokens left
+    tb_refill(tb, 3) // +6 tokens -> 8
+    if not tb_consume(tb, 5): sys_exit(1)
+    print("test_tb passed: rate limiter consumption verified")
+
+fn main():
+    test_tb()
+    print("✓ All tests passed for cl-token-bucket!")

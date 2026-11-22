@@ -1,0 +1,8 @@
+// cl-stats-median-of-three: Fast Median of Three Numbers
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_median_three(a: float, b: float, c: float) -> float:
+    if (a <= b and b <= c) or (c <= b and b <= a): return b
+    if (b <= a and a <= c) or (c <= a and a <= b): return a
+    return c

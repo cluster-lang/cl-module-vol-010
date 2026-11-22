@@ -1,0 +1,47 @@
+// cl-string-levenshtein-normalized: Normalized Levenshtein Edit Similarity
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn levenshtein_dist(s1: vector[int], s2: vector[int]) -> int:
+    m := s1.len()
+    n := s2.len()
+    if m == 0: return n
+    if n == 0: return m
+
+    dp: vector[int] := []
+    j := 0
+    while j <= n:
+        dp.push(j)
+        j = j + 1
+
+    i := 1
+    while i <= m:
+        new_dp: vector[int] := [i]
+        j = 1
+        while j <= n:
+            cost := 1
+            if s1[i - 1] == s2[j - 1]:
+                cost = 0
+            val := min3(dp[j] + 1, new_dp[j - 1] + 1, dp[j - 1] + cost)
+            new_dp.push(val)
+            j = j + 1
+        dp = new_dp
+        i = i + 1
+
+    return dp[n]
+
+fn levenshtein_normalized_sim(s1: vector[int], s2: vector[int]) -> float:
+    m := s1.len()
+    n := s2.len()
+    if m == 0 and n == 0: return 1.0
+    max_len := m
+    if n > max_len: max_len = n
+
+    dist := levenshtein_dist(s1, s2)
+    return 1.0 - (float(dist) / float(max_len))

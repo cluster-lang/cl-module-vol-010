@@ -1,0 +1,12 @@
+// cl-vector4-math: Test Suite
+import "../vec4_math.zk"
+
+fn test_vec4():
+    d := vec4_dot(1, 2, 3, 4, 2, 3, 4, 5)
+    if d != 40: sys_exit(1) // 2 + 6 + 12 + 20 = 40
+    if vec4_len_sq(1, 2, 3, 4) != 30: sys_exit(1) // 1 + 4 + 9 + 16 = 30
+    print("test_vec4 passed: 4D vector inner product verified")
+
+fn main():
+    test_vec4()
+    print("✓ All tests passed for cl-vector4-math!")

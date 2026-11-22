@@ -1,0 +1,13 @@
+// cl-tensor-frontal-sum-7: Test Suite
+import "../t3_front_7.zk"
+
+fn test_run():
+    res := tensor_frontal_sum_7([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+    diff := res - 63.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-tensor-frontal-sum-7!")

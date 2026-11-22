@@ -1,0 +1,11 @@
+// cl-string-common-prefix: Test Suite
+import "../c_pref.zk"
+
+fn test_c_pref():
+    if common_prefix_length("cluster", "cloud") != 2: sys_exit(1)
+    if common_prefix_length("cluster", "clusterize") != 7: sys_exit(1)
+    print("test_c_pref passed: common prefix length verified")
+
+fn main():
+    test_c_pref()
+    print("✓ All tests passed for cl-string-common-prefix!")

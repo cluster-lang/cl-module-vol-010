@@ -1,0 +1,19 @@
+// cl-sparse-matrix-coo: Test Suite
+import "../coo.zk"
+
+fn test_coo():
+    // 3x3 identity matrix in COO:
+    rows: vector[int] := [0, 1, 2]
+    cols: vector[int] := [0, 1, 2]
+    vals: vector[int] := [1, 1, 1]
+    x: vector[int] := [10, 20, 30]
+
+    y := coo_mat_vec_mul(rows, cols, vals, 3, x)
+    if y[0] != 10: sys_exit(1)
+    if y[1] != 20: sys_exit(1)
+    if y[2] != 30: sys_exit(1)
+    print("test_coo passed: COO sparse matrix-vector multiplication verified")
+
+fn main():
+    test_coo()
+    print("✓ All tests passed for cl-sparse-matrix-coo!")

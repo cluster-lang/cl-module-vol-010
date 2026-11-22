@@ -1,0 +1,13 @@
+// cl-vec3-negate: Test Suite
+import "../vec3_neg.zk"
+
+fn test_v3_neg():
+    v: vector[float] := [1.0, -2.0, 3.0]
+    out: vector[float] := [0.0, 0.0, 0.0]
+    vec3_negate(out, v)
+    if out[0] != -1.0 or out[1] != 2.0 or out[2] != -3.0: sys_exit(1)
+    print("test_v3_neg passed")
+
+fn main():
+    test_v3_neg()
+    print("✓ All tests passed for cl-vec3-negate!")

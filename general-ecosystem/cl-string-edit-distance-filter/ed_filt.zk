@@ -1,0 +1,15 @@
+// cl-string-edit-distance-filter: Character Frequency Difference Filter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Accumulates absolute difference between frequency vectors
+fn l1_frequency_dist(f1: vector[int], f2: vector[int]) -> int:
+    sum := 0
+    n := f1.len()
+    i := 0
+    while i < n:
+        d := f1[i] - f2[i]
+        if d < 0: d = -d
+        sum = sum + d
+        i = i + 1
+    return sum

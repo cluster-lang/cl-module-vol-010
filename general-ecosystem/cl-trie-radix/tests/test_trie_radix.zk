@@ -1,0 +1,11 @@
+// cl-trie-radix: Test Suite
+import "../trie_radix.zk"
+
+fn test_trie_radix():
+    if radix_edge_matches("clus", "cluster") != 1: sys_exit(1)
+    if radix_edge_matches("clov", "cluster") != 0: sys_exit(1)
+    print("test_trie_radix passed: radix edge matching verified")
+
+fn main():
+    test_trie_radix()
+    print("✓ All tests passed for cl-trie-radix!")

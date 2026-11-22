@@ -1,0 +1,13 @@
+// cl-stat-entropy-binary: Test Suite
+import "../ent_bin.zk"
+
+fn test_run():
+    res := binary_entropy_half(0.5)
+    diff := res - 1.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-entropy-binary!")

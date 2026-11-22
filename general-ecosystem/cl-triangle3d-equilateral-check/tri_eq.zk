@@ -1,0 +1,38 @@
+// cl-triangle3d-equilateral-check: Equilateral Triangle Validator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0: return 0.0
+    x := val
+    i := 0
+    while i < 15:
+        x = 0.5 * (x + val / x)
+        i = i + 1
+    return x
+
+fn triangle3d_is_equilateral(ax: float, ay: float, az: float, bx: float, by: float, bz: float, cx: float, cy: float, cz: float, eps: float) -> int:
+    abx := bx - ax
+    aby := by - ay
+    abz := bz - az
+    len_ab := sqrt_approx(abx * abx + aby * aby + abz * abz)
+
+    bcx := cx - bx
+    bcy := by - cy
+    bcz := bz - cz
+    len_bc := sqrt_approx(bcx * bcx + bcy * bcy + bcz * bcz)
+
+    cax := ax - cx
+    cay := ay - cy
+    caz := az - cz
+    len_ca := sqrt_approx(cax * cax + cay * cay + caz * caz)
+
+    diff1 := len_ab - len_bc
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff1 > eps: return 0
+
+    diff2 := len_bc - len_ca
+    if diff2 < 0.0: diff2 = 0.0 - diff2
+    if diff2 > eps: return 0
+
+    return 1

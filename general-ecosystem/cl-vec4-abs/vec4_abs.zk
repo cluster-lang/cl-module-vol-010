@@ -1,0 +1,10 @@
+// cl-vec4-abs: 4D Vector Component-wise Absolute Value
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_abs(out: vector[float], v: vector[float]):
+    x := v[0]; if x < 0.0: x = 0.0 - x
+    y := v[1]; if y < 0.0: y = 0.0 - y
+    z := v[2]; if z < 0.0: z = 0.0 - z
+    w := v[3]; if w < 0.0: w = 0.0 - w
+    out[0] = x; out[1] = y; out[2] = z; out[3] = w

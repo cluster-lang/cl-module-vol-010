@@ -1,0 +1,13 @@
+// cl-sparse-matrix-col-max-coo: Test Suite
+import "../sparse_col_max.zk"
+
+fn test_sparse_col_max():
+    cols: vector[int] := [0, 1, 1, 1]
+    vals: vector[int] := [10, 5, 55, 20]
+    m1 := sparse_coo_col_max(cols, vals, 1)
+    if m1 != 55: sys_exit(1)
+    print("test_sparse_col_max passed: COO column maximum entry verified")
+
+fn main():
+    test_sparse_col_max()
+    print("✓ All tests passed for cl-sparse-matrix-col-max-coo!")

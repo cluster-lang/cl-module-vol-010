@@ -1,0 +1,11 @@
+// cl-spatial-wrap-coord: Test Suite
+import "../torus_wrap.zk"
+
+fn test_run():
+    res := wrap_coordinate(-1, 10)
+    if res != 9: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-wrap-coord!")

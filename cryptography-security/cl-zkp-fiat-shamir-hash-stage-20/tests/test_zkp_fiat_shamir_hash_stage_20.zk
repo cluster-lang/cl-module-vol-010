@@ -1,0 +1,11 @@
+// cl-zkp-fiat-shamir-hash-stage-20: Test Suite
+import "../zkp_fs_20.zk"
+
+fn test_run():
+    res := fiat_shamir_step_20(100, 42)
+    if res != 3162: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-fiat-shamir-hash-stage-20!")

@@ -1,0 +1,10 @@
+// cl-varint-sqlite: SQLite4 Variable Integer Size Classifier
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqlite_varint_size(val: int) -> int:
+    if val <= 240: return 1
+    if val <= 2287: return 2
+    if val <= 67823: return 3
+    if val <= 16777215: return 4
+    return 9

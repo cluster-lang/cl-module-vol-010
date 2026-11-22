@@ -1,0 +1,17 @@
+// cl-sweep-and-prune: 1D Sweep-and-Prune Interval Pruner
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sap_count_overlaps_bruteforce(starts: vector[int], ends: vector[int]) -> int:
+    count := 0
+    n := starts.len()
+    i := 0
+    while i < n:
+        j := i + 1
+        while j < n:
+            if starts[i] <= ends[j]:
+                if starts[j] <= ends[i]:
+                    count = count + 1
+            j = j + 1
+        i = i + 1
+    return count

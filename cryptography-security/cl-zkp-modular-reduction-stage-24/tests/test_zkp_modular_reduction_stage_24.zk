@@ -1,0 +1,11 @@
+// cl-zkp-modular-reduction-stage-24: Test Suite
+import "../zkp_mr_24.zk"
+
+fn test_run():
+    res := mod_prime_24(1055, 997)
+    if res != 82: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-modular-reduction-stage-24!")

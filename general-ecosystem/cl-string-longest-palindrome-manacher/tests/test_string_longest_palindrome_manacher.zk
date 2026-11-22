@@ -1,0 +1,18 @@
+// cl-string-longest-palindrome-manacher: Test Suite
+import "../manacher.zk"
+
+fn test_manacher():
+    out: vector[int] := []
+    manacher_interleave("a", out)
+    // "^#a#$" -> 5 bytes
+    if out.len() != 5: sys_exit(1)
+    if out[0] != 94: sys_exit(1)
+    if out[1] != 35: sys_exit(1)
+    if out[2] != 97: sys_exit(1)
+    if out[3] != 35: sys_exit(1)
+    if out[4] != 36: sys_exit(1)
+    print("test_manacher passed: character interleaving verified")
+
+fn main():
+    test_manacher()
+    print("✓ All tests passed for cl-string-longest-palindrome-manacher!")

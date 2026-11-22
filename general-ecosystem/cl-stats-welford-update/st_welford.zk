@@ -1,0 +1,13 @@
+// cl-stats-welford-update: Online Welford Variance Step Accumulator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_welford_step(state: vector[float], x: float):
+    // state: [count, mean, M2]
+    c := state[0] + 1.0
+    state[0] = c
+    delta := x - state[1]
+    m := state[1] + delta / c
+    state[1] = m
+    delta2 := x - m
+    state[2] = state[2] + delta * delta2

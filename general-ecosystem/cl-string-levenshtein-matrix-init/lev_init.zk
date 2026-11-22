@@ -1,0 +1,13 @@
+// cl-string-levenshtein-matrix-init: DP Matrix Boundary Initializer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn levenshtein_init_matrix(dp: vector[int], rows: int, cols: int):
+    r := 0
+    while r < rows:
+        dp[r * cols + 0] = r
+        r = r + 1
+    c := 0
+    while c < cols:
+        dp[0 * cols + c] = c
+        c = c + 1

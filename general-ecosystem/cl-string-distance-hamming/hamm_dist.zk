@@ -1,0 +1,16 @@
+// cl-string-distance-hamming: Equal-Length String Hamming Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn string_hamming_distance(s1: string, s2: string) -> int:
+    l1 := len(s1)
+    l2 := len(s2)
+    if l1 != l2: return -1
+
+    dist := 0
+    i := 0
+    while i < l1:
+        if byte_at(s1, i) != byte_at(s2, i):
+            dist = dist + 1
+        i = i + 1
+    return dist

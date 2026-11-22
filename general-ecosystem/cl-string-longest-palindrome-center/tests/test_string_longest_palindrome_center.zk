@@ -1,0 +1,15 @@
+// cl-string-longest-palindrome-center: Test Suite
+import "../pal_cent.zk"
+
+fn test_pal_cent():
+    // "racecar", center at 'e' (idx 3)
+    span := expand_palindrome_radius("racecar", 3, 3)
+    if span != 7: sys_exit(1)
+    // "noon", center at (1, 2)
+    span_even := expand_palindrome_radius("noon", 1, 2)
+    if span_even != 4: sys_exit(1)
+    print("test_pal_cent passed: expand around center palindrome verified")
+
+fn main():
+    test_pal_cent()
+    print("✓ All tests passed for cl-string-longest-palindrome-center!")

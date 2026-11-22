@@ -1,0 +1,11 @@
+// cl-spatial-euclidean-dist-sq-2d-int: Test Suite
+import "../dist_sq2d_i.zk"
+
+fn test_run():
+    res := grid_dist_sq_2d(0, 0, 3, 4)
+    if res != 25: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-euclidean-dist-sq-2d-int!")

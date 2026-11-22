@@ -1,0 +1,13 @@
+// cl-vec7-manhattan-norm: 7D Vector Manhattan L1 Norm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec7_manhattan(a: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 7:
+        v := a[i]
+        if v < 0.0: v = 0.0 - v
+        s = s + v
+        i = i + 1
+    return s

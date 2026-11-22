@@ -1,0 +1,10 @@
+// cl-spatial-bvh-longest-axis Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-spatial-bvh-longest-axis"
+version := "0.1.0"
+description := "Determine Longest Axis of 3D Bounding Box (0=X, 1=Y, 2=Z)"
+main := "bvh_laxis.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

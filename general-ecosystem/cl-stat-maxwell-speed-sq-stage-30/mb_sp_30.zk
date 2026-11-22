@@ -1,0 +1,6 @@
+// cl-stat-maxwell-speed-sq-stage-30: Maxwell-Boltzmann Speed Density Factor Stage 30
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn maxwell_speed_factor_30(v: float) -> float:
+    return v * v * 30.0

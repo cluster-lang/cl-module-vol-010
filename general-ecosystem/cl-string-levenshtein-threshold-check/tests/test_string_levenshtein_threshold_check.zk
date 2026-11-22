@@ -1,0 +1,13 @@
+// cl-string-levenshtein-threshold-check: Test Suite
+import "../lev_thresh.zk"
+
+fn test_lev_thresh():
+    s1: vector[int] := [97, 98, 99]
+    s2: vector[int] := [97, 98, 100]
+    if levenshtein_within_threshold(s1, s2, 1) != 1: sys_exit(1)
+    if levenshtein_within_threshold(s1, s2, 0) != 0: sys_exit(2)
+    print("test_lev_thresh passed: threshold distance verified")
+
+fn main():
+    test_lev_thresh()
+    print("✓ All tests passed for cl-string-levenshtein-threshold-check!")

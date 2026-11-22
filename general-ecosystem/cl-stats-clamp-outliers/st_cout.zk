@@ -1,0 +1,8 @@
+// cl-stats-clamp-outliers: Statistical Threshold Outlier Clamper
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_clamp_outlier(x: float, low: float, high: float) -> float:
+    if x < low: return low
+    if x > high: return high
+    return x

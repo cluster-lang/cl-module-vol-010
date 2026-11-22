@@ -1,0 +1,6 @@
+// cl-stats-moving-average-step: Online Moving Average Window Updater
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_ma_step(old_avg: float, new_val: float, old_val: float, window_size: int) -> float:
+    return old_avg + (new_val - old_val) / float(window_size)

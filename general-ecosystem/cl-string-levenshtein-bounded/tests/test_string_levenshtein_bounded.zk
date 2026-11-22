@@ -1,0 +1,11 @@
+// cl-string-levenshtein-bounded: Test Suite
+import "../lev_bound.zk"
+
+fn test_lev_bound():
+    if lev_length_within_bound(10, 12, 2) != 1: sys_exit(1)
+    if lev_length_within_bound(10, 13, 2) != 0: sys_exit(1)
+    print("test_lev_bound passed: length bound filter verified")
+
+fn main():
+    test_lev_bound()
+    print("✓ All tests passed for cl-string-levenshtein-bounded!")

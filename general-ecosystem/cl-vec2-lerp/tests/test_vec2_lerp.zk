@@ -1,0 +1,14 @@
+// cl-vec2-lerp: Test Suite
+import "../vec2_lerp.zk"
+
+fn test_v2_lerp():
+    a: vector[float] := [0.0, 10.0]
+    b: vector[float] := [10.0, 20.0]
+    out: vector[float] := [0.0, 0.0]
+    vec2_lerp(out, a, b, 0.5)
+    if out[0] != 5.0 or out[1] != 15.0: sys_exit(1)
+    print("test_v2_lerp passed")
+
+fn main():
+    test_v2_lerp()
+    print("✓ All tests passed for cl-vec2-lerp!")

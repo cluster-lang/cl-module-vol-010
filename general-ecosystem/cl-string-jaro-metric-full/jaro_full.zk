@@ -1,0 +1,66 @@
+// cl-string-jaro-metric-full: Complete Jaro String Similarity Metric
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jaro_similarity(s1: vector[int], s2: vector[int]) -> float:
+    len1 := s1.len()
+    len2 := s2.len()
+    if len1 == 0 and len2 == 0: return 1.0
+    if len1 == 0 or len2 == 0: return 0.0
+
+    max_len := len1
+    if len2 > max_len: max_len = len2
+
+    match_dist := (max_len / 2) - 1
+    if match_dist < 0: match_dist = 0
+
+    s1_matched: vector[int] := []
+    i := 0
+    while i < len1:
+        s1_matched.push(0)
+        i = i + 1
+
+    s2_matched: vector[int] := []
+    k := 0
+    while k < len2:
+        s2_matched.push(0)
+        k = k + 1
+
+    matches := 0
+    i = 0
+    while i < len1:
+        start_j := i - match_dist
+        if start_j < 0: start_j = 0
+        end_j := i + match_dist + 1
+        if end_j > len2: end_j = len2
+
+        j := start_j
+        found := 0
+        while j < end_j and found == 0:
+            if s2_matched[j] == 0 and s1[i] == s2[j]:
+                s1_matched[i] = 1
+                s2_matched[j] = 1
+                matches = matches + 1
+                found = 1
+            j = j + 1
+        i = i + 1
+
+    if matches == 0:
+        return 0.0
+
+    transpositions := 0
+    s2_idx := 0
+    i = 0
+    while i < len1:
+        if s1_matched[i] != 0:
+            while s2_idx < len2 and s2_matched[s2_idx] == 0:
+                s2_idx = s2_idx + 1
+            if s2_idx < len2 and s1[i] != s2[s2_idx]:
+                transpositions = transpositions + 1
+            s2_idx = s2_idx + 1
+        i = i + 1
+
+    m_flt := float(matches)
+    t_flt := float(transpositions / 2)
+    score := (m_flt / float(len1) + m_flt / float(len2) + (m_flt - t_flt) / m_flt) / 3.0
+    return score

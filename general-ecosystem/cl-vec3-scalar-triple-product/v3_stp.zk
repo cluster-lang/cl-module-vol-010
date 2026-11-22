@@ -1,0 +1,9 @@
+// cl-vec3-scalar-triple-product: 3D Scalar Triple Product u . (v x w)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_scalar_triple(u: vector[float], v: vector[float], w: vector[float]) -> float:
+    cx := v[1]*w[2] - v[2]*w[1]
+    cy := v[2]*w[0] - v[0]*w[2]
+    cz := v[0]*w[1] - v[1]*w[0]
+    return u[0]*cx + u[1]*cy + u[2]*cz

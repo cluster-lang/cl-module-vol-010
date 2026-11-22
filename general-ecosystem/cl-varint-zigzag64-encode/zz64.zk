@@ -1,0 +1,6 @@
+// cl-varint-zigzag64-encode: 64-bit ZigZag Integer Encoding Function
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_encode64(n: int) -> int:
+    return (n << 1) ^ (n >> 63)

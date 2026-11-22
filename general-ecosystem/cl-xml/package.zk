@@ -1,0 +1,6 @@
+name: "cl-xml"
+version: "0.1.0"
+description: "Minimal XML parser"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: []

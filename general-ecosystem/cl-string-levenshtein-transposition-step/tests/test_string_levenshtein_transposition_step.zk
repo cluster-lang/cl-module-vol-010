@@ -1,0 +1,11 @@
+// cl-string-levenshtein-transposition-step: Test Suite
+import "../dam_step.zk"
+
+fn test_dam_step():
+    if is_damerau_transposition(97, 98, 98, 97) != 1: sys_exit(1)
+    if is_damerau_transposition(97, 98, 97, 98) != 0: sys_exit(2)
+    print("test_dam_step passed: adjacent transposition detection verified")
+
+fn main():
+    test_dam_step()
+    print("✓ All tests passed for cl-string-levenshtein-transposition-step!")

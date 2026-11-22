@@ -1,0 +1,52 @@
+// cl-sync: Concurrency & Synchronization Primitives (Go sync Parity)
+// 100% Pure Cluster Language implementation
+
+model WaitGroup:
+    counter: int
+
+fn new_wait_group() -> WaitGroup:
+    wg := WaitGroup(0)
+    return wg
+
+fn add(&wg: WaitGroup, delta: int):
+    wg.counter = wg.counter + delta
+
+fn done(&wg: WaitGroup):
+    if wg.counter > 0:
+        wg.counter = wg.counter - 1
+
+fn is_done(wg: WaitGroup) -> bool:
+    return wg.counter == 0
+
+fn get_count(wg: WaitGroup) -> int:
+    return wg.counter
+
+model Once:
+    executed: bool
+
+fn new_once() -> Once:
+    o := Once(false)
+    return o
+
+fn is_executed(o: Once) -> bool:
+    return o.executed
+
+fn mark_done(&o: Once):
+    o.executed = true
+
+model AtomicInt:
+    val: int
+
+fn new_atomic(initial: int) -> AtomicInt:
+    a := AtomicInt(initial)
+    return a
+
+fn load(a: AtomicInt) -> int:
+    return a.val
+
+fn store(&a: AtomicInt, new_val: int):
+    a.val = new_val
+
+fn add_fetch(&a: AtomicInt, delta: int) -> int:
+    a.val = a.val + delta
+    return a.val

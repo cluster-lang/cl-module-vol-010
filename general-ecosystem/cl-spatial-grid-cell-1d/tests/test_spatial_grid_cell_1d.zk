@@ -1,0 +1,11 @@
+// cl-spatial-grid-cell-1d: Test Suite
+import "../grid_c1d.zk"
+
+fn test_run():
+    res := grid_cell_1d(45.0, 10.0)
+    if res != 4: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-grid-cell-1d!")

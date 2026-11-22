@@ -1,0 +1,6 @@
+// cl-speech-perceptual-loudness-phon-stage-52: Psychoacoustic Sound Pressure Equal Weight Stage 52
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn loudness_scale_52(spl: float, f_weight: float) -> float:
+    return (spl * f_weight) * 52.0

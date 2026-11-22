@@ -1,0 +1,22 @@
+// cl-sparse-matrix-dense-add-coo: Accumulate Sparse COO into Dense Matrix Buffer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_coo_add_to_dense(dense: vector[float], rows: vector[int], cols: vector[int], vals: vector[float], num_cols: int) -> vector[float]:
+    out: vector[float] := []
+    dlen := dense.len()
+    i := 0
+    while i < dlen:
+        out.push(dense[i])
+        i = i + 1
+
+    nnz := rows.len()
+    i = 0
+    while i < nnz:
+        r := rows[i]
+        c := cols[i]
+        idx := r * num_cols + c
+        if idx >= 0 and idx < dlen:
+            out[idx] = out[idx] + vals[i]
+        i = i + 1
+    return out

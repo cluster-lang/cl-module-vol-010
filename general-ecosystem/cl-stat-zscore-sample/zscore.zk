@@ -1,0 +1,7 @@
+// cl-stat-zscore-sample: Z-Score Standard Normalization Step (x - mean) / std
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stat_zscore(x: float, mean: float, std_dev: float) -> float:
+    if std_dev <= 0.000001: return 0.0
+    return (x - mean) / std_dev

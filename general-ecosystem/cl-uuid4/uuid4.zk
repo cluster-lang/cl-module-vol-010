@@ -1,0 +1,32 @@
+// cl-uuid4: Pure Cluster RFC 4122 UUID v4 Pseudo-Generator & Validator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn hex_ch(n: int) -> string:
+    v := n & 15
+    if v < 10: return chr(v + 48)
+    return chr(v - 10 + 97)
+
+fn uuid4_generate(seed: int) -> string:
+    res := ""
+    state := seed
+    i := 0
+    while i < 32:
+        state = ((state * 1103515245) + 12345) & 2147483647
+        nibble := (state >> 16) & 15
+        if i == 12:
+            nibble = 4 // version 4
+        elif i == 16:
+            nibble = (nibble & 3) | 8 // variant 1 (8, 9, a, b)
+
+        if i == 8 or i == 12 or i == 16 or i == 20:
+            res = res + "-"
+        res = res + hex_ch(nibble)
+        i = i + 1
+    return res
+
+fn uuid4_validate(u: string) -> bool:
+    if len(u) != 36: return false
+    if byte_at(u, 8) != 45 or byte_at(u, 13) != 45 or byte_at(u, 18) != 45 or byte_at(u, 23) != 45:
+        return false
+    return byte_at(u, 14) == 52 // '4'

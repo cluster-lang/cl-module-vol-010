@@ -1,0 +1,8 @@
+// cl-sphere-cone-cull: Sphere vs Cone Distance Culling Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sphere_cone_cull_test(cx: float, cy: float, cz: float, r: float, cone_h: float, cone_r: float) -> int:
+    if cz < (0.0 - r): return 0
+    if cz > (cone_h + r): return 0
+    return 1

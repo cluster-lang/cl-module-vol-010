@@ -1,0 +1,13 @@
+// cl-spooky-hash32: Test Suite
+import "../spooky.zk"
+
+fn test_spooky():
+    h1 := spooky32_mix("cluster", 0)
+    h2 := spooky32_mix("cluster", 0)
+    if h1 != h2: sys_exit(1)
+    if h1 == 0: sys_exit(1)
+    print("test_spooky passed: 32-bit fast mixer verified")
+
+fn main():
+    test_spooky()
+    print("✓ All tests passed for cl-spooky-hash32!")

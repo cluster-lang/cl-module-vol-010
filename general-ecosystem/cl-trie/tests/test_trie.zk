@@ -1,0 +1,16 @@
+// cl-trie: Test Suite
+import "../trie.zk"
+
+fn test_trie():
+    t := trie_new()
+    trie_insert(t, "apple")
+    trie_insert(t, "app")
+    if not trie_contains(t, "apple"): sys_exit(1)
+    if not trie_contains(t, "app"): sys_exit(1)
+    if trie_contains(t, "appl"): sys_exit(1)
+    if trie_contains(t, "banana"): sys_exit(1)
+    print("test_trie passed: prefix trie lookup verified")
+
+fn main():
+    test_trie()
+    print("✓ All tests passed for cl-trie!")

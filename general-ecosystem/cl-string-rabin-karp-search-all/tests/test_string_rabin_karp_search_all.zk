@@ -1,0 +1,13 @@
+// cl-string-rabin-karp-search-all: Test Suite
+import "../rk_search.zk"
+
+fn test_rk_search():
+    t: vector[int] := [65, 66, 65, 66, 65] // "ABABA"
+    p: vector[int] := [65, 66, 65]         // "ABA"
+    c := count_substring_occurrences(t, p)
+    if c != 2: sys_exit(1)
+    print("test_rk_search passed: 2 occurrences verified")
+
+fn main():
+    test_rk_search()
+    print("✓ All tests passed for cl-string-rabin-karp-search-all!")

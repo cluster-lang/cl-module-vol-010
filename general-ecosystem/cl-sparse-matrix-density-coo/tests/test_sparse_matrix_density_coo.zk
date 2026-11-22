@@ -1,0 +1,13 @@
+// cl-sparse-matrix-density-coo: Test Suite
+import "../sp_dens.zk"
+
+fn test_sp_dens():
+    d := sparse_coo_density(25, 10, 10)
+    diff := d - 0.25
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_sp_dens passed: density ratio 0.25 verified")
+
+fn main():
+    test_sp_dens()
+    print("✓ All tests passed for cl-sparse-matrix-density-coo!")

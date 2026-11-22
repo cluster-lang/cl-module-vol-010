@@ -1,0 +1,11 @@
+// cl-zkp-pedersen-commit-stage-49: Test Suite
+import "../zkp_pd_49.zk"
+
+fn test_run():
+    res := pedersen_step_49(5, 7, 3, 11)
+    if res != 117: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-pedersen-commit-stage-49!")

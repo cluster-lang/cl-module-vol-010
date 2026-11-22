@@ -1,0 +1,6 @@
+// cl-tensor-outer-prod-stage-12: 3D Vector Outer Product Element Stage 12
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_outer_elem_12(u: float, v: float, w: float) -> float:
+    return u * v * w * 12.0

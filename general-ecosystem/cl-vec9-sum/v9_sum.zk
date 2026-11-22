@@ -1,0 +1,11 @@
+// cl-vec9-sum: 9D Vector Sum of Components
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec9_sum(a: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 9:
+        s = s + a[i]
+        i = i + 1
+    return s

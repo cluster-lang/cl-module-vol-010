@@ -1,0 +1,13 @@
+// cl-tensor-mode1-contract-stage-11: Test Suite
+import "../t_m1c_11.zk"
+
+fn test_run():
+    res := tensor_mode1_contract_11(1.0, 2.0, 3.0, 2.0, 2.0, 2.0)
+    diff := res - 132.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-tensor-mode1-contract-stage-11!")

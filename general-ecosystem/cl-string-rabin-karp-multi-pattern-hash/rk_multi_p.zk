@@ -1,0 +1,16 @@
+// cl-string-rabin-karp-multi-pattern-hash: Multi-Pattern Hash Table Generator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rabin_karp_hash_patterns(out_hashes: vector[int], patterns: vector[int], num_p: int, plen: int):
+    base := 257
+    mod := 1000000007
+    k := 0
+    while k < num_p:
+        h := 0
+        j := 0
+        while j < plen:
+            h = (h * base + patterns[k * plen + j]) % mod
+            j = j + 1
+        out_hashes.push(h)
+        k = k + 1

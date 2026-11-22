@@ -1,0 +1,14 @@
+// cl-string-builder: Test Suite
+import "../string_builder.zk"
+
+fn test_sb():
+    sb := sb_new()
+    sb_append(sb, "Hello")
+    sb_append(sb, ", ")
+    sb_append(sb, "Cluster!")
+    if sb_build(sb) != "Hello, Cluster!": sys_exit(1)
+    print("test_sb passed: chunk accumulator verified")
+
+fn main():
+    test_sb()
+    print("✓ All tests passed for cl-string-builder!")

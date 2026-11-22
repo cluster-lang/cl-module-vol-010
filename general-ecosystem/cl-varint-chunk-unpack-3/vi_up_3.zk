@@ -1,0 +1,6 @@
+// cl-varint-chunk-unpack-3: Varint 7-bit Chunk Unpacker Stage 3
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn varint_unpack_3(b: int) -> int:
+    return b & 127

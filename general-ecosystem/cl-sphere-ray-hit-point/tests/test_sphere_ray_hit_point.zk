@@ -1,0 +1,14 @@
+// cl-sphere-ray-hit-point: Test Suite
+import "../sphere_hit.zk"
+
+fn test_sphere_hit():
+    ro: vector[float] := [0.0, 0.0, 10.0]
+    rd: vector[float] := [0.0, 0.0, -1.0]
+    out: vector[float] := []
+    sphere_surface_hit_point(out, ro, rd, 8.0)
+    if out[2] != 2.0: sys_exit(1)
+    print("test_sphere_hit passed: sphere surface point z=2.0 verified")
+
+fn main():
+    test_sphere_hit()
+    print("✓ All tests passed for cl-sphere-ray-hit-point!")

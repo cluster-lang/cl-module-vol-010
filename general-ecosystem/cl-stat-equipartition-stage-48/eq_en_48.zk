@@ -1,0 +1,6 @@
+// cl-stat-equipartition-stage-48: Thermal Equipartition Energy Stage 48
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn equipartition_energy_48(temp_k: float) -> float:
+    return 0.5 * 1.380649 * temp_k * 48.0

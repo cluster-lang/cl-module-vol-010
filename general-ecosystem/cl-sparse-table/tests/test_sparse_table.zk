@@ -1,0 +1,14 @@
+// cl-sparse-table: Test Suite
+import "../sparse_table.zk"
+
+fn test_sparse_table():
+    arr: vector[int] := [4, 2, 7, 1, 9, 3, 6, 5]
+    st := sparse_table_build(arr)
+    if sparse_table_query(st, 8, 0, 3) != 1: sys_exit(1) // min of [4,2,7,1]
+    if sparse_table_query(st, 8, 4, 7) != 3: sys_exit(1) // min of [9,3,6,5]
+    if sparse_table_query(st, 8, 1, 2) != 2: sys_exit(1) // min of [2,7]
+    print("test_sparse_table passed: O(1) static RMQ queries verified")
+
+fn main():
+    test_sparse_table()
+    print("✓ All tests passed for cl-sparse-table!")

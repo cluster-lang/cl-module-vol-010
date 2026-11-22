@@ -1,0 +1,13 @@
+// cl-triangle3d-incircle-radius: Test Suite
+import "../inrad.zk"
+
+fn test_inrad():
+    r := triangle3d_inradius(0.0, 0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0)
+    diff := r - 1.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.01: sys_exit(1)
+    print("test_inrad passed: inradius 1.0 verified")
+
+fn main():
+    test_inrad()
+    print("✓ All tests passed for cl-triangle3d-incircle-radius!")

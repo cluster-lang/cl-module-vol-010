@@ -1,0 +1,13 @@
+// cl-string-levenshtein-weighted: Test Suite
+import "../lev_weight.zk"
+
+fn test_lev_weight():
+    s1: vector[int] := [97]
+    s2: vector[int] := [98]
+    d := levenshtein_weighted(s1, s2, 1, 1, 5)
+    if d != 2: sys_exit(1)
+    print("test_lev_weight passed: weighted distance 2 verified")
+
+fn main():
+    test_lev_weight()
+    print("✓ All tests passed for cl-string-levenshtein-weighted!")

@@ -1,0 +1,13 @@
+// cl-wave-intensity-flux-stage-80: Test Suite
+import "../ac_int_80.zk"
+
+fn test_run():
+    res := wave_intensity_80(20.0, 400.0)
+    diff := res - 80.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-wave-intensity-flux-stage-80!")

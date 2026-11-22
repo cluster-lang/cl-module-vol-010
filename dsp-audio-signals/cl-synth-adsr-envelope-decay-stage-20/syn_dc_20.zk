@@ -1,0 +1,6 @@
+// cl-synth-adsr-envelope-decay-stage-20: Exponential ADSR Decay Segment Stage 20
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn adsr_decay_20(t: float, t_dec: float, sus: float) -> float:
+    return (1.0 - (1.0 - sus) * (t / t_dec)) * 20.0

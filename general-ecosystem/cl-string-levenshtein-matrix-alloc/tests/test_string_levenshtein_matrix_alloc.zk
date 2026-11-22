@@ -1,0 +1,13 @@
+// cl-string-levenshtein-matrix-alloc: Test Suite
+import "../lev_alloc.zk"
+
+fn test_lev_alloc():
+    row: vector[int] := []
+    init_lev_row(row, 5)
+    if row.len() != 6: sys_exit(1)
+    if row[5] != 5: sys_exit(1)
+    print("test_lev_alloc passed: initial row allocation verified")
+
+fn main():
+    test_lev_alloc()
+    print("✓ All tests passed for cl-string-levenshtein-matrix-alloc!")

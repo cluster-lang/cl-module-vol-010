@@ -1,0 +1,6 @@
+// cl-vec4-norm-squared: 4D Vector Squared Euclidean Norm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_norm_squared(v: vector[float]) -> float:
+    return v[0] * v[0] + v[1] * v[1] + v[2] * v[2] + v[3] * v[3]

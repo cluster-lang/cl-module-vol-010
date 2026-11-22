@@ -1,0 +1,6 @@
+// cl-stat-gibbs-free-energy-stage-39: Gibbs Free Energy Enthalpy Stage 39
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn gibbs_energy_39(h: float, t: float, s: float) -> float:
+    return (h - t * s) * 39.0

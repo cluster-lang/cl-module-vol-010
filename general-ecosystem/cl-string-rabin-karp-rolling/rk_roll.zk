@@ -1,0 +1,9 @@
+// cl-string-rabin-karp-rolling: Rabin-Karp Rolling Hash Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rk_roll_next(prev_hash: int, out_byte: int, in_byte: int, high_power: int, base: int, mod_val: int) -> int:
+    h := prev_hash - ((out_byte * high_power) % mod_val)
+    if h < 0: h = h + mod_val
+    h = ((h * base) + in_byte) % mod_val
+    return h

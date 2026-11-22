@@ -1,0 +1,8 @@
+// cl-vec3-lerp: 3D Vector Linear Interpolation
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_lerp(out: vector[float], a: vector[float], b: vector[float], t: float):
+    out[0] = a[0] + t * (b[0] - a[0])
+    out[1] = a[1] + t * (b[1] - a[1])
+    out[2] = a[2] + t * (b[2] - a[2])

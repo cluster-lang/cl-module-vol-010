@@ -1,0 +1,14 @@
+// cl-vector-30d-manhattan-39: 30D Vector Manhattan L1 Norm Stage 39
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec30_l1_norm_39(vec_in: vector[float]) -> float:
+    s := 0.0
+    item := 0.0
+    i := 0
+    while i < 30:
+        item = vec_in[i]
+        if item < 0.0: item = 0.0 - item
+        s = s + item
+        i = i + 1
+    return s * 39.0

@@ -1,0 +1,9 @@
+// cl-spatial-wrap-coord: Torus Wrap Coordinate within Domain [0, size)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn wrap_coordinate(c: int, size: int) -> int:
+    if size <= 0: return 0
+    rem := c % size
+    if rem < 0: return rem + size
+    return rem

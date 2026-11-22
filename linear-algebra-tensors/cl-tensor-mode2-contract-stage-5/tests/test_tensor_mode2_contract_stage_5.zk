@@ -1,0 +1,13 @@
+// cl-tensor-mode2-contract-stage-5: Test Suite
+import "../t_m2c_5.zk"
+
+fn test_run():
+    res := tensor_mode2_contract_5(3.0, 4.0, 1.0, 2.0)
+    diff := res - 55.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-tensor-mode2-contract-stage-5!")

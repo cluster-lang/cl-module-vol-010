@@ -1,0 +1,14 @@
+// cl-string-jaro-metric-exact: Test Suite
+import "../jaro_exact.zk"
+
+fn test_jaro_exact():
+    w := jaro_match_window(6, 6)
+    // (6 / 2) - 1 = 2
+    if w != 2: sys_exit(1)
+    w_small := jaro_match_window(1, 1)
+    if w_small != 0: sys_exit(1)
+    print("test_jaro_exact passed: match window verified")
+
+fn main():
+    test_jaro_exact()
+    print("✓ All tests passed for cl-string-jaro-metric-exact!")

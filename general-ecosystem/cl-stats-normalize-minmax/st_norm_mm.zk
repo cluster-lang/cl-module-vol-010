@@ -1,0 +1,8 @@
+// cl-stats-normalize-minmax: Min-Max Feature Scaling Normalizer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_minmax_scale(x: float, min_val: float, max_val: float) -> float:
+    denom := max_val - min_val
+    if denom < 0.000001 and denom > (0.0 - 0.000001): return 0.0
+    return (x - min_val) / denom

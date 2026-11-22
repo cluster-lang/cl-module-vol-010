@@ -1,0 +1,13 @@
+// cl-vec3-scale: Test Suite
+import "../vec3_scale.zk"
+
+fn test_v3_scale():
+    v: vector[float] := [1.0, -2.0, 3.0]
+    out: vector[float] := [0.0, 0.0, 0.0]
+    vec3_scale(out, v, 3.0)
+    if out[0] != 3.0 or out[1] != -6.0 or out[2] != 9.0: sys_exit(1)
+    print("test_v3_scale passed")
+
+fn main():
+    test_v3_scale()
+    print("✓ All tests passed for cl-vec3-scale!")

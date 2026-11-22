@@ -1,0 +1,15 @@
+// cl-string-z-search: Test Suite
+import "../z_search.zk"
+
+fn test_z_search():
+    z: vector[int] := [0, 0, 0, 0, 3, 0, 3] // mock Z for pattern length 3
+    out: vector[int] := []
+    collect_z_matches(z, 3, out)
+    if out.len() != 2: sys_exit(1)
+    if out[0] != 0: sys_exit(1)
+    if out[1] != 2: sys_exit(1)
+    print("test_z_search passed: Z-array occurrences collected verified")
+
+fn main():
+    test_z_search()
+    print("✓ All tests passed for cl-string-z-search!")

@@ -1,0 +1,9 @@
+// cl-vector4-math: 4D Vector Algebra & Component Operations
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_dot(x1: int, y1: int, z1: int, w1: int, x2: int, y2: int, z2: int, w2: int) -> int:
+    return (x1 * x2) + (y1 * y2) + (z1 * z2) + (w1 * w2)
+
+fn vec4_len_sq(x: int, y: int, z: int, w: int) -> int:
+    return (x * x) + (y * y) + (z * z) + (w * w)

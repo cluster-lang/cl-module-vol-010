@@ -1,0 +1,30 @@
+// cl-triangle3d-incenter-dist: 2D Triangle Incenter Point Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn float_sqrt_inc(x: float) -> float:
+    if x <= 0.0: return 0.0
+    g := x
+    i := 0
+    while i < 10:
+        g = (g + x / g) * 0.5
+        i = i + 1
+    return g
+
+fn triangle2d_incenter(out_inc: vector[float], v0: vector[float], v1: vector[float], v2: vector[float]):
+    d01_x := v1[0] - v0[0]; d01_y := v1[1] - v0[1]
+    c := float_sqrt_inc(d01_x * d01_x + d01_y * d01_y)
+
+    d12_x := v2[0] - v1[0]; d12_y := v2[1] - v1[1]
+    a := float_sqrt_inc(d12_x * d12_x + d12_y * d12_y)
+
+    d02_x := v2[0] - v0[0]; d02_y := v2[1] - v0[1]
+    b := float_sqrt_inc(d02_x * d02_x + d02_y * d02_y)
+
+    p := a + b + c
+    if p < 0.000001:
+        out_inc[0] = 0.0
+        out_inc[1] = 0.0
+        return
+    out_inc[0] = (a * v0[0] + b * v1[0] + c * v2[0]) / p
+    out_inc[1] = (a * v0[1] + b * v1[1] + c * v2[1]) / p

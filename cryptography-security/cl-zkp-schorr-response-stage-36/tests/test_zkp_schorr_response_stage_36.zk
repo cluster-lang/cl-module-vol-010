@@ -1,0 +1,11 @@
+// cl-zkp-schorr-response-stage-36: Test Suite
+import "../zkp_sr_36.zk"
+
+fn test_run():
+    res := schnorr_resp_36(10, 4, 25)
+    if res != 146: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-schorr-response-stage-36!")

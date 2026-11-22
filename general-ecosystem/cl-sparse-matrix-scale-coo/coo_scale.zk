@@ -1,0 +1,10 @@
+// cl-sparse-matrix-scale-coo: COO Sparse Matrix Scalar Multiplication
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn coo_scale(triplets: vector[int], scalar: int):
+    n := triplets.len() / 3
+    i := 0
+    while i < n:
+        triplets[(i * 3) + 2] = triplets[(i * 3) + 2] * scalar
+        i = i + 1

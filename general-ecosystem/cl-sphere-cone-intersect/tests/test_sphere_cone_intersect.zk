@@ -1,0 +1,12 @@
+// cl-sphere-cone-intersect: Test Suite
+import "../sph_cone.zk"
+
+fn test_sph_cone():
+    hit := sphere_cone_intersect(0.0, 0.0, 2.0, 1.0, 5.0, 2.0)
+    miss := sphere_cone_intersect(0.0, 0.0, 10.0, 1.0, 5.0, 2.0)
+    if hit != 1 or miss != 0: sys_exit(1)
+    print("test_sph_cone passed")
+
+fn main():
+    test_sph_cone()
+    print("✓ All tests passed for cl-sphere-cone-intersect!")

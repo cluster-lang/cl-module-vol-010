@@ -1,0 +1,13 @@
+// cl-ts-holt-linear-trend-stage-12: Test Suite
+import "../ts_ht_12.zk"
+
+fn test_run():
+    res := holt_trend_12(19.2, 18.0, 1.0, 0.1)
+    diff := res - 12.2400
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-ts-holt-linear-trend-stage-12!")

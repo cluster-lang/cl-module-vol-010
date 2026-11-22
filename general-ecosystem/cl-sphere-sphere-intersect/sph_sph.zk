@@ -1,0 +1,12 @@
+// cl-sphere-sphere-intersect: 3D Sphere-Sphere Distance & Overlap
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn spheres_overlap(x1: float, y1: float, z1: float, r1: float, x2: float, y2: float, z2: float, r2: float) -> int:
+    dx := x2 - x1
+    dy := y2 - y1
+    dz := z2 - z1
+    dist_sq := (dx * dx) + (dy * dy) + (dz * dz)
+    r_sum := r1 + r2
+    if dist_sq <= (r_sum * r_sum): return 1
+    return 0

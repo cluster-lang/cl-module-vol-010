@@ -1,0 +1,13 @@
+// cl-string-levenshtein-matrix-init: Test Suite
+import "../lev_init.zk"
+
+fn test_lev_init():
+    dp: vector[int] := [0, 0, 0, 0, 0, 0, 0, 0, 0] // 3x3
+    levenshtein_init_matrix(dp, 3, 3)
+    if dp[0] != 0 or dp[1] != 1 or dp[2] != 2: sys_exit(1)
+    if dp[3] != 1 or dp[6] != 2: sys_exit(1)
+    print("test_lev_init passed")
+
+fn main():
+    test_lev_init()
+    print("✓ All tests passed for cl-string-levenshtein-matrix-init!")

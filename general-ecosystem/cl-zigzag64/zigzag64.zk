@@ -1,0 +1,9 @@
+// cl-zigzag64: 64-bit Protocol Buffers ZigZag Codec
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag64_encode(n: int) -> int:
+    return (n << 1) ^ (n >> 63)
+
+fn zigzag64_decode(z: int) -> int:
+    return (z >> 1) ^ (0 - (z & 1))

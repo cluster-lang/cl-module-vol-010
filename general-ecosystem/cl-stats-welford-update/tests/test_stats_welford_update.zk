@@ -1,0 +1,16 @@
+// cl-stats-welford-update: Test Suite
+import "../st_welford.zk"
+
+fn test_st_welford():
+    state: vector[float] := [0.0, 0.0, 0.0]
+    stats_welford_step(state, 10.0)
+    stats_welford_step(state, 20.0)
+    // mean should be 15.0
+    diff := state[1] - 15.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_st_welford passed")
+
+fn main():
+    test_st_welford()
+    print("✓ All tests passed for cl-stats-welford-update!")

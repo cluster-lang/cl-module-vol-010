@@ -1,0 +1,6 @@
+// cl-synth-ring-mod-mix-stage-41: Ring Modulator Dry/Wet Mix Stage 41
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ring_mod_41(x: float, c: float, a: float) -> float:
+    return ((1.0 - a) * x + a * x * c) * 41.0

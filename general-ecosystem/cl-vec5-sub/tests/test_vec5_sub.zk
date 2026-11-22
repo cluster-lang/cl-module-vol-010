@@ -1,0 +1,14 @@
+// cl-vec5-sub: Test Suite
+import "../vec5_sub.zk"
+
+fn test_v5_sub():
+    a: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0]
+    b: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0]
+    vec5_sub(out, a, b)
+    if out[0] != 1.0 or out[4] != 1.0: sys_exit(1)
+    print("test_v5_sub passed")
+
+fn main():
+    test_v5_sub()
+    print("✓ All tests passed for cl-vec5-sub!")

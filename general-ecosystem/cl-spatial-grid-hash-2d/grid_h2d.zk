@@ -1,0 +1,8 @@
+// cl-spatial-grid-hash-2d: Spatial Hash of 2D Grid Cell (cx, cy)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_hash_2d(cx: int, cy: int) -> int:
+    mask32 := 4294967295
+    h := (cx * 73856093 ^ cy * 19349663) & mask32
+    return h

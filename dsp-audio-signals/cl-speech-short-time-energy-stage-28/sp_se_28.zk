@@ -1,0 +1,6 @@
+// cl-speech-short-time-energy-stage-28: Speech Frame Short-Time Energy Accumulator Stage 28
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ste_sample_28(s: float) -> float:
+    return (s * s) * 28.0

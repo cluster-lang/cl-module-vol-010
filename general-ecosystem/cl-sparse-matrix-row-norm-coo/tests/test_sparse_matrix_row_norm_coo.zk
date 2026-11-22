@@ -1,0 +1,13 @@
+// cl-sparse-matrix-row-norm-coo: Test Suite
+import "../sparse_row_l1.zk"
+
+fn test_sparse_row_l1():
+    rows: vector[int] := [0, 0, 1]
+    vals: vector[int] := [-10, 25, 5]
+    norm := sparse_coo_row_l1(rows, vals, 0)
+    if norm != 35: sys_exit(1)
+    print("test_sparse_row_l1 passed: row L1 norm 35 verified")
+
+fn main():
+    test_sparse_row_l1()
+    print("✓ All tests passed for cl-sparse-matrix-row-norm-coo!")

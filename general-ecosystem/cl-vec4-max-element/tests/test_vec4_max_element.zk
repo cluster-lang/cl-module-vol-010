@@ -1,0 +1,11 @@
+// cl-vec4-max-element: Test Suite
+import "../vec4_max.zk"
+
+fn test_v4_max():
+    v: vector[float] := [5.0, -10.0, 3.0, 42.0]
+    if vec4_max_element(v) != 42.0: sys_exit(1)
+    print("test_v4_max passed")
+
+fn main():
+    test_v4_max()
+    print("✓ All tests passed for cl-vec4-max-element!")

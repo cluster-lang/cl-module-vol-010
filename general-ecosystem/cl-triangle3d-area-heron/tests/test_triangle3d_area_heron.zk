@@ -1,0 +1,14 @@
+// cl-triangle3d-area-heron: Test Suite
+import "../tri_heron.zk"
+
+fn test_tri_heron():
+    // 3-4-5 right triangle has area 6.0
+    area := triangle_heron_area(3.0, 4.0, 5.0)
+    diff := area - 6.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_tri_heron passed: 3-4-5 triangle area 6.0 verified")
+
+fn main():
+    test_tri_heron()
+    print("✓ All tests passed for cl-triangle3d-area-heron!")

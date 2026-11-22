@@ -1,0 +1,13 @@
+// cl-treap: Cartesian Tree / Treap Ordering Primitives
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn treap_valid_child(parent_key: int, parent_prio: int, child_key: int, child_prio: int, is_left: int) -> int:
+    // Heap property: parent_prio >= child_prio
+    if parent_prio < child_prio: return 0
+    // BST property
+    if is_left == 1:
+        if child_key >= parent_key: return 0
+    else:
+        if child_key <= parent_key: return 0
+    return 1

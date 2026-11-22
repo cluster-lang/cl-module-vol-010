@@ -1,0 +1,6 @@
+name: "cl-subprocess"
+version: "0.1.0"
+description: "Run commands with output capture, pipe support, env control"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: []

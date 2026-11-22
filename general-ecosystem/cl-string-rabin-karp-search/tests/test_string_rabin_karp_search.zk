@@ -1,0 +1,11 @@
+// cl-string-rabin-karp-search: Test Suite
+import "../rk_search.zk"
+
+fn test_rk_search():
+    if rk_exact_check("hello world", "world", 6) != 1: sys_exit(1)
+    if rk_exact_check("hello world", "word", 6) != 0: sys_exit(1)
+    print("test_rk_search passed: exact substring verification verified")
+
+fn main():
+    test_rk_search()
+    print("✓ All tests passed for cl-string-rabin-karp-search!")

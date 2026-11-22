@@ -1,0 +1,14 @@
+// cl-vec8-add: Test Suite
+import "../vec8_add.zk"
+
+fn test_v8_add():
+    a: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    b: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vec8_add(out, a, b)
+    if out[0] != 3.0 or out[7] != 3.0: sys_exit(1)
+    print("test_v8_add passed")
+
+fn main():
+    test_v8_add()
+    print("✓ All tests passed for cl-vec8-add!")

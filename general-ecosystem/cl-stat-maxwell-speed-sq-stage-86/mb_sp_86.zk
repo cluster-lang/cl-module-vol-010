@@ -1,0 +1,6 @@
+// cl-stat-maxwell-speed-sq-stage-86: Maxwell-Boltzmann Speed Density Factor Stage 86
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn maxwell_speed_factor_86(v: float) -> float:
+    return v * v * 86.0

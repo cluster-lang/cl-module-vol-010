@@ -1,0 +1,17 @@
+// cl-sphere-aabb-clamp-point: Test Suite
+import "../sphere_clamp_pt.zk"
+
+fn test_sphere_clamp_pt():
+    sc: vector[float] := [-5.0, 15.0, 5.0]
+    min_b: vector[float] := [0.0, 0.0, 0.0]
+    max_b: vector[float] := [10.0, 10.0, 10.0]
+    out: vector[float] := []
+    closest_point_on_aabb3d(out, sc, min_b, max_b)
+    if out[0] != 0.0: sys_exit(1)
+    if out[1] != 10.0: sys_exit(1)
+    if out[2] != 5.0: sys_exit(1)
+    print("test_sphere_clamp_pt passed: closest point on AABB verified")
+
+fn main():
+    test_sphere_clamp_pt()
+    print("✓ All tests passed for cl-sphere-aabb-clamp-point!")

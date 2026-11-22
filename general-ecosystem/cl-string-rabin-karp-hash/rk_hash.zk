@@ -1,0 +1,12 @@
+// cl-string-rabin-karp-hash: Polynomial Rolling Hash Initializer
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rabin_karp_init_hash(s: vector[int], base: int, mod_val: int) -> int:
+    h := 0
+    i := 0
+    n := s.len()
+    while i < n:
+        h = (h * base + s[i]) % mod_val
+        i = i + 1
+    return h

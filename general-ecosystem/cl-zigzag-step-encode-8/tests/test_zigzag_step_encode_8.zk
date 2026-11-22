@@ -1,0 +1,11 @@
+// cl-zigzag-step-encode-8: Test Suite
+import "../zz_enc_8.zk"
+
+fn test_run():
+    res := zigzag_enc_8(8)
+    if res != 16: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zigzag-step-encode-8!")

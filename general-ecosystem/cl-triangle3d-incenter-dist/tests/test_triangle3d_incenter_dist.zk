@@ -1,0 +1,20 @@
+// cl-triangle3d-incenter-dist: Test Suite
+import "../incenter.zk"
+
+fn test_incenter():
+    // Right triangle at (0,0), (4,0), (0,3): incenter is (1.0, 1.0)
+    v0: vector[float] := [0.0, 0.0]
+    v1: vector[float] := [4.0, 0.0]
+    v2: vector[float] := [0.0, 3.0]
+    inc: vector[float] := [0.0, 0.0]
+    triangle2d_incenter(inc, v0, v1, v2)
+    diff_x := inc[0] - 1.0
+    if diff_x < 0.0: diff_x = 0.0 - diff_x
+    diff_y := inc[1] - 1.0
+    if diff_y < 0.0: diff_y = 0.0 - diff_y
+    if diff_x > 0.0001 or diff_y > 0.0001: sys_exit(1)
+    print("test_incenter passed")
+
+fn main():
+    test_incenter()
+    print("✓ All tests passed for cl-triangle3d-incenter-dist!")

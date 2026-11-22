@@ -1,0 +1,9 @@
+// cl-vec3-reject: 3D Vector Rejection of u from v
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_reject(u: vector[float], v: vector[float]) -> vector[float]:
+    v_sq := v[0]*v[0] + v[1]*v[1] + v[2]*v[2]
+    if v_sq <= 0.000001: return u
+    scale := (u[0]*v[0] + u[1]*v[1] + u[2]*v[2]) / v_sq
+    return [u[0] - scale * v[0], u[1] - scale * v[1], u[2] - scale * v[2]]

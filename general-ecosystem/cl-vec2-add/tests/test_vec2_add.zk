@@ -1,0 +1,18 @@
+// cl-vec2-add: Test Suite
+import "../vec2_add.zk"
+
+fn test_v2_add():
+    a: vector[float] := [1.5, 3.2]
+    b: vector[float] := [2.5, 1.8]
+    out: vector[float] := [0.0, 0.0]
+    vec2_add(out, a, b)
+    diff0 := out[0] - 4.0
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    diff1 := out[1] - 5.0
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff0 > 0.0001 or diff1 > 0.0001: sys_exit(1)
+    print("test_v2_add passed")
+
+fn main():
+    test_v2_add()
+    print("✓ All tests passed for cl-vec2-add!")

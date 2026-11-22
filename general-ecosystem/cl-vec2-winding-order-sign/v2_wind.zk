@@ -1,0 +1,9 @@
+// cl-vec2-winding-order-sign: Triangle 2D Winding Order Sign (+1 CCW, -1 CW, 0 Collinear)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_winding_sign(a: vector[float], b: vector[float], c: vector[float]) -> int:
+    cross := (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+    if cross > 0.000001: return 1
+    if cross < -0.000001: return 0 - 1
+    return 0

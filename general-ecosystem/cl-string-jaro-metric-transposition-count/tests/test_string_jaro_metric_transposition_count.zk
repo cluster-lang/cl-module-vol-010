@@ -1,0 +1,12 @@
+// cl-string-jaro-metric-transposition-count: Test Suite
+import "../jaro_tr.zk"
+
+fn test_jaro_tr():
+    m1: vector[int] := [65, 66]
+    m2: vector[int] := [66, 65]
+    if count_transpositions(m1, m2) != 1: sys_exit(1)
+    print("test_jaro_tr passed: 1 transposition verified")
+
+fn main():
+    test_jaro_tr()
+    print("✓ All tests passed for cl-string-jaro-metric-transposition-count!")

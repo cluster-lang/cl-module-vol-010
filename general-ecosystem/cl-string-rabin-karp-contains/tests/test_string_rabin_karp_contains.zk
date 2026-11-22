@@ -1,0 +1,14 @@
+// cl-string-rabin-karp-contains: Test Suite
+import "../rk_cont.zk"
+
+fn test_rk_cont():
+    t: vector[int] := [65, 66, 67, 68]
+    p: vector[int] := [66, 67]
+    if rabin_karp_contains_pattern(t, p) != 1: sys_exit(1)
+    p2: vector[int] := [90]
+    if rabin_karp_contains_pattern(t, p2) != 0: sys_exit(2)
+    print("test_rk_cont passed: pattern containment verified")
+
+fn main():
+    test_rk_cont()
+    print("✓ All tests passed for cl-string-rabin-karp-contains!")

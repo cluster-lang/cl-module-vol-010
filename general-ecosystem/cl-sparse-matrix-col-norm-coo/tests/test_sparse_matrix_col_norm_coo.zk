@@ -1,0 +1,14 @@
+// cl-sparse-matrix-col-norm-coo: Test Suite
+import "../sparse_norm.zk"
+
+fn test_sparse_norm():
+    cols: vector[int] := [0, 0, 1]
+    vals: vector[float] := [3.0, 4.0, 5.0]
+    norms := sparse_coo_col_norms(cols, vals, 2)
+    if norms[0] != 5.0: sys_exit(1)
+    if norms[1] != 5.0: sys_exit(2)
+    print("test_sparse_norm passed: column norms 5.0 verified")
+
+fn main():
+    test_sparse_norm()
+    print("✓ All tests passed for cl-sparse-matrix-col-norm-coo!")

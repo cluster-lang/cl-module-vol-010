@@ -1,0 +1,13 @@
+// cl-sparse-matrix-row-sum-coo: COO Sparse Matrix Row Sum Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sparse_coo_row_sum(rows: vector[int], vals: vector[int], target_row: int) -> int:
+    sum := 0
+    i := 0
+    nnz := rows.len()
+    while i < nnz:
+        if rows[i] == target_row:
+            sum = sum + vals[i]
+        i = i + 1
+    return sum

@@ -1,0 +1,13 @@
+// cl-varint-u64-encoded-size: 64-bit Varint Byte Count Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn varint64_size(val: int) -> int:
+    mask64 := 9223372036854775807
+    v := val & mask64
+    count := 0
+    if v == 0: return 1
+    while v > 0:
+        count = count + 1
+        v = v >> 7
+    return count

@@ -1,0 +1,13 @@
+// cl-tensor-lateral-sum-3: Test Suite
+import "../t3_lat_3.zk"
+
+fn test_run():
+    res := tensor_lateral_sum_3([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+    diff := res - 27.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-tensor-lateral-sum-3!")

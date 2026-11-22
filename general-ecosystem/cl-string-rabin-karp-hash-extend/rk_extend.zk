@@ -1,0 +1,6 @@
+// cl-string-rabin-karp-hash-extend: Append Rolling Hash Character Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rk_append_char(prev_hash: int, new_char: int, base: int, mod_val: int) -> int:
+    return ((prev_hash * base) + new_char) % mod_val

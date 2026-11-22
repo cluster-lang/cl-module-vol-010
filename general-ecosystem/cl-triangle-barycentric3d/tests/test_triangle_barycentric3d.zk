@@ -1,0 +1,14 @@
+// cl-triangle-barycentric3d: Test Suite
+import "../bary.zk"
+
+fn test_bary():
+    out: vector[float] := []
+    // Triangle (0,0), (1,0), (0,1). Point (0,0) -> u (for A) = 1.0
+    barycentric2d_weights(out, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0)
+    if out[0] < 0.99: sys_exit(1)
+    if out[0] > 1.01: sys_exit(1)
+    print("test_bary passed: vertex barycentric coordinate verified")
+
+fn main():
+    test_bary()
+    print("✓ All tests passed for cl-triangle-barycentric3d!")

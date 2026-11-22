@@ -1,0 +1,11 @@
+// cl-zkp-pedersen-commit-stage-27: Test Suite
+import "../zkp_pd_27.zk"
+
+fn test_run():
+    res := pedersen_step_27(5, 7, 3, 11)
+    if res != 95: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-pedersen-commit-stage-27!")

@@ -1,0 +1,10 @@
+// cl-unpack-u16-high-byte Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-unpack-u16-high-byte"
+version := "1.0.0"
+description := "16-bit Integer High Byte Unpacker"
+main := "un16_h.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

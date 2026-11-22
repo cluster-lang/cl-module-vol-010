@@ -1,0 +1,11 @@
+// cl-string-levenshtein-damerau-cell: Damerau-Levenshtein Matrix Cell Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn damerau_cell(del_c: int, ins_c: int, sub_c: int, trans_c: int, can_trans: int) -> int:
+    min_val := del_c
+    if ins_c < min_val: min_val = ins_c
+    if sub_c < min_val: min_val = sub_c
+    if can_trans != 0 and trans_c < min_val:
+        min_val = trans_c
+    return min_val

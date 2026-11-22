@@ -1,0 +1,14 @@
+// cl-varint-zigzag-stream-encode-fast: Fast Zigzag Array Stream Encoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_encode_stream(out_enc: vector[int], in_ints: vector[int]):
+    mask32 := 4294967295
+    n := in_ints.len()
+    i := 0
+    while i < n:
+        v := in_ints[i]
+        shifted := (v << 1) & mask32
+        sign_ext := (v >> 31) & mask32
+        out_enc.push((shifted ^ sign_ext) & mask32)
+        i = i + 1

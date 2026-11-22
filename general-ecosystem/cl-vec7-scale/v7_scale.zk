@@ -1,0 +1,6 @@
+// cl-vec7-scale: 7D Vector Scalar Multiplication
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec7_scale(a: vector[float], s: float) -> vector[float]:
+    return [a[0]*s, a[1]*s, a[2]*s, a[3]*s, a[4]*s, a[5]*s, a[6]*s]

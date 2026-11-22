@@ -1,0 +1,13 @@
+// cl-string-jaro-metric-transpositions: Test Suite
+import "../jaro_trans.zk"
+
+fn test_jaro_trans():
+    t := jaro_transposition_half(4)
+    diff := t - 2.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_jaro_trans passed: transposition half verified")
+
+fn main():
+    test_jaro_trans()
+    print("✓ All tests passed for cl-string-jaro-metric-transpositions!")

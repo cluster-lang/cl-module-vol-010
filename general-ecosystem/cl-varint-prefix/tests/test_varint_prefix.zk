@@ -1,0 +1,12 @@
+// cl-varint-prefix: Test Suite
+import "../prefix_varint.zk"
+
+fn test_vpref():
+    if prefix_varint_len(10) != 1: sys_exit(1) // 0b00001010 -> 1 byte
+    if prefix_varint_len(130) != 2: sys_exit(1) // 0b10000010 -> 2 bytes
+    if prefix_varint_len(195) != 3: sys_exit(1) // 0b11000011 -> 3 bytes
+    print("test_vpref passed: prefix tag lengths verified")
+
+fn main():
+    test_vpref()
+    print("✓ All tests passed for cl-varint-prefix!")

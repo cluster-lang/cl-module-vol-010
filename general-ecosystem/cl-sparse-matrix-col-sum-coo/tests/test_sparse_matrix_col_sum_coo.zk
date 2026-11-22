@@ -1,0 +1,15 @@
+// cl-sparse-matrix-col-sum-coo: Test Suite
+import "../coo_col_sum.zk"
+
+fn test_coo_col_sum():
+    cols: vector[int] := [0, 1, 1, 2]
+    vals: vector[int] := [10, 20, 30, 40]
+    s1 := sparse_coo_col_sum(cols, vals, 1)
+    if s1 != 50: sys_exit(1)
+    s2 := sparse_coo_col_sum(cols, vals, 2)
+    if s2 != 40: sys_exit(1)
+    print("test_coo_col_sum passed: COO column sum verified")
+
+fn main():
+    test_coo_col_sum()
+    print("✓ All tests passed for cl-sparse-matrix-col-sum-coo!")

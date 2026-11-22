@@ -1,0 +1,13 @@
+// cl-string-rabin-karp-hash: Test Suite
+import "../rk_hash.zk"
+
+fn test_rk_hash():
+    s: vector[int] := [65, 66] // 'A'=65, 'B'=66
+    h := rabin_karp_init_hash(s, 256, 1000000007)
+    // 65 * 256 + 66 = 16706
+    if h != 16706: sys_exit(1)
+    print("test_rk_hash passed: polynomial hash 16706 verified")
+
+fn main():
+    test_rk_hash()
+    print("✓ All tests passed for cl-string-rabin-karp-hash!")

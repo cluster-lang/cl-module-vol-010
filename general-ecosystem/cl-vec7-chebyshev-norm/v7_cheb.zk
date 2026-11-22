@@ -1,0 +1,13 @@
+// cl-vec7-chebyshev-norm: 7D Vector Chebyshev L-infinity Norm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec7_chebyshev(a: vector[float]) -> float:
+    max := 0.0
+    i := 0
+    while i < 7:
+        v := a[i]
+        if v < 0.0: v = 0.0 - v
+        if v > max: max = v
+        i = i + 1
+    return max

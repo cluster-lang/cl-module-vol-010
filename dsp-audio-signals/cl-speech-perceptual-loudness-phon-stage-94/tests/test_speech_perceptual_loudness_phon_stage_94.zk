@@ -1,0 +1,13 @@
+// cl-speech-perceptual-loudness-phon-stage-94: Test Suite
+import "../sp_pl_94.zk"
+
+fn test_run():
+    res := loudness_scale_94(60.0, 1.2)
+    diff := res - 6768.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-speech-perceptual-loudness-phon-stage-94!")

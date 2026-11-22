@@ -1,0 +1,35 @@
+// cl-triangle3d-circumcircle-radius: Exact Circumradius Calculator for 3D Triangle
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0: return 0.0
+    x := val
+    i := 0
+    while i < 15:
+        x = 0.5 * (x + val / x)
+        i = i + 1
+    return x
+
+fn triangle3d_circumradius(ax: float, ay: float, az: float, bx: float, by: float, bz: float, cx: float, cy: float, cz: float) -> float:
+    bcx := bx - cx
+    bcy := by - cy
+    bcz := bz - cz
+    a := sqrt_approx(bcx * bcx + bcy * bcy + bcz * bcz)
+
+    acx := ax - cx
+    acy := ay - cy
+    acz := az - cz
+    b := sqrt_approx(acx * acx + acy * acy + acz * acz)
+
+    abx := ax - bx
+    aby := ay - by
+    abz := az - bz
+    c := sqrt_approx(abx * abx + aby * aby + abz * abz)
+
+    s := 0.5 * (a + b + c)
+    area_sq := s * (s - a) * (s - b) * (s - c)
+    if area_sq <= 0.0: return 0.0
+
+    area := sqrt_approx(area_sq)
+    return (a * b * c) / (4.0 * area)

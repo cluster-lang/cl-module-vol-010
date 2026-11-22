@@ -1,0 +1,11 @@
+// cl-vlq-stream-byte-count: Test Suite
+import "../vlq_cnt.zk"
+
+fn test_vlq_cnt():
+    vals: vector[int] := [50, 200, 30] // 1 + 2 + 1 = 4
+    if vlq_stream_total_bytes(vals) != 4: sys_exit(1)
+    print("test_vlq_cnt passed")
+
+fn main():
+    test_vlq_cnt()
+    print("✓ All tests passed for cl-vlq-stream-byte-count!")

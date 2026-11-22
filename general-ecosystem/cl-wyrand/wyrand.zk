@@ -1,0 +1,9 @@
+// cl-wyrand: Wyrand 64-bit Fast PRNG
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn wyrand_next(state: vector[int]) -> int:
+    s := state[0] + (-6884074211153100689) // 0xa0761d6478bd642f
+    state[0] = s
+    p := s * (s ^ (-1800473950669299493)) // 0xe7037ed1a0b428db
+    return p ^ (p >> 32)

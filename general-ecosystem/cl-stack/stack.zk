@@ -1,0 +1,25 @@
+// cl-stack: Pure Cluster LIFO Stack Data Structure
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model Stack:
+    items: vector[int]
+
+fn stack_new() -> Stack:
+    v: vector[int] := []
+    return Stack(v)
+
+fn stack_push(s: Stack, val: int):
+    s.items.push(val)
+
+fn stack_pop(s: Stack) -> int:
+    if s.items.len() == 0: return 0
+    return s.items.pop()
+
+fn stack_peek(s: Stack) -> int:
+    slen := s.items.len()
+    if slen == 0: return 0
+    return s.items[slen - 1]
+
+fn stack_size(s: Stack) -> int:
+    return s.items.len()

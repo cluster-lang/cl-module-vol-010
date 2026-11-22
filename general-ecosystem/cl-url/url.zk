@@ -1,0 +1,36 @@
+// cl-url: Pure Cluster Simple URL Parser
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model SimpleURL:
+    scheme: string
+    host: string
+    path: string
+
+fn parse_simple_http(u: string) -> SimpleURL:
+    // Basic prefix matching
+    scheme := "http"
+    start_host := 7
+    if len(u) >= 8 and byte_at(u, 4) == 115: // 's'
+        scheme = "https"
+        start_host = 8
+
+    host := ""
+    path := "/"
+    i := start_host
+    ulen := len(u)
+    found_slash := false
+    while i < ulen:
+        if byte_at(u, i) == 47: // '/'
+            found_slash = true
+            break
+        host = host + chr(byte_at(u, i))
+        i = i + 1
+
+    if found_slash:
+        path = ""
+        while i < ulen:
+            path = path + chr(byte_at(u, i))
+            i = i + 1
+
+    return SimpleURL(scheme, host, path)

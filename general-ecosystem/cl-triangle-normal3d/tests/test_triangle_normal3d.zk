@@ -1,0 +1,15 @@
+// cl-triangle-normal3d: Test Suite
+import "../tri_norm.zk"
+
+fn test_tri_norm():
+    out: vector[float] := []
+    // Triangle in XY plane: (0,0,0), (1,0,0), (0,1,0) -> normal along +Z
+    triangle_normal(out, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0)
+    if out[0] != 0.0: sys_exit(1)
+    if out[1] != 0.0: sys_exit(1)
+    if out[2] != 1.0: sys_exit(1)
+    print("test_tri_norm passed: triangle normal vector verified")
+
+fn main():
+    test_tri_norm()
+    print("✓ All tests passed for cl-triangle-normal3d!")

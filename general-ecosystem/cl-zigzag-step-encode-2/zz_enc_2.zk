@@ -1,0 +1,7 @@
+// cl-zigzag-step-encode-2: ZigZag Integer Encoder Stage 2
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_enc_2(n: int) -> int:
+    if n >= 0: return n * 2
+    return (0 - n) * 2 - 1

@@ -1,0 +1,6 @@
+// cl-vec4-mean: 4D Vector Arithmetic Mean
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec4_mean(v: vector[float]) -> float:
+    return (v[0] + v[1] + v[2] + v[3]) * 0.25

@@ -1,0 +1,11 @@
+// cl-vec11-mean: 11D Vector Arithmetic Mean of Components
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec11_mean(a: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 11:
+        s = s + a[i]
+        i = i + 1
+    return s / 11.0

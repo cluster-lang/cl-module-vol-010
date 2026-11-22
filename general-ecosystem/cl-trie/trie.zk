@@ -1,0 +1,52 @@
+// cl-trie: Pure Cluster Arena-Allocated Prefix Trie
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model TrieNode:
+    children: vector[int]
+    is_terminal: bool
+
+model Trie:
+    nodes: vector[TrieNode]
+
+fn trie_new_node() -> TrieNode:
+    c: vector[int] := []
+    i := 0
+    while i < 26:
+        c.push(-1)
+        i = i + 1
+    return TrieNode(c, false)
+
+fn trie_new() -> Trie:
+    n: vector[TrieNode] := []
+    n.push(trie_new_node())
+    return Trie(n)
+
+fn trie_insert(t: Trie, word: string):
+    curr := 0
+    i := 0
+    wlen := len(word)
+    while i < wlen:
+        ch := byte_at(word, i) - 97
+        if ch >= 0 and ch < 26:
+            next_idx := t.nodes[curr].children[ch]
+            if next_idx == -1:
+                next_idx = t.nodes.len()
+                t.nodes.push(trie_new_node())
+                t.nodes[curr].children[ch] = next_idx
+            curr = next_idx
+        i = i + 1
+    t.nodes[curr].is_terminal = true
+
+fn trie_contains(t: Trie, word: string) -> bool:
+    curr := 0
+    i := 0
+    wlen := len(word)
+    while i < wlen:
+        ch := byte_at(word, i) - 97
+        if ch < 0 or ch >= 26: return false
+        next_idx := t.nodes[curr].children[ch]
+        if next_idx == -1: return false
+        curr = next_idx
+        i = i + 1
+    return t.nodes[curr].is_terminal

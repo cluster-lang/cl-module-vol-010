@@ -1,0 +1,8 @@
+// cl-vec3-add: 3D Vector Component-wise Addition
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_add(out: vector[float], a: vector[float], b: vector[float]):
+    out[0] = a[0] + b[0]
+    out[1] = a[1] + b[1]
+    out[2] = a[2] + b[2]

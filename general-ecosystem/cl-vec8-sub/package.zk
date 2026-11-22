@@ -1,0 +1,10 @@
+// cl-vec8-sub Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-vec8-sub"
+version := "1.0.0"
+description := "8D Vector Component-wise Subtraction"
+main := "vec8_sub.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

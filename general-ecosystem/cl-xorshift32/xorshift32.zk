@@ -1,0 +1,12 @@
+// cl-xorshift32: Marsaglia Xorshift 32-bit Fast PRNG
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn xorshift32_next(state: vector[int]) -> int:
+    mask32 := 4294967295
+    x := state[0] & mask32
+    x = (x ^ ((x << 13) & mask32)) & mask32
+    x = (x ^ (x >> 17)) & mask32
+    x = (x ^ ((x << 5) & mask32)) & mask32
+    state[0] = x
+    return x

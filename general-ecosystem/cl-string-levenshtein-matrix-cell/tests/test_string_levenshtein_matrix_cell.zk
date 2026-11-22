@@ -1,0 +1,13 @@
+// cl-string-levenshtein-matrix-cell: Test Suite
+import "../lev_cell.zk"
+
+fn test_lev_cell():
+    c_match := solve_lev_cell(1, 1, 0, 1)
+    if c_match != 0: sys_exit(1)
+    c_diff := solve_lev_cell(1, 1, 0, 0)
+    if c_diff != 1: sys_exit(1)
+    print("test_lev_cell passed: DP cell solver verified")
+
+fn main():
+    test_lev_cell()
+    print("✓ All tests passed for cl-string-levenshtein-matrix-cell!")

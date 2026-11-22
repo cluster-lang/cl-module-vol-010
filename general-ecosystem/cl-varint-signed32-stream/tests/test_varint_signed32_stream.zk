@@ -1,0 +1,15 @@
+// cl-varint-signed32-stream: Test Suite
+import "../varint_s32.zk"
+
+fn test_varint_s32():
+    out: vector[int] := []
+    encode_u32_varint_bytes(out, 300)
+    // 300 in varint: 300 % 128 = 44 | 128 = 172 (0xAC), 300 >> 7 = 2
+    if out.len() != 2: sys_exit(1)
+    if out[0] != 172: sys_exit(1)
+    if out[1] != 2: sys_exit(1)
+    print("test_varint_s32 passed: varint bytes [172, 2] verified")
+
+fn main():
+    test_varint_s32()
+    print("✓ All tests passed for cl-varint-signed32-stream!")

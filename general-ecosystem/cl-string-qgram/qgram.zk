@@ -1,0 +1,14 @@
+// cl-string-qgram: Bigram String Profile Extractor
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Packs adjacent characters into 16-bit integer bigrams
+fn string_bigrams(s: string, out: vector[int]):
+    slen := len(s)
+    if slen < 2: return
+    i := 0
+    while i < (slen - 1):
+        b1 := byte_at(s, i) & 255
+        b2 := byte_at(s, i + 1) & 255
+        out.push((b1 << 8) | b2)
+        i = i + 1

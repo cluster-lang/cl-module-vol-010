@@ -1,0 +1,13 @@
+// cl-wave-helmholtz-ratio-stage-80: Test Suite
+import "../hlm_rt_80.zk"
+
+fn test_run():
+    res := helmholtz_ratio_80(0.01, 0.1, 0.05)
+    diff := res - 160.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-wave-helmholtz-ratio-stage-80!")

@@ -1,0 +1,13 @@
+// cl-stat-boltzmann-entropy-stage-28: Test Suite
+import "../boltz_s_28.zk"
+
+fn test_run():
+    res := boltzmann_entropy_factor_28(10.0)
+    diff := res - 386.5817
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-boltzmann-entropy-stage-28!")

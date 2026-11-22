@@ -1,0 +1,32 @@
+// cl-tarjan-scc: Tarjan's Strongly Connected Components
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min2_i(a: int, b: int) -> int:
+    if a < b: return a
+    return b
+
+// Simple cycle detector and SCC count for adjacency matrix
+fn count_scc_simple(adj: vector[int], n: int) -> int:
+    // adj is flat n x n matrix: 1 if edge u -> v
+    visited: vector[int] := []
+    i := 0
+    while i < n:
+        visited.push(0)
+        i = i + 1
+
+    scc_count := 0
+    u := 0
+    while u < n:
+        if visited[u] == 0:
+            visited[u] = 1
+            // Check mutual reachability
+            v := 0
+            while v < n:
+                if adj[(u * n) + v] == 1:
+                    if adj[(v * n) + u] == 1:
+                        visited[v] = 1
+                v = v + 1
+            scc_count = scc_count + 1
+        u = u + 1
+    return scc_count

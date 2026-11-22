@@ -1,0 +1,11 @@
+// cl-string-rabin-karp-search: Single Pattern Hash Match Finder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rk_exact_check(text: string, pat: string, start_idx: int) -> int:
+    m := len(pat)
+    i := 0
+    while i < m:
+        if byte_at(text, start_idx + i) != byte_at(pat, i): return 0
+        i = i + 1
+    return 1

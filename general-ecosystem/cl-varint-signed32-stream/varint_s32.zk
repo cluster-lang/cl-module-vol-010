@@ -1,0 +1,15 @@
+// cl-varint-signed32-stream: 32-bit Signed Integer Varint Byte Encoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn encode_u32_varint_bytes(out: vector[int], val: int):
+    v := val & 4294967295
+    cont := 1
+    while cont == 1:
+        byte_val := v & 127
+        v = (v >> 7) & 33554431
+        if v != 0:
+            out.push(byte_val | 128)
+        else:
+            out.push(byte_val)
+            cont = 0

@@ -1,0 +1,6 @@
+// cl-spatial-grid-to-index-3d: Flatten 3D Grid Cell (x, y, z) to 1D Index
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn grid_to_index_3d(x: int, y: int, z: int, width: int, height: int) -> int:
+    return z * width * height + y * width + x

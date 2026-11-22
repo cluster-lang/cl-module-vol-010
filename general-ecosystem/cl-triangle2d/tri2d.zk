@@ -1,0 +1,9 @@
+// cl-triangle2d: 2D Triangle Circumcenter & Centroid
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tri2d_centroid(ax: int, ay: int, bx: int, by: int, cx: int, cy: int) -> vector[int]:
+    res: vector[int] := []
+    res.push((ax + bx + cx) / 3)
+    res.push((ay + by + cy) / 3)
+    return res

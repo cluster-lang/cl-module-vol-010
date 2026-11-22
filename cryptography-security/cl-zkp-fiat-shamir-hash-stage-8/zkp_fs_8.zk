@@ -1,0 +1,6 @@
+// cl-zkp-fiat-shamir-hash-stage-8: Fiat-Shamir Non-Interactive Transcript Update Stage 8
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn fiat_shamir_step_8(prev: int, round_val: int) -> int:
+    return ((prev * 31 + round_val) & 2147483647) + 8

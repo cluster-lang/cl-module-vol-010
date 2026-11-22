@@ -1,0 +1,12 @@
+// cl-varint-zigzag-stream-decode-fast: Zigzag Stream Decoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_decode_stream(out_dec: vector[int], in_enc: vector[int]):
+    n := in_enc.len()
+    i := 0
+    while i < n:
+        val := in_enc[i]
+        dec := (val >> 1) ^ (0 - (val & 1))
+        out_dec.push(dec)
+        i = i + 1

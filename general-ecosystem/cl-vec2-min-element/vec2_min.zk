@@ -1,0 +1,8 @@
+// cl-vec2-min-element: 2D Vector Minimum Element
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_min_element(v: vector[float]) -> float:
+    if v[1] < v[0]:
+        return v[1]
+    return v[0]

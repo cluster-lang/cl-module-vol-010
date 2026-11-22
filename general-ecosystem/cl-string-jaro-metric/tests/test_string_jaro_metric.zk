@@ -1,0 +1,11 @@
+// cl-string-jaro-metric: Test Suite
+import "../jaro_m.zk"
+
+fn test_jaro_m():
+    if count_half_transpositions("abc", "acb") != 1: sys_exit(1)
+    if count_half_transpositions("abc", "abc") != 0: sys_exit(1)
+    print("test_jaro_m passed: half transposition count verified")
+
+fn main():
+    test_jaro_m()
+    print("✓ All tests passed for cl-string-jaro-metric!")

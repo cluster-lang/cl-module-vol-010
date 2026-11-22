@@ -1,0 +1,11 @@
+// cl-string-levenshtein-matrix: Test Suite
+import "../lev_mat.zk"
+
+fn test_lev_mat():
+    d := levenshtein_full("kitten", "sitting")
+    if d != 3: sys_exit(1)
+    print("test_lev_mat passed: standard kitten to sitting edit distance 3 verified")
+
+fn main():
+    test_lev_mat()
+    print("✓ All tests passed for cl-string-levenshtein-matrix!")

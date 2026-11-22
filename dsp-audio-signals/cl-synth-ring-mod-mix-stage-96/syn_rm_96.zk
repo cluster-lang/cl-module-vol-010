@@ -1,0 +1,6 @@
+// cl-synth-ring-mod-mix-stage-96: Ring Modulator Dry/Wet Mix Stage 96
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ring_mod_96(x: float, c: float, a: float) -> float:
+    return ((1.0 - a) * x + a * x * c) * 96.0

@@ -1,0 +1,12 @@
+// cl-string-rabin-karp-multi: Multi-Pattern Rolling Hash Collision Filter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rabin_karp_check_match(text: vector[int], start_idx: int, pat: vector[int]) -> int:
+    i := 0
+    plen := pat.len()
+    while i < plen:
+        if text[start_idx + i] != pat[i]:
+            return 0
+        i = i + 1
+    return 1

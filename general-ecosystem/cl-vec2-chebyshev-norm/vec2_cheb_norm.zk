@@ -1,0 +1,12 @@
+// cl-vec2-chebyshev-norm: 2D Vector L-infinity Chebyshev Norm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_chebyshev_norm(v: vector[float]) -> float:
+    x := v[0]
+    if x < 0.0: x = 0.0 - x
+    y := v[1]
+    if y < 0.0: y = 0.0 - y
+    if y > x:
+        return y
+    return x

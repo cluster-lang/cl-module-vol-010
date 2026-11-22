@@ -1,0 +1,13 @@
+// cl-string-longest-repeated: Test Suite
+import "../lrs.zk"
+
+fn test_lrs():
+    s := "banana"
+    // "anana" (idx 1) vs "ana" (idx 3) -> lcp is "ana" (3)
+    lcp := lcp_length(s, 1, 3)
+    if lcp != 3: sys_exit(1)
+    print("test_lrs passed: longest common prefix length verified")
+
+fn main():
+    test_lrs()
+    print("✓ All tests passed for cl-string-longest-repeated!")

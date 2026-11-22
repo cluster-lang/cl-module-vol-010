@@ -1,0 +1,6 @@
+// cl-synth-chorus-delay-lfo-stage-62: Chorus LFO Modulated Delay Tap Stage 62
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn chorus_tap_62(d0: float, w: float, lfo: float) -> float:
+    return (d0 + w * lfo) * 62.0

@@ -1,0 +1,23 @@
+// cl-token-bucket: Pure Cluster Token Bucket Rate Limiter
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model TokenBucket:
+    capacity: int
+    tokens: int
+    refill_rate: int
+
+fn tb_new(cap_val: int, refill_rate_per_sec: int) -> TokenBucket:
+    return TokenBucket(cap_val, cap_val, refill_rate_per_sec)
+
+fn tb_refill(tb: TokenBucket, elapsed_secs: int):
+    added := elapsed_secs * tb.refill_rate
+    tb.tokens = tb.tokens + added
+    if tb.tokens > tb.capacity:
+        tb.tokens = tb.capacity
+
+fn tb_consume(tb: TokenBucket, cost: int) -> bool:
+    if tb.tokens >= cost:
+        tb.tokens = tb.tokens - cost
+        return true
+    return false

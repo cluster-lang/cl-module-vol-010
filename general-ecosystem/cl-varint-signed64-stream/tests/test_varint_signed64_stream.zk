@@ -1,0 +1,20 @@
+// cl-varint-signed64-stream: Test Suite
+import "../varint_s64.zk"
+
+fn test_varint_s64():
+    out: vector[int] := []
+    encode_u64_varint_bytes(out, 1)
+    if out.len() != 1: sys_exit(1)
+    if out[0] != 1: sys_exit(1)
+    out2: vector[int] := []
+    encode_u64_varint_bytes(out2, 624485)
+    // 624485 in varint: [0xE5, 0x8E, 0x26] = [229, 142, 38]
+    if out2.len() != 3: sys_exit(1)
+    if out2[0] != 229: sys_exit(1)
+    if out2[1] != 142: sys_exit(1)
+    if out2[2] != 38: sys_exit(1)
+    print("test_varint_s64 passed: 64-bit varint stream encoding verified")
+
+fn main():
+    test_varint_s64()
+    print("✓ All tests passed for cl-varint-signed64-stream!")

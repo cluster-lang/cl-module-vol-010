@@ -1,0 +1,12 @@
+// cl-varint-sqlite: Test Suite
+import "../sqlite_varint.zk"
+
+fn test_sqlite_varint():
+    if sqlite_varint_size(100) != 1: sys_exit(1)
+    if sqlite_varint_size(1000) != 2: sys_exit(1)
+    if sqlite_varint_size(50000) != 3: sys_exit(1)
+    print("test_sqlite_varint passed: SQLite varint length boundaries verified")
+
+fn main():
+    test_sqlite_varint()
+    print("✓ All tests passed for cl-varint-sqlite!")

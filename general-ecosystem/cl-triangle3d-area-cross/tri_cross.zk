@@ -1,0 +1,26 @@
+// cl-triangle3d-area-cross: Exact 3D Triangle Area via Cross Product
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0: return 0.0
+    s := val * 0.5
+    if s < 1.0: s = 1.0
+    iter := 0
+    while iter < 6:
+        s = (s + val / s) * 0.5
+        iter = iter + 1
+    return s
+
+fn triangle3d_cross_area(v0: vector[float], v1: vector[float], v2: vector[float]) -> float:
+    e1_0 := v1[0] - v0[0]
+    e1_1 := v1[1] - v0[1]
+    e1_2 := v1[2] - v0[2]
+    e2_0 := v2[0] - v0[0]
+    e2_1 := v2[1] - v0[1]
+    e2_2 := v2[2] - v0[2]
+    cx := e1_1 * e2_2 - e1_2 * e2_1
+    cy := e1_2 * e2_0 - e1_0 * e2_2
+    cz := e1_0 * e2_1 - e1_1 * e2_0
+    mag_sq := cx * cx + cy * cy + cz * cz
+    return 0.5 * sqrt_approx(mag_sq)

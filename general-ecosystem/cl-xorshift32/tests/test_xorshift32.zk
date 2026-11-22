@@ -1,0 +1,14 @@
+// cl-xorshift32: Test Suite
+import "../xorshift32.zk"
+
+fn test_xorshift32():
+    st: vector[int] := [2463534242]
+    r1 := xorshift32_next(st)
+    r2 := xorshift32_next(st)
+    if r1 == r2: sys_exit(1)
+    if r1 == 0: sys_exit(1)
+    print("test_xorshift32 passed: 32-bit Marsaglia triple shift verified")
+
+fn main():
+    test_xorshift32()
+    print("✓ All tests passed for cl-xorshift32!")

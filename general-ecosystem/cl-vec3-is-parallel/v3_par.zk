@@ -1,0 +1,11 @@
+// cl-vec3-is-parallel: Check If Two 3D Vectors Are Parallel
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_is_parallel(u: vector[float], v: vector[float], eps: float) -> int:
+    cx := u[1]*v[2] - u[2]*v[1]
+    cy := u[2]*v[0] - u[0]*v[2]
+    cz := u[0]*v[1] - u[1]*v[0]
+    c_sq := cx*cx + cy*cy + cz*cz
+    if c_sq <= (eps * eps): return 1
+    return 0

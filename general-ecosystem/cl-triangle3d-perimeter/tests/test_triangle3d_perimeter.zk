@@ -1,0 +1,14 @@
+// cl-triangle3d-perimeter: Test Suite
+import "../tri_perim.zk"
+
+fn test_tri_perim():
+    // Right triangle with sides 3, 4, 5 -> perimeter 12.0
+    p := triangle3d_perimeter(0.0, 0.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0)
+    diff := p - 12.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.01: sys_exit(1)
+    print("test_tri_perim passed: perimeter 12.0 verified")
+
+fn main():
+    test_tri_perim()
+    print("✓ All tests passed for cl-triangle3d-perimeter!")

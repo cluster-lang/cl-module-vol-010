@@ -1,0 +1,6 @@
+// cl-stat-partition-function-term-stage-4: Canonical Partition Function Weight Stage 4
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn partition_weight_4(g: float, e: float, kt: float) -> float:
+    return g * (1.0 - e / kt) * 4.0

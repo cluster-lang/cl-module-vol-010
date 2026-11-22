@@ -1,0 +1,8 @@
+// cl-stat-cdf-exponential: Exponential Distribution CDF Approx
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn cdf_exponential(x: float, lambda_val: float) -> float:
+    if x <= 0.0 or lambda_val <= 0.0: return 0.0
+    lx := lambda_val * x
+    return 1.0 - 1.0 / (1.0 + lx + 0.5 * lx * lx)

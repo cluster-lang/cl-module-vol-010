@@ -1,0 +1,9 @@
+// cl-vec8-add: 8D Vector Component-wise Addition
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec8_add(out: vector[float], a: vector[float], b: vector[float]):
+    i := 0
+    while i < 8:
+        out[i] = a[i] + b[i]
+        i = i + 1

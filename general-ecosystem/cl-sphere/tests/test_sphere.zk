@@ -1,0 +1,12 @@
+// cl-sphere: Test Suite
+import "../sphere.zk"
+
+fn test_sphere():
+    s := Sphere(0, 0, 0, 25)
+    if not sphere_contains(s, 3, 4, 0): sys_exit(1)
+    if sphere_contains(s, 5, 5, 5): sys_exit(1)
+    print("test_sphere passed: point containment verified")
+
+fn main():
+    test_sphere()
+    print("✓ All tests passed for cl-sphere!")

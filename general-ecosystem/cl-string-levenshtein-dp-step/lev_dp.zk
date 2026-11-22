@@ -1,0 +1,15 @@
+// cl-string-levenshtein-dp-step: Levenshtein DP Single Step Updater
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn lev_min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn lev_step_cost(insert_cost: int, delete_cost: int, match_cost: int, char_a: int, char_b: int) -> int:
+    sub_cost := 0
+    if char_a != char_b:
+        sub_cost = 1
+    return lev_min3(insert_cost + 1, delete_cost + 1, match_cost + sub_cost)

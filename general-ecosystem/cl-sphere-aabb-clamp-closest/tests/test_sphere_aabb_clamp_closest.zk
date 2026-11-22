@@ -1,0 +1,16 @@
+// cl-sphere-aabb-clamp-closest: Test Suite
+import "../sph_aabb.zk"
+
+fn test_sph_aabb():
+    min_pt: vector[float] := [0.0, 0.0, 0.0]
+    max_pt: vector[float] := [2.0, 2.0, 2.0]
+    // Point (5, 1, 1): closest is (2, 1, 1), dist = 3.0, sq = 9.0
+    d_sq := sphere_aabb_closest_dist_sq(5.0, 1.0, 1.0, min_pt, max_pt)
+    diff := d_sq - 9.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_sph_aabb passed")
+
+fn main():
+    test_sph_aabb()
+    print("✓ All tests passed for cl-sphere-aabb-clamp-closest!")

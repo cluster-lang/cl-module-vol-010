@@ -1,0 +1,12 @@
+// cl-vec2-sign-componentwise: Componentwise Signum Function for 2D Vector
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_sign(v: vector[float]) -> vector[float]:
+    sx := 0.0
+    sy := 0.0
+    if v[0] > 0.0: sx = 1.0
+    if v[0] < 0.0: sx = -1.0
+    if v[1] > 0.0: sy = 1.0
+    if v[1] < 0.0: sy = -1.0
+    return [sx, sy]

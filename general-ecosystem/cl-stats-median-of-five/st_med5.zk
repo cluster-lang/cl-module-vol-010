@@ -1,0 +1,16 @@
+// cl-stats-median-of-five: Sorting Network Median of Five Elements
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_median_five(v_in: vector[float]) -> float:
+    v: vector[float] := [v_in[0], v_in[1], v_in[2], v_in[3], v_in[4]]
+    i := 0
+    j := 0
+    while i < 5:
+        j = 0
+        while j < 4:
+            if v[j] > v[j + 1]:
+                tmp := v[j]; v[j] = v[j + 1]; v[j + 1] = tmp
+            j = j + 1
+        i = i + 1
+    return v[2]

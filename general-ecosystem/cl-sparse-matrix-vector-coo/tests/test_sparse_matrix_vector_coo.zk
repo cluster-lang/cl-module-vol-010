@@ -1,0 +1,15 @@
+// cl-sparse-matrix-vector-coo: Test Suite
+import "../spmv_coo.zk"
+
+fn test_spmv_coo():
+    triplets: vector[int] := [0, 0, 2, 1, 1, 3]
+    x: vector[int] := [10, 20]
+    y: vector[int] := [0, 0]
+    spmv_coo(triplets, x, y)
+    if y[0] != 20: sys_exit(1)
+    if y[1] != 60: sys_exit(1)
+    print("test_spmv_coo passed: COO SpMV product verified")
+
+fn main():
+    test_spmv_coo()
+    print("✓ All tests passed for cl-sparse-matrix-vector-coo!")

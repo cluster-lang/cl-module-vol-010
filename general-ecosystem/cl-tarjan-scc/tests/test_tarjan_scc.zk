@@ -1,0 +1,17 @@
+// cl-tarjan-scc: Test Suite
+import "../tarjan_scc.zk"
+
+fn test_tarjan():
+    // 3 nodes: 0 <-> 1 (cycle), 2 isolated
+    // 3x3 matrix:
+    // 0: [0, 1, 0]
+    // 1: [1, 0, 0]
+    // 2: [0, 0, 0]
+    adj: vector[int] := [0, 1, 0, 1, 0, 0, 0, 0, 0]
+    count := count_scc_simple(adj, 3)
+    if count != 2: sys_exit(1) // {0,1} and {2}
+    print("test_tarjan passed: strongly connected components verified")
+
+fn main():
+    test_tarjan()
+    print("✓ All tests passed for cl-tarjan-scc!")

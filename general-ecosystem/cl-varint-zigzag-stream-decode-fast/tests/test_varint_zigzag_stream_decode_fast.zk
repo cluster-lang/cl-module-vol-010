@@ -1,0 +1,13 @@
+// cl-varint-zigzag-stream-decode-fast: Test Suite
+import "../zz_stream.zk"
+
+fn test_zz_stream():
+    enc: vector[int] := [0, 1, 2, 3] // Decodes to 0, -1, 1, -2
+    dec: vector[int] := []
+    zigzag_decode_stream(dec, enc)
+    if dec[0] != 0 or dec[1] != -1 or dec[2] != 1 or dec[3] != -2: sys_exit(1)
+    print("test_zz_stream passed")
+
+fn main():
+    test_zz_stream()
+    print("✓ All tests passed for cl-varint-zigzag-stream-decode-fast!")

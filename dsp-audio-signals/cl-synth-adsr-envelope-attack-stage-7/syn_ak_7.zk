@@ -1,0 +1,6 @@
+// cl-synth-adsr-envelope-attack-stage-7: Linear ADSR Attack Segment Stage 7
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn adsr_attack_7(t: float, t_att: float) -> float:
+    return (t / t_att) * 7.0

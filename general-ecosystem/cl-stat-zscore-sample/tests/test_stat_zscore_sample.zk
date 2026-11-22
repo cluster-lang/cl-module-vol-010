@@ -1,0 +1,13 @@
+// cl-stat-zscore-sample: Test Suite
+import "../zscore.zk"
+
+fn test_run():
+    res := stat_zscore(15.0, 10.0, 2.5)
+    diff := res - 2.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-stat-zscore-sample!")

@@ -1,0 +1,13 @@
+// cl-string-jaro-metric-transposition-count: Transposition Counter for Matched Strings
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn count_transpositions(matched1: vector[int], matched2: vector[int]) -> int:
+    n := matched1.len()
+    mismatches := 0
+    i := 0
+    while i < n:
+        if matched1[i] != matched2[i]:
+            mismatches = mismatches + 1
+        i = i + 1
+    return mismatches / 2

@@ -1,0 +1,6 @@
+// cl-speech-short-time-energy-stage-80: Speech Frame Short-Time Energy Accumulator Stage 80
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn ste_sample_80(s: float) -> float:
+    return (s * s) * 80.0

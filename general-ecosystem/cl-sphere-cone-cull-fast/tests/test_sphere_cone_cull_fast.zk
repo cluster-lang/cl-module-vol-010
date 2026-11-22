@@ -1,0 +1,11 @@
+// cl-sphere-cone-cull-fast: Test Suite
+import "../sph_cone.zk"
+
+fn test_sph_cone():
+    if sphere_cone_cull(0.0, 0.0, 5.0, 1.0, 10.0, 1.0) != 1: sys_exit(1)
+    if sphere_cone_cull(20.0, 0.0, 5.0, 1.0, 10.0, 1.0) != 0: sys_exit(2)
+    print("test_sph_cone passed: sphere cone culling verified")
+
+fn main():
+    test_sph_cone()
+    print("✓ All tests passed for cl-sphere-cone-cull-fast!")

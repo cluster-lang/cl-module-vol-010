@@ -1,0 +1,11 @@
+// cl-string-jaro: Jaro Similarity Metric Primitives
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Returns match window size: max(len1, len2)/2 - 1
+fn jaro_match_window(len1: int, len2: int) -> int:
+    max_len := len1
+    if len2 > max_len: max_len = len2
+    win := (max_len / 2) - 1
+    if win < 0: return 0
+    return win

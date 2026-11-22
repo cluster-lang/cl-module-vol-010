@@ -1,0 +1,10 @@
+// cl-tensor-4d-hypercube-norm-28 Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-tensor-4d-hypercube-norm-28"
+version := "0.1.0"
+description := "4D 2x2x2x2 Hypercube Tensor Norm Stage 28"
+main := "t4_norm_28.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

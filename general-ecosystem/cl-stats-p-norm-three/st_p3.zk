@@ -1,0 +1,14 @@
+// cl-stats-p-norm-three: L3 Vector Norm Sum
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_l3_sum(v: vector[float]) -> float:
+    sum := 0.0
+    n := v.len()
+    i := 0
+    while i < n:
+        x := v[i]
+        if x < 0.0: x = 0.0 - x
+        sum = sum + x * x * x
+        i = i + 1
+    return sum

@@ -1,0 +1,10 @@
+// cl-vec2-manhattan-distance: 2D Manhattan L1 Distance
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_manhattan_distance(a: vector[float], b: vector[float]) -> float:
+    dx := a[0] - b[0]
+    if dx < 0.0: dx = 0.0 - dx
+    dy := a[1] - b[1]
+    if dy < 0.0: dy = 0.0 - dy
+    return dx + dy

@@ -1,0 +1,16 @@
+// cl-sphere-aabb-clamp: Test Suite
+import "../sphere_aabb.zk"
+
+fn test_sphere_aabb():
+    c: vector[float] := [15.0, 0.0, 0.0]
+    min_b: vector[float] := [-10.0, -10.0, -10.0]
+    max_b: vector[float] := [10.0, 10.0, 10.0]
+    dsq := sphere_aabb_dist_sq(c, min_b, max_b)
+    diff := dsq - 25.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test_sphere_aabb passed: clamped distance squared 25.0 verified")
+
+fn main():
+    test_sphere_aabb()
+    print("✓ All tests passed for cl-sphere-aabb-clamp!")

@@ -1,0 +1,11 @@
+// cl-string-jaro-winkler: Test Suite
+import "../jaro_winkler.zk"
+
+fn test_jw():
+    if jw_prefix_length("cluster", "cloud") != 2: sys_exit(1)
+    if jw_prefix_length("cluster", "clusterize") != 4: sys_exit(1)
+    print("test_jw passed: prefix scale length verified")
+
+fn main():
+    test_jw()
+    print("✓ All tests passed for cl-string-jaro-winkler!")

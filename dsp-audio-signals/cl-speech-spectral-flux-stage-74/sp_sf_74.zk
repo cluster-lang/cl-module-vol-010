@@ -1,0 +1,8 @@
+// cl-speech-spectral-flux-stage-74: Speech Spectral Magnitude Flux Difference Stage 74
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn spectral_flux_74(m_curr: float, m_prev: float) -> float:
+    diff := m_curr - m_prev
+    if diff < 0.0: return 0.0
+    return diff * 74.0

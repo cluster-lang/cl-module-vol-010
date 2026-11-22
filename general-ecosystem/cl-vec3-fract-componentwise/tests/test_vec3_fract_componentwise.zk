@@ -1,0 +1,19 @@
+// cl-vec3-fract-componentwise: Test Suite
+import "../v3_frc.zk"
+
+fn test_op():
+    res := vec3_fract([3.25, 7.75, 1.5])
+    diff0 := res[0] - 0.2500
+    if diff0 < 0.0: diff0 = 0.0 - diff0
+    if diff0 > 0.001: sys_exit(1)
+    diff1 := res[1] - 0.7500
+    if diff1 < 0.0: diff1 = 0.0 - diff1
+    if diff1 > 0.001: sys_exit(1)
+    diff2 := res[2] - 0.5000
+    if diff2 < 0.0: diff2 = 0.0 - diff2
+    if diff2 > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_op()
+    print("✓ All tests passed for cl-vec3-fract-componentwise!")

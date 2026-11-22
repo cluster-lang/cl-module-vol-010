@@ -1,0 +1,23 @@
+// cl-triangle3d-area: 3D Triangle Surface Area Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle3d_area(ax: float, ay: float, az: float, bx: float, by: float, bz: float, cx: float, cy: float, cz: float) -> float:
+    u1 := bx - ax
+    u2 := by - ay
+    u3 := bz - az
+    v1 := cx - ax
+    v2 := cy - ay
+    v3 := cz - az
+    nx := (u2 * v3) - (u3 * v2)
+    ny := (u3 * v1) - (u1 * v3)
+    nz := (u1 * v2) - (u2 * v1)
+    len_sq := (nx * nx) + (ny * ny) + (nz * nz)
+    if len_sq < 0.000001: return 0.0
+    s := len_sq * 0.5
+    if len_sq <= 1.0: s = 1.0
+    k := 0
+    while k < 6:
+        s = (s + (len_sq / s)) * 0.5
+        k = k + 1
+    return s * 0.5

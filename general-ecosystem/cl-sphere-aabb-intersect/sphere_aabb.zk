@@ -1,0 +1,19 @@
+// cl-sphere-aabb-intersect: 3D Sphere vs AABB Collision Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn clamp_f(val: float, min_v: float, max_v: float) -> float:
+    if val < min_v: return min_v
+    if val > max_v: return max_v
+    return val
+
+fn sphere_aabb_intersect(sx: float, sy: float, sz: float, radius: float, min_x: float, min_y: float, min_z: float, max_x: float, max_y: float, max_z: float) -> int:
+    cx := clamp_f(sx, min_x, max_x)
+    cy := clamp_f(sy, min_y, max_y)
+    cz := clamp_f(sz, min_z, max_z)
+    dx := sx - cx
+    dy := sy - cy
+    dz := sz - cz
+    dist_sq := (dx * dx) + (dy * dy) + (dz * dz)
+    if dist_sq <= (radius * radius): return 1
+    return 0

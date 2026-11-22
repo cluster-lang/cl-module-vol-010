@@ -1,0 +1,11 @@
+// cl-tensor-lateral-sum-6: 3x3x3 Tensor Lateral Slice Sum Stage 6
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_lateral_sum_6(t: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 27:
+        s = s + t[i] * 6.0
+        i = i + 3
+    return s

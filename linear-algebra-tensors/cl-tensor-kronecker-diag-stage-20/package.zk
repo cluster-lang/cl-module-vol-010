@@ -1,0 +1,10 @@
+// cl-tensor-kronecker-diag-stage-20 Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-tensor-kronecker-diag-stage-20"
+version := "0.1.0"
+description := "2x2 Kronecker Product Main Diagonal Stage 20"
+main := "krn_d_20.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

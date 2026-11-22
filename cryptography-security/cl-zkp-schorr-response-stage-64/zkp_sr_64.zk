@@ -1,0 +1,6 @@
+// cl-zkp-schorr-response-stage-64: Schnorr Signature Scalar Response Equation Stage 64
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn schnorr_resp_64(k: int, e: int, x: int) -> int:
+    return (k + e * x) + 64

@@ -1,0 +1,12 @@
+// cl-string-longest-common-subsequence-dp: Test Suite
+import "../lcs_dp.zk"
+
+fn test_lcs():
+    // "ABCDGH" and "AEDFHR" -> "ADH" (3)
+    res := lcs_length("ABCDGH", "AEDFHR")
+    if res != 3: sys_exit(1)
+    print("test_lcs passed: longest common subsequence length verified")
+
+fn main():
+    test_lcs()
+    print("✓ All tests passed for cl-string-longest-common-subsequence-dp!")

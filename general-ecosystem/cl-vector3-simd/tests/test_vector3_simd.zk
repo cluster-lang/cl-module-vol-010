@@ -1,0 +1,19 @@
+// cl-vector3-simd: Test Suite
+import "../vec3_math.zk"
+
+fn test_vec3():
+    d := vec3_dot(1, 2, 3, 4, 5, 6)
+    if d != 32: sys_exit(1) // 4 + 10 + 18 = 32
+
+    // Cross product (1,0,0) x (0,1,0) = (0,0,1)
+    c := vec3_cross(1, 0, 0, 0, 1, 0)
+    if c[0] != 0: sys_exit(1)
+    if c[1] != 0: sys_exit(1)
+    if c[2] != 1: sys_exit(1)
+
+    if vec3_len_sq(3, 4, 12) != 169: sys_exit(1) // 9 + 16 + 144 = 169 (13^2)
+    print("test_vec3 passed: 3D vector primitives verified")
+
+fn main():
+    test_vec3()
+    print("✓ All tests passed for cl-vector3-simd!")

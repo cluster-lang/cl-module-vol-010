@@ -1,0 +1,13 @@
+// cl-vec4-negate: Test Suite
+import "../vec4_neg.zk"
+
+fn test_v4_neg():
+    v: vector[float] := [1.0, -2.0, 3.0, -4.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0]
+    vec4_negate(out, v)
+    if out[0] != -1.0 or out[1] != 2.0 or out[2] != -3.0 or out[3] != 4.0: sys_exit(1)
+    print("test_v4_neg passed")
+
+fn main():
+    test_v4_neg()
+    print("✓ All tests passed for cl-vec4-negate!")

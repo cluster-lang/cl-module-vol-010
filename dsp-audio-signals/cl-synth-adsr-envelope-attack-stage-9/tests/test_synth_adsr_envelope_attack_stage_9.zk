@@ -1,0 +1,13 @@
+// cl-synth-adsr-envelope-attack-stage-9: Test Suite
+import "../syn_ak_9.zk"
+
+fn test_run():
+    res := adsr_attack_9(0.1, 0.2)
+    diff := res - 4.5000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-synth-adsr-envelope-attack-stage-9!")

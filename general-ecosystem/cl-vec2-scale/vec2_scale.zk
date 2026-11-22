@@ -1,0 +1,7 @@
+// cl-vec2-scale: 2D Vector Scalar Multiplication
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_scale(out: vector[float], v: vector[float], s: float):
+    out[0] = v[0] * s
+    out[1] = v[1] * s

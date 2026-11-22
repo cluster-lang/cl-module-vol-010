@@ -1,0 +1,6 @@
+// cl-sync Package Manifest
+name := "cl-sync"
+version := "0.1.0"
+description := "Concurrency and synchronization primitives (Go sync parity)"
+main := "cl_sync.zk"
+license := "MIT"

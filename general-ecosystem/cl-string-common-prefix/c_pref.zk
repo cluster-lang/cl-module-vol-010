@@ -1,0 +1,14 @@
+// cl-string-common-prefix: Common Prefix Length Evaluator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn common_prefix_length(s1: string, s2: string) -> int:
+    len1 := len(s1)
+    len2 := len(s2)
+    max_l := len1
+    if len2 < max_l: max_l = len2
+    i := 0
+    while i < max_l:
+        if byte_at(s1, i) != byte_at(s2, i): return i
+        i = i + 1
+    return max_l

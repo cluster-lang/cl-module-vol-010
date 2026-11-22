@@ -1,0 +1,16 @@
+// cl-sphere-sphere-sweep-test: Test Suite
+import "../sweep.zk"
+
+fn test_sweep():
+    // S1 at (0,0,0) moving with vel (10, 0, 0), radius 1
+    // S2 at (5,0,0) stationary, radius 1
+    // Impact happens when centers are 2.0 apart -> c1 = 3.0 -> t = 0.3
+    t := sphere_sweep_collision(0.0, 0.0, 0.0, 10.0, 0.0, 0.0, 1.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0)
+    diff := t - 0.3
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.01: sys_exit(1)
+    print("test_sweep passed: impact at t=0.3 verified")
+
+fn main():
+    test_sweep()
+    print("✓ All tests passed for cl-sphere-sphere-sweep-test!")

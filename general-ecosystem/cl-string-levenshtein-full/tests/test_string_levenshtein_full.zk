@@ -1,0 +1,13 @@
+// cl-string-levenshtein-full: Test Suite
+import "../lev_full.zk"
+
+fn test_lev_full():
+    s1: vector[int] := [75, 73, 84, 84, 69, 78] // "KITTEN"
+    s2: vector[int] := [83, 73, 84, 84, 73, 78, 71] // "SITTING"
+    d := levenshtein_distance_exact(s1, s2)
+    if d != 3: sys_exit(1)
+    print("test_lev_full passed: kitten->sitting distance 3 verified")
+
+fn main():
+    test_lev_full()
+    print("✓ All tests passed for cl-string-levenshtein-full!")

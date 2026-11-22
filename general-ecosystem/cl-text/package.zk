@@ -1,0 +1,6 @@
+name: "cl-text"
+version: "0.1.0"
+description: "String manipulation utilities for cluster-lang"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: []

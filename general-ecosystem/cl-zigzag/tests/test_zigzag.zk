@@ -1,0 +1,19 @@
+// cl-zigzag: Test Suite
+import "../zigzag.zk"
+
+fn test_zigzag():
+    if zigzag_encode(0) != 0: sys_exit(1)
+    if zigzag_encode(-1) != 1: sys_exit(1)
+    if zigzag_encode(1) != 2: sys_exit(1)
+    if zigzag_encode(-2) != 3: sys_exit(1)
+    if zigzag_encode(2) != 4: sys_exit(1)
+
+    if zigzag_decode(1) != -1: sys_exit(1)
+    if zigzag_decode(2) != 1: sys_exit(1)
+    if zigzag_decode(3) != -2: sys_exit(1)
+    if zigzag_decode(4) != 2: sys_exit(1)
+    print("test_zigzag passed: Protobuf ZigZag signed mapping verified")
+
+fn main():
+    test_zigzag()
+    print("✓ All tests passed for cl-zigzag!")

@@ -1,0 +1,38 @@
+// cl-string-levenshtein-weighted: Weighted Levenshtein Edit Distance Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn min3(a: int, b: int, c: int) -> int:
+    m := a
+    if b < m: m = b
+    if c < m: m = c
+    return m
+
+fn levenshtein_weighted(s1: vector[int], s2: vector[int], cost_ins: int, cost_del: int, cost_sub: int) -> int:
+    m := s1.len()
+    n := s2.len()
+    if m == 0: return n * cost_ins
+    if n == 0: return m * cost_del
+
+    dp: vector[int] := []
+    j := 0
+    while j <= n:
+        dp.push(j * cost_ins)
+        j = j + 1
+
+    i := 1
+    while i <= m:
+        new_dp: vector[int] := [i * cost_del]
+        j = 1
+        while j <= n:
+            del_cost := dp[j] + cost_del
+            ins_cost := new_dp[j - 1] + cost_ins
+            sub_cost := dp[j - 1]
+            if s1[i - 1] != s2[j - 1]:
+                sub_cost = sub_cost + cost_sub
+            new_dp.push(min3(del_cost, ins_cost, sub_cost))
+            j = j + 1
+        dp = new_dp
+        i = i + 1
+
+    return dp[n]

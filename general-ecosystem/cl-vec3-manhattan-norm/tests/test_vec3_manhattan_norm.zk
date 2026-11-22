@@ -1,0 +1,14 @@
+// cl-vec3-manhattan-norm: Test Suite
+import "../vec3_man_norm.zk"
+
+fn test_v3_man_norm():
+    v: vector[float] := [-2.0, 3.0, -5.0]
+    res := vec3_manhattan_norm(v)
+    diff := res - 10.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v3_man_norm passed")
+
+fn main():
+    test_v3_man_norm()
+    print("✓ All tests passed for cl-vec3-manhattan-norm!")

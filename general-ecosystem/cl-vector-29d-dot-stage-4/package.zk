@@ -1,0 +1,10 @@
+// cl-vector-29d-dot-stage-4 Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-vector-29d-dot-stage-4"
+version := "0.1.0"
+description := "29D Vector Dot Product Stage 4"
+main := "v29_dot_4.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

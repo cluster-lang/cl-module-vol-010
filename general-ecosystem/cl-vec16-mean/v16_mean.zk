@@ -1,0 +1,11 @@
+// cl-vec16-mean: 16D Vector Arithmetic Mean of Components
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec16_mean(a: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 16:
+        s = s + a[i]
+        i = i + 1
+    return s / 16.0

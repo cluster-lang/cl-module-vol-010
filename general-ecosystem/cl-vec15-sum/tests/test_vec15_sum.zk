@@ -1,0 +1,13 @@
+// cl-vec15-sum: Test Suite
+import "../v15_sum.zk"
+
+fn test_run():
+    res := vec15_sum([2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0])
+    diff := res - 30.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.001: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-vec15-sum!")

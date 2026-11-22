@@ -1,0 +1,6 @@
+// cl-synth-adsr-envelope-attack-stage-66: Linear ADSR Attack Segment Stage 66
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn adsr_attack_66(t: float, t_att: float) -> float:
+    return (t / t_att) * 66.0

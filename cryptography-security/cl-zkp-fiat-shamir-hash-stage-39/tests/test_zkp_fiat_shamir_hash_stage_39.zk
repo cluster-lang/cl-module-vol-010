@@ -1,0 +1,11 @@
+// cl-zkp-fiat-shamir-hash-stage-39: Test Suite
+import "../zkp_fs_39.zk"
+
+fn test_run():
+    res := fiat_shamir_step_39(100, 42)
+    if res != 3181: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-zkp-fiat-shamir-hash-stage-39!")

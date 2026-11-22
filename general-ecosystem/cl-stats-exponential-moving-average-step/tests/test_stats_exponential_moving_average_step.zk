@@ -1,0 +1,14 @@
+// cl-stats-exponential-moving-average-step: Test Suite
+import "../st_ema.zk"
+
+fn test_st_ema():
+    res := stats_ema_step(10.0, 20.0, 0.2)
+    // 0.2*20 + 0.8*10 = 4 + 8 = 12.0
+    diff := res - 12.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_st_ema passed")
+
+fn main():
+    test_st_ema()
+    print("✓ All tests passed for cl-stats-exponential-moving-average-step!")

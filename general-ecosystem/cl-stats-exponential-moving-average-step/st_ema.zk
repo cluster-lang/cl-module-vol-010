@@ -1,0 +1,6 @@
+// cl-stats-exponential-moving-average-step: Exponential Moving Average Step
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn stats_ema_step(old_ema: float, new_val: float, alpha: float) -> float:
+    return alpha * new_val + (1.0 - alpha) * old_ema

@@ -1,0 +1,6 @@
+// cl-ts-holt-linear-trend-stage-98: Holt Linear Trend Slope Equation Stage 98
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn holt_trend_98(lc: float, lp: float, bp: float, b: float) -> float:
+    return (b * (lc - lp) + (1.0 - b) * bp) * 98.0

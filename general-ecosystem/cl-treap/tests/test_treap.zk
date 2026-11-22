@@ -1,0 +1,15 @@
+// cl-treap: Test Suite
+import "../treap.zk"
+
+fn test_treap():
+    // Parent (key=50, prio=100), Left child (key=25, prio=80) is valid
+    if treap_valid_child(50, 100, 25, 80, 1) != 1: sys_exit(1)
+    // Child with higher priority violates heap
+    if treap_valid_child(50, 100, 25, 120, 1) != 0: sys_exit(1)
+    // Left child with greater key violates BST
+    if treap_valid_child(50, 100, 75, 80, 1) != 0: sys_exit(1)
+    print("test_treap passed: Treap invariant verification verified")
+
+fn main():
+    test_treap()
+    print("✓ All tests passed for cl-treap!")

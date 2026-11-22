@@ -1,0 +1,21 @@
+// cl-stats-euclidean-norm-sample: Sample L2 Euclidean Magnitude
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn float_sqrt_st(x: float) -> float:
+    if x <= 0.0: return 0.0
+    g := x
+    i := 0
+    while i < 10:
+        g = (g + x / g) * 0.5
+        i = i + 1
+    return g
+
+fn stats_euclidean_norm(v: vector[float]) -> float:
+    sum := 0.0
+    n := v.len()
+    i := 0
+    while i < n:
+        sum = sum + v[i] * v[i]
+        i = i + 1
+    return float_sqrt_st(sum)

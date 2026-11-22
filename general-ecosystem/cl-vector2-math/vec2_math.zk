@@ -1,0 +1,17 @@
+// cl-vector2-math: 2D Vector Perp-Dot & Reflection
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec2_dot(x1: int, y1: int, x2: int, y2: int) -> int:
+    return (x1 * x2) + (y1 * y2)
+
+fn vec2_perp_dot(x1: int, y1: int, x2: int, y2: int) -> int:
+    return (x1 * y2) - (y1 * x2)
+
+fn vec2_reflect(vx: int, vy: int, nx: int, ny: int) -> vector[int]:
+    // v - 2*(v.n)*n where n is normalized unit vector
+    d := (vx * nx) + (vy * ny)
+    rx := vx - ((2 * d) * nx)
+    ry := vy - ((2 * d) * ny)
+    res: vector[int] := [rx, ry]
+    return res

@@ -1,0 +1,13 @@
+// cl-string-jaro-winkler-metric: Test Suite
+import "../jw_metric.zk"
+
+fn test_jw_metric():
+    b := winkler_bonus(4, 0.8, 0.1)
+    // 4 * 0.1 * 0.2 = 0.08
+    if b < 0.079: sys_exit(1)
+    if b > 0.081: sys_exit(1)
+    print("test_jw_metric passed: Winkler prefix bonus scaling verified")
+
+fn main():
+    test_jw_metric()
+    print("✓ All tests passed for cl-string-jaro-winkler-metric!")

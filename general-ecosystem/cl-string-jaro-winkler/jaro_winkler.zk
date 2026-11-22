@@ -1,0 +1,15 @@
+// cl-string-jaro-winkler: Common Prefix Length for Winkler Scaling
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jw_prefix_length(s1: string, s2: string) -> int:
+    len1 := len(s1)
+    len2 := len(s2)
+    max_l := 4
+    if len1 < max_l: max_l = len1
+    if len2 < max_l: max_l = len2
+    p := 0
+    while p < max_l:
+        if byte_at(s1, p) != byte_at(s2, p): return p
+        p = p + 1
+    return p

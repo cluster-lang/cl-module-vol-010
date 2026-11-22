@@ -1,0 +1,11 @@
+// cl-speech-zero-crossing-rate-stage-24: Test Suite
+import "../sp_zc_24.zk"
+
+fn test_run():
+    res := zcr_step_24(5, -3)
+    if res != 24: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-speech-zero-crossing-rate-stage-24!")

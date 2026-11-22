@@ -1,0 +1,13 @@
+// cl-speech-pre-emphasis-filter-stage-15: Test Suite
+import "../sp_pe_15.zk"
+
+fn test_run():
+    res := pre_emphasis_15(10.0, 8.0, 0.95)
+    diff := res - 36.0000
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.005: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-speech-pre-emphasis-filter-stage-15!")

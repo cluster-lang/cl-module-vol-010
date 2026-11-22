@@ -1,0 +1,11 @@
+// cl-spatial-index-to-grid-x-2d: Test Suite
+import "../grid_unflat_x.zk"
+
+fn test_run():
+    res := index_to_grid_x(43, 10)
+    if res != 3: sys_exit(1)
+    print("test passed")
+
+fn main():
+    test_run()
+    print("✓ All tests passed for cl-spatial-index-to-grid-x-2d!")

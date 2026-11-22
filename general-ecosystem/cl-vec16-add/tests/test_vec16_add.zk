@@ -1,0 +1,14 @@
+// cl-vec16-add: Test Suite
+import "../vec16_add.zk"
+
+fn test_v16_add():
+    a: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    b: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vec16_add(out, a, b)
+    if out[0] != 3.0 or out[15] != 3.0: sys_exit(1)
+    print("test_v16_add passed")
+
+fn main():
+    test_v16_add()
+    print("✓ All tests passed for cl-vec16-add!")

@@ -1,0 +1,14 @@
+// cl-triangle-normal3d: 3D Triangle Surface Normal Vector Calculator
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle_normal(out: vector[float], ax: float, ay: float, az: float, bx: float, by: float, bz: float, cx: float, cy: float, cz: float):
+    u1 := bx - ax
+    u2 := by - ay
+    u3 := bz - az
+    v1 := cx - ax
+    v2 := cy - ay
+    v3 := cz - az
+    out.push((u2 * v3) - (u3 * v2))
+    out.push((u3 * v1) - (u1 * v3))
+    out.push((u1 * v2) - (u2 * v1))

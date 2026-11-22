@@ -1,0 +1,41 @@
+import cl_sync
+
+fn main():
+    print("Testing cl-sync concurrency primitives...")
+    
+    // 1. WaitGroup
+    wg := cl_sync::new_wait_group()
+    assert cl_sync::get_count(wg) == 0, "initial wg count mismatch"
+    assert cl_sync::is_done(wg) == true, "initial wg should be done"
+    
+    cl_sync::add(wg, 3)
+    assert cl_sync::get_count(wg) == 3, "wg add 3 mismatch"
+    assert cl_sync::is_done(wg) == false, "wg should not be done"
+    
+    cl_sync::done(wg)
+    assert cl_sync::get_count(wg) == 2, "wg done 1 mismatch"
+    
+    cl_sync::done(wg)
+    cl_sync::done(wg)
+    assert cl_sync::get_count(wg) == 0, "wg should be 0"
+    assert cl_sync::is_done(wg) == true, "wg should be done after 3"
+    
+    // 2. Once
+    once := cl_sync::new_once()
+    assert cl_sync::is_executed(once) == false, "once should not be done initially"
+    
+    cl_sync::mark_done(once)
+    assert cl_sync::is_executed(once) == true, "once should be done"
+    
+    // 3. AtomicInt
+    counter := cl_sync::new_atomic(100)
+    assert cl_sync::load(counter) == 100, "atomic initial mismatch"
+    
+    new_v := cl_sync::add_fetch(counter, 25)
+    assert new_v == 125, "add_fetch return mismatch"
+    assert cl_sync::load(counter) == 125, "atomic load after add mismatch"
+    
+    cl_sync::store(counter, 500)
+    assert cl_sync::load(counter) == 500, "atomic store mismatch"
+    
+    print("ALL cl-sync tests passed successfully!")

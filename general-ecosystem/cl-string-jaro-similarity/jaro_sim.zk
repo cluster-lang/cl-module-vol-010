@@ -1,0 +1,12 @@
+// cl-string-jaro-similarity: Jaro String Similarity Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn jaro_similarity_score(len1: int, len2: int, matches: int, transpositions: int) -> float:
+    if matches == 0: return 0.0
+    m := matches * 1.0
+    t := transpositions * 1.0
+    s1 := m / (len1 * 1.0)
+    s2 := m / (len2 * 1.0)
+    s3 := (m - t * 0.5) / m
+    return (s1 + s2 + s3) / 3.0

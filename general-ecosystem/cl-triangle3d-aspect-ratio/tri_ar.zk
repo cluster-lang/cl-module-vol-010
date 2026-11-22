@@ -1,0 +1,10 @@
+// cl-triangle3d-aspect-ratio: Triangle Aspect Ratio Metric Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn triangle_perimeter(a: float, b: float, c: float) -> float:
+    return a + b + c
+
+fn triangle_aspect_ratio_metric(longest_edge: float, perimeter: float) -> float:
+    if perimeter <= 0.000001: return 0.0
+    return (longest_edge * 3.0) / perimeter

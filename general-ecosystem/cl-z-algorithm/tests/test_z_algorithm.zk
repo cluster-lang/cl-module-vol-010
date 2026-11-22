@@ -1,0 +1,13 @@
+// cl-z-algorithm: Test Suite
+import "../z_algo.zk"
+
+fn test_z():
+    z := z_algorithm_compute("aabzaa")
+    if z[1] != 1: sys_exit(1)
+    if z[4] != 2: sys_exit(1) // "aa" matches prefix "aa"
+    if z[5] != 1: sys_exit(1)
+    print("test_z passed: linear Z-box calculation verified")
+
+fn main():
+    test_z()
+    print("✓ All tests passed for cl-z-algorithm!")

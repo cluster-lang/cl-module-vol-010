@@ -1,0 +1,10 @@
+// cl-unpack-u16-low-byte: Test Suite
+import "../un16_l.zk"
+
+fn test_un16_l():
+    if unpack_u16_low(4660) != 52: sys_exit(1)
+    print("test_un16_l passed")
+
+fn main():
+    test_un16_l()
+    print("✓ All tests passed for cl-unpack-u16-low-byte!")

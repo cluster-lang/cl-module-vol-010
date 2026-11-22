@@ -1,0 +1,14 @@
+// cl-vec8-sum: Test Suite
+import "../vec8_sum.zk"
+
+fn test_v8_sum():
+    v: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    res := vec8_sum(v)
+    diff := res - 16.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v8_sum passed")
+
+fn main():
+    test_v8_sum()
+    print("✓ All tests passed for cl-vec8-sum!")

@@ -1,0 +1,11 @@
+// cl-triangle3d-equilateral-check: Test Suite
+import "../tri_eq.zk"
+
+fn test_tri_eq():
+    if triangle3d_is_equilateral(0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 1.0, 1.73205, 0.0, 0.01) != 1: sys_exit(1)
+    if triangle3d_is_equilateral(0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 3.0, 0.0, 0.01) != 0: sys_exit(2)
+    print("test_tri_eq passed: equilateral check verified")
+
+fn main():
+    test_tri_eq()
+    print("✓ All tests passed for cl-triangle3d-equilateral-check!")

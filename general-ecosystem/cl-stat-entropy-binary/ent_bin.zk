@@ -1,0 +1,7 @@
+// cl-stat-entropy-binary: Binary Entropy Function (p=0.5 -> 1.0 bit)
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn binary_entropy_half(p: float) -> float:
+    // Parabolic approximation 4*p*(1-p)
+    return 4.0 * p * (1.0 - p)

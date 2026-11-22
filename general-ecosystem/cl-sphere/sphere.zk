@@ -1,0 +1,16 @@
+// cl-sphere: Pure Cluster 3D Sphere Geometry
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+model Sphere:
+    cx: int
+    cy: int
+    cz: int
+    radius_sq: int
+
+fn sphere_contains(s: Sphere, px: int, py: int, pz: int) -> bool:
+    dx := px - s.cx
+    dy := py - s.cy
+    dz := pz - s.cz
+    dist_sq := (dx * dx) + (dy * dy) + (dz * dz)
+    return dist_sq <= s.radius_sq

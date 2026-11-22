@@ -1,0 +1,12 @@
+// cl-varint-prefix: Prefix-Encoded Variable Integer Tag Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// Returns byte length based on leading 1-bits in first byte
+fn prefix_varint_len(first_byte: int) -> int:
+    b := first_byte & 255
+    if (b & 128) == 0: return 1
+    if (b & 192) == 128: return 2
+    if (b & 224) == 192: return 3
+    if (b & 240) == 224: return 4
+    return 5

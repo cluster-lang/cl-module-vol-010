@@ -1,0 +1,8 @@
+// cl-stat-pdf-uniform: Uniform Probability Density Function
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pdf_uniform(x: float, a: float, b: float) -> float:
+    if x < a or x > b: return 0.0
+    if b <= a: return 0.0
+    return 1.0 / (b - a)

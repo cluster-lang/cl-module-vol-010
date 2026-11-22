@@ -1,0 +1,13 @@
+// cl-string-knuth-morris-pratt-pi: Test Suite
+import "../kmp_pi.zk"
+
+fn test_kmp_pi():
+    pi: vector[int] := []
+    kmp_compute_pi("aabaa", pi)
+    if pi.len() != 5: sys_exit(1)
+    if pi[4] != 2: sys_exit(1)
+    print("test_kmp_pi passed: KMP failure table verified")
+
+fn main():
+    test_kmp_pi()
+    print("✓ All tests passed for cl-string-knuth-morris-pratt-pi!")

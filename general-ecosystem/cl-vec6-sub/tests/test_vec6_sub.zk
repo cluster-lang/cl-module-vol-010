@@ -1,0 +1,14 @@
+// cl-vec6-sub: Test Suite
+import "../vec6_sub.zk"
+
+fn test_v6_sub():
+    a: vector[float] := [2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+    b: vector[float] := [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    out: vector[float] := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    vec6_sub(out, a, b)
+    if out[0] != 1.0 or out[5] != 1.0: sys_exit(1)
+    print("test_v6_sub passed")
+
+fn main():
+    test_v6_sub()
+    print("✓ All tests passed for cl-vec6-sub!")

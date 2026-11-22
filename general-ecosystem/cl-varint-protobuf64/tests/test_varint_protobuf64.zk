@@ -1,0 +1,12 @@
+// cl-varint-protobuf64: Test Suite
+import "../pb64.zk"
+
+fn test_pb64():
+    if varint_byte_has_continuation(128) != 1: sys_exit(1)
+    if varint_byte_has_continuation(127) != 0: sys_exit(1)
+    if varint_byte_payload(200) != 72: sys_exit(1) // 200 & 127 = 72
+    print("test_pb64 passed: varint byte payload separation verified")
+
+fn main():
+    test_pb64()
+    print("✓ All tests passed for cl-varint-protobuf64!")

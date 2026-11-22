@@ -1,0 +1,30 @@
+// cl-string-soundex: English Phonetic Soundex Encoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn soundex_digit(ch: int) -> int:
+    // B, F, P, V -> 1
+    if ch == 66: return 1
+    if ch == 70: return 1
+    if ch == 80: return 1
+    if ch == 86: return 1
+    // C, G, J, K, Q, S, X, Z -> 2
+    if ch == 67: return 2
+    if ch == 71: return 2
+    if ch == 74: return 2
+    if ch == 75: return 2
+    if ch == 81: return 2
+    if ch == 83: return 2
+    if ch == 88: return 2
+    if ch == 90: return 2
+    // D, T -> 3
+    if ch == 68: return 3
+    if ch == 84: return 3
+    // L -> 4
+    if ch == 76: return 4
+    // M, N -> 5
+    if ch == 77: return 5
+    if ch == 78: return 5
+    // R -> 6
+    if ch == 82: return 6
+    return 0

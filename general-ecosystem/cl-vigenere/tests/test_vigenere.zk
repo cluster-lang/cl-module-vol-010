@@ -1,0 +1,19 @@
+// cl-vigenere: Test Suite
+import "../vigenere.zk"
+
+fn test_vigenere():
+    plaintext := "ATTACKATDAWN"
+    key := "LEMON"
+    cipher := vigenere_encrypt(plaintext, key)
+    if cipher != "LXFOPVEFRNHR":
+        print("Vigenere encryption mismatch! Got: " + cipher)
+        sys_exit(1)
+    restored := vigenere_decrypt(cipher, key)
+    if restored != plaintext:
+        print("Vigenere decryption mismatch! Got: " + restored)
+        sys_exit(1)
+    print("test_vigenere passed: standard vector verified")
+
+fn main():
+    test_vigenere()
+    print("✓ All tests passed for cl-vigenere!")

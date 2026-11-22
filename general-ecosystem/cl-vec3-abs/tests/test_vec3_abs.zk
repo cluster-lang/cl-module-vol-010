@@ -1,0 +1,13 @@
+// cl-vec3-abs: Test Suite
+import "../vec3_abs.zk"
+
+fn test_v3_abs():
+    v: vector[float] := [-4.0, 5.0, -6.0]
+    out: vector[float] := [0.0, 0.0, 0.0]
+    vec3_abs(out, v)
+    if out[0] != 4.0 or out[1] != 5.0 or out[2] != 6.0: sys_exit(1)
+    print("test_v3_abs passed")
+
+fn main():
+    test_v3_abs()
+    print("✓ All tests passed for cl-vec3-abs!")

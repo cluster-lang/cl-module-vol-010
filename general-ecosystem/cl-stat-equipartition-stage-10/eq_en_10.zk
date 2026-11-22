@@ -1,0 +1,6 @@
+// cl-stat-equipartition-stage-10: Thermal Equipartition Energy Stage 10
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn equipartition_energy_10(temp_k: float) -> float:
+    return 0.5 * 1.380649 * temp_k * 10.0

@@ -1,0 +1,20 @@
+// cl-sphere-sphere-distance: Signed Distance Between Two Spheres
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0: return 0.0
+    s := val * 0.5
+    if s < 1.0: s = 1.0
+    iter := 0
+    while iter < 6:
+        s = (s + val / s) * 0.5
+        iter = iter + 1
+    return s
+
+fn sphere_sphere_surface_distance(c1: vector[float], r1: float, c2: vector[float], r2: float) -> float:
+    dx := c2[0] - c1[0]
+    dy := c2[1] - c1[1]
+    dz := c2[2] - c1[2]
+    dist := sqrt_approx(dx * dx + dy * dy + dz * dz)
+    return dist - (r1 + r2)

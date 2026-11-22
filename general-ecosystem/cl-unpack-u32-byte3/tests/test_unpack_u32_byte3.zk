@@ -1,0 +1,10 @@
+// cl-unpack-u32-byte3: Test Suite
+import "../un32_3.zk"
+
+fn test_un32_3():
+    if unpack_u32_b3(305419896) != 18: sys_exit(1)
+    print("test_un32_3 passed")
+
+fn main():
+    test_un32_3()
+    print("✓ All tests passed for cl-unpack-u32-byte3!")

@@ -1,0 +1,23 @@
+// cl-vec3-orthonormal-basis-u: Generate Orthonormal Vector U from Normal N
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec3_onb_u(n: vector[float]) -> vector[float]:
+    // pick axis not collinear with n
+    ax := 1.0
+    ay := 0.0
+    az := 0.0
+    if n[0] > 0.9 or n[0] < -0.9:
+        ax = 0.0
+        ay = 1.0
+    // cross(n, a)
+    cx := n[1]*az - n[2]*ay
+    cy := n[2]*ax - n[0]*az
+    cz := n[0]*ay - n[1]*ax
+    c_sq := cx*cx + cy*cy + cz*cz
+    guess := c_sq * 0.5
+    iter := 0
+    while iter < 6:
+        guess = (guess + c_sq / guess) * 0.5
+        iter = iter + 1
+    return [cx / guess, cy / guess, cz / guess]

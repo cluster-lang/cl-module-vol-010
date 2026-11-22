@@ -1,0 +1,10 @@
+// cl-sparse-vector Package Manifest
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+name := "cl-sparse-vector"
+version := "1.0.0"
+description := "Sparse Vector Dot Product Engine"
+main := "sparse_vec.zk"
+license := "CCFL-2.0"
+author := "zk-mohammad <ZaidKhan-alamgir@proton.me>"

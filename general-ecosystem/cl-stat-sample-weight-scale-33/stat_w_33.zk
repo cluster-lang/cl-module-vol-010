@@ -1,0 +1,6 @@
+// cl-stat-sample-weight-scale-33: Sample Statistic Weight Scale Step 33
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sample_stat_weight_33(val: float) -> float:
+    return val * 33.00

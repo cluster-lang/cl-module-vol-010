@@ -1,0 +1,74 @@
+// cl-string: Pure Cluster String Utilities (v0.2.0)
+// Zero C++ dependencies, direct LLVM compatible
+
+fn starts_with(s: string, prefix: string) -> bool:
+    plen := string_length(prefix)
+    slen := string_length(s)
+    if plen > slen:
+        return false
+    if plen == 0:
+        return true
+    sub := substring(s, 0, plen)
+    return sub == prefix
+
+fn ends_with(s: string, suffix: string) -> bool:
+    flen := string_length(suffix)
+    slen := string_length(s)
+    if flen > slen:
+        return false
+    if flen == 0:
+        return true
+    sub := substring(s, slen - flen, flen)
+    return sub == suffix
+
+fn contains(s: string, needle: string) -> bool:
+    if string_contains(s, needle) != 0:
+        return true
+    return false
+
+fn repeat(s: string, count: int) -> string:
+    if count <= 0:
+        return ""
+    res := ""
+    i := 0
+    while i < count:
+        res = res + s
+        i = i + 1
+    return res
+
+fn pad_left(s: string, total_len: int, pad: string) -> string:
+    slen := string_length(s)
+    if slen >= total_len:
+        return s
+    needed := total_len - slen
+    return repeat(pad, needed) + s
+
+fn pad_right(s: string, total_len: int, pad: string) -> string:
+    slen := string_length(s)
+    if slen >= total_len:
+        return s
+    needed := total_len - slen
+    return s + repeat(pad, needed)
+
+fn trim_left(s: string) -> string:
+    slen := string_length(s)
+    i := 0
+    while i < slen:
+        ch := substring(s, i, 1)
+        if ch != " " and ch != "\t" and ch != "\n" and ch != "\r":
+            return substring(s, i, slen - i)
+        i = i + 1
+    return ""
+
+fn trim_right(s: string) -> string:
+    slen := string_length(s)
+    i := slen - 1
+    while i >= 0:
+        ch := substring(s, i, 1)
+        if ch != " " and ch != "\t" and ch != "\n" and ch != "\r":
+            return substring(s, 0, i + 1)
+        i = i - 1
+    return ""
+
+fn trim(s: string) -> string:
+    return trim_right(trim_left(s))

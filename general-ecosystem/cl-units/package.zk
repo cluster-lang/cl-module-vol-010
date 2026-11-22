@@ -1,0 +1,6 @@
+name: "cl-units"
+version: "0.1.0"
+description: "Unit conversion (length, temperature, mass, time)"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: []

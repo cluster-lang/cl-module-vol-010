@@ -1,0 +1,78 @@
+// cl-xxhash32: Pure Cluster xxHash 32-bit Fast Checksum Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn rol32(x: int, n: int) -> int:
+    mask32 := 4294967295
+    v := x & mask32
+    left := (v << n) & mask32
+    right := (v >> (32 - n)) & mask32
+    return (left | right) & mask32
+
+fn xxhash32_bytes(data: vector[int], seed: int) -> int:
+    mask32 := 4294967295
+    p1 := 2654435761
+    p2 := 2246822519
+    p3 := 3266489917
+    p4 := 668265263
+    p5 := 374761393
+
+    dlen := data.len()
+    h32 := 0
+    p := 0
+
+    if dlen >= 16:
+        v1 := (seed + p1 + p2) & mask32
+        v2 := (seed + p2) & mask32
+        v3 := seed & mask32
+        v4 := (seed - p1) & mask32
+        limit := dlen - 16
+
+        while p <= limit:
+            w1 := (data[p] & 255) | ((data[p + 1] & 255) << 8) | ((data[p + 2] & 255) << 16) | ((data[p + 3] & 255) << 24)
+            v1 = (rol32((v1 + (w1 * p2)) & mask32, 13) * p1) & mask32
+            p = p + 4
+
+            w2 := (data[p] & 255) | ((data[p + 1] & 255) << 8) | ((data[p + 2] & 255) << 16) | ((data[p + 3] & 255) << 24)
+            v2 = (rol32((v2 + (w2 * p2)) & mask32, 13) * p1) & mask32
+            p = p + 4
+
+            w3 := (data[p] & 255) | ((data[p + 1] & 255) << 8) | ((data[p + 2] & 255) << 16) | ((data[p + 3] & 255) << 24)
+            v3 = (rol32((v3 + (w3 * p2)) & mask32, 13) * p1) & mask32
+            p = p + 4
+
+            w4 := (data[p] & 255) | ((data[p + 1] & 255) << 8) | ((data[p + 2] & 255) << 16) | ((data[p + 3] & 255) << 24)
+            v4 = (rol32((v4 + (w4 * p2)) & mask32, 13) * p1) & mask32
+            p = p + 4
+
+        h32 = (rol32(v1, 1) + rol32(v2, 7) + rol32(v3, 12) + rol32(v4, 18)) & mask32
+    else:
+        h32 = (seed + p5) & mask32
+
+    h32 = (h32 + dlen) & mask32
+
+    while (p + 4) <= dlen:
+        w := (data[p] & 255) | ((data[p + 1] & 255) << 8) | ((data[p + 2] & 255) << 16) | ((data[p + 3] & 255) << 24)
+        h32 = (rol32((h32 + (w * p3)) & mask32, 17) * p4) & mask32
+        p = p + 4
+
+    while p < dlen:
+        h32 = (rol32((h32 + ((data[p] & 255) * p5)) & mask32, 11) * p1) & mask32
+        p = p + 1
+
+    h32 = h32 ^ (h32 >> 15)
+    h32 = (h32 * p2) & mask32
+    h32 = h32 ^ (h32 >> 13)
+    h32 = (h32 * p3) & mask32
+    h32 = h32 ^ (h32 >> 16)
+
+    return h32 & mask32
+
+fn xxhash32(s: string, seed: int) -> int:
+    bytes: vector[int] := []
+    i := 0
+    slen := len(s)
+    while i < slen:
+        bytes.push(byte_at(s, i))
+        i = i + 1
+    return xxhash32_bytes(bytes, seed)

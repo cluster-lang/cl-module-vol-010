@@ -1,0 +1,6 @@
+// cl-zkp-pedersen-commit-stage-35: Pedersen Vector Commitment Linear Step Stage 35
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pedersen_step_35(m: int, g: int, r: int, h: int) -> int:
+    return (m * g + r * h) + 35

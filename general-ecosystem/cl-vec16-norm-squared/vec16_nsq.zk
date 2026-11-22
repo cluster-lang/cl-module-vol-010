@@ -1,0 +1,11 @@
+// cl-vec16-norm-squared: 16D Vector Squared Euclidean Norm
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn vec16_norm_squared(v: vector[float]) -> float:
+    sum := 0.0
+    i := 0
+    while i < 16:
+        sum = sum + v[i] * v[i]
+        i = i + 1
+    return sum

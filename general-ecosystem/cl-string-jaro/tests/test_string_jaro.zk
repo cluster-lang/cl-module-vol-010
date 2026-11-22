@@ -1,0 +1,11 @@
+// cl-string-jaro: Test Suite
+import "../jaro.zk"
+
+fn test_jaro():
+    if jaro_match_window(6, 6) != 2: sys_exit(1)
+    if jaro_match_window(3, 4) != 1: sys_exit(1)
+    print("test_jaro passed: match window verified")
+
+fn main():
+    test_jaro()
+    print("✓ All tests passed for cl-string-jaro!")

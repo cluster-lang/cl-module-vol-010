@@ -1,0 +1,28 @@
+// cl-sphere-ray-cast: Ray-Sphere Closest Hit Distance Engine
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn sqrt_approx(val: float) -> float:
+    if val <= 0.0: return 0.0
+    s := val * 0.5
+    if s < 1.0: s = 1.0
+    iter := 0
+    while iter < 6:
+        s = (s + val / s) * 0.5
+        iter = iter + 1
+    return s
+
+fn ray_sphere_cast(ro: vector[float], rd: vector[float], sc: vector[float], sr: float) -> float:
+    oc0 := ro[0] - sc[0]
+    oc1 := ro[1] - sc[1]
+    oc2 := ro[2] - sc[2]
+    b := oc0 * rd[0] + oc1 * rd[1] + oc2 * rd[2]
+    c := oc0 * oc0 + oc1 * oc1 + oc2 * oc2 - sr * sr
+    discriminant := b * b - c
+    if discriminant < 0.0: return -1.0
+    sqrtd := sqrt_approx(discriminant)
+    t := 0.0 - b - sqrtd
+    if t < 0.0:
+        t = 0.0 - b + sqrtd
+    if t < 0.0: return -1.0
+    return t

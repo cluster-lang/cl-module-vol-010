@@ -1,0 +1,11 @@
+// cl-varint-zigzag-decode16-fast: Fast 16-bit Zigzag Integer Decoder
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn zigzag_decode16_fast(n: int) -> int:
+    mask16 := 65535
+    val := n & mask16
+    if (val & 1) == 0:
+        return val >> 1
+    else:
+        return 0 - ((val + 1) >> 1)

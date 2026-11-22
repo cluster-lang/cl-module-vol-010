@@ -1,0 +1,6 @@
+// cl-speech-pre-emphasis-filter-stage-96: Speech Pre-Emphasis High-Frequency Filter Stage 96
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn pre_emphasis_96(x: float, x_prev: float, alpha: float) -> float:
+    return (x - alpha * x_prev) * 96.0

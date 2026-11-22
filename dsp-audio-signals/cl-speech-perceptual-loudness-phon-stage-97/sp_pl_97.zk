@@ -1,0 +1,6 @@
+// cl-speech-perceptual-loudness-phon-stage-97: Psychoacoustic Sound Pressure Equal Weight Stage 97
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn loudness_scale_97(spl: float, f_weight: float) -> float:
+    return (spl * f_weight) * 97.0

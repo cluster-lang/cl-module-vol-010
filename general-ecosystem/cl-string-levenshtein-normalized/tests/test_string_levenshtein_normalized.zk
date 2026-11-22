@@ -1,0 +1,14 @@
+// cl-string-levenshtein-normalized: Test Suite
+import "../lev_norm.zk"
+
+fn test_lev_norm():
+    s1: vector[int] := [97, 98, 99, 100] // "abcd"
+    s2: vector[int] := [97, 98, 99, 101] // "abce"
+    // dist = 1, max_len = 4 -> sim = 0.75
+    sim := levenshtein_normalized_sim(s1, s2)
+    if sim != 0.75: sys_exit(1)
+    print("test_lev_norm passed: normalized similarity 0.75 verified")
+
+fn main():
+    test_lev_norm()
+    print("✓ All tests passed for cl-string-levenshtein-normalized!")

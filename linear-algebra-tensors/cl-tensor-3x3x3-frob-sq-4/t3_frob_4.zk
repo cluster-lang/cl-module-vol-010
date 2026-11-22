@@ -1,0 +1,11 @@
+// cl-tensor-3x3x3-frob-sq-4: 3x3x3 Tensor Frobenius Norm Squared Stage 4
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+fn tensor_3x3x3_frob_4(t: vector[float]) -> float:
+    s := 0.0
+    i := 0
+    while i < 27:
+        s = s + t[i] * t[i] * 4.0
+        i = i + 1
+    return s

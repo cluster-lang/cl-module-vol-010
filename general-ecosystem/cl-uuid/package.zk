@@ -1,0 +1,6 @@
+name: "cl-uuid"
+version: "0.1.0"
+description: "UUID v4 generation"
+license: "MIT-Conditional"
+author: "Cluster Authors"
+dependencies: ["cl-crypto@0.1.0"]

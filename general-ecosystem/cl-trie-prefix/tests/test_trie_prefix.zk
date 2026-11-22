@@ -1,0 +1,13 @@
+// cl-trie-prefix: Test Suite
+import "../trie.zk"
+
+fn test_trie():
+    words: vector[string] := ["apple", "application", "app", "banana", "band"]
+    if trie_prefix_search(words, "app") != 3: sys_exit(1)
+    if trie_prefix_search(words, "ban") != 2: sys_exit(1)
+    if trie_prefix_search(words, "cat") != 0: sys_exit(1)
+    print("test_trie passed: string prefix matching verified")
+
+fn main():
+    test_trie()
+    print("✓ All tests passed for cl-trie-prefix!")

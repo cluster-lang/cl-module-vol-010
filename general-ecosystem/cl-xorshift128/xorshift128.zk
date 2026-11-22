@@ -1,0 +1,19 @@
+// cl-xorshift128: Marsaglia Xorshift 128-bit 4-State PRNG
+// Contributor: zk-mohammad <ZaidKhan-alamgir@proton.me>
+// CCFL v2.0 Terms with copyright stewardship managed by Mohammad Zaid/cluster
+
+// State vector holds [x, y, z, w] 32-bit words
+fn xorshift128_next(state: vector[int]) -> int:
+    mask32 := 4294967295
+    x := state[0] & mask32
+    y := state[1] & mask32
+    z := state[2] & mask32
+    w := state[3] & mask32
+
+    t := (x ^ ((x << 11) & mask32)) & mask32
+    state[0] = y
+    state[1] = z
+    state[2] = w
+    new_w := ((w ^ (w >> 19)) ^ (t ^ (t >> 8))) & mask32
+    state[3] = new_w
+    return new_w

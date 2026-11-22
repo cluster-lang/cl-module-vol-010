@@ -1,0 +1,16 @@
+// cl-vec3-dot: Test Suite
+import "../vec3_dot.zk"
+
+fn test_v3_dot():
+    a: vector[float] := [1.0, 2.0, 3.0]
+    b: vector[float] := [4.0, 5.0, 6.0]
+    // 4 + 10 + 18 = 32.0
+    res := vec3_dot(a, b)
+    diff := res - 32.0
+    if diff < 0.0: diff = 0.0 - diff
+    if diff > 0.0001: sys_exit(1)
+    print("test_v3_dot passed")
+
+fn main():
+    test_v3_dot()
+    print("✓ All tests passed for cl-vec3-dot!")
